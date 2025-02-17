@@ -2,8 +2,8 @@ using UnityEngine;
 
 public class SpriteMerger : MonoBehaviour
 {
-    [SerializeField] private Sprite[] spritesToMerge = null;
-    [SerializeField] private SpriteRenderer finalSpriteRenderer = null;
+    [SerializeField] private Sprite[] spritesToMerge;
+    [SerializeField] private SpriteRenderer finalSpriteRenderer;
     [SerializeField] private int width = 500;
     [SerializeField] private int height = 500;
 

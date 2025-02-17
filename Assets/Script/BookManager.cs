@@ -1,16 +1,14 @@
-using System;
 using UnityEngine;
-using UnityEngine.EventSystems;
 
 public class BookManager : MonoBehaviour
 {
     public Transform inspectTransform;
     
-    [HideInInspector] public Book bookInspecting = null;
-    [HideInInspector] public Book bookSelected = null;
-    public bool movingInspected = false;
+    [HideInInspector] public Book bookInspecting;
+    [HideInInspector] public Book bookSelected;
+    public bool movingInspected;
     
-    private bool startMouseOnInspected = false;
+    private bool startMouseOnInspected;
     private void Update()
     {
         if (Input.GetMouseButtonDown(0) && bookSelected == bookInspecting) startMouseOnInspected = true;

@@ -8,14 +8,13 @@ public class Book : MonoBehaviour
     
     private Outline outline;
     private Animator animator;
-    private Vector3 initialPosition;
     
-    private bool inspected = false;
+    private bool inspected;
     private float duration = 0.75f;
     private Vector3 startPosition;
     private Quaternion startRotation;
     
-    private bool isMoving = false;
+    private bool isMoving;
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -26,7 +25,6 @@ public class Book : MonoBehaviour
         
         // Init Outline and initialTransform
         outline.enabled = false;
-        initialPosition = bookGameObject.transform.localPosition;
         startPosition = transform.position;
         startRotation = transform.rotation;
     }
