@@ -119,6 +119,7 @@ public class Book : MonoBehaviour
             outline.enabled = false;
             
             bookManager.bookInspecting = this;
+            StopAllCoroutines();
             StartCoroutine(MoveObject(bookGameObject.transform.position, bookManager.inspectTransform.position, bookGameObject.transform.rotation, bookManager.inspectTransform.rotation));
         }
     }
