@@ -116,7 +116,7 @@ MonoBehaviour:
   bookManager: {fileID: 0}
   bookName: {fileID: 2640947017281280697}
   bookSyno: {fileID: 4024495806966755006}
-  shown: 0
+  shown: 1
 --- !u!23 &424761408636236292
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -124,7 +124,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1687531730097361073}
-  m_Enabled: 0
+  m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
