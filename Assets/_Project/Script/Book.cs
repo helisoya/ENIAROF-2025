@@ -15,37 +15,39 @@ using UnityEngine;
 
 public class Book : MonoBehaviour
 {
-    struct BookData
+    public struct BookData
     {
         public string title;
         public string author;
         public string synopsis;
         public Sprite spriteCouverture;
         public Sprite spriteBack;
+        public TMP_FontAsset   fontTitle;
+        public TMP_FontAsset   fontAuthor;
+        public TMP_FontAsset   fontSynopsis;
     }
+    
+    private bool movingBack = false;
+    private bool movingForward = false;
     
     [SerializeField] private GameObject bookGameObject;
     [SerializeField] private BookManager bookManager;
-    [SerializeField] private TextMeshPro bookName;
-    [SerializeField] private TextMeshPro bookSyno;
-    [SerializeField] private bool shown;
+    [HideInInspector] public TextMeshPro bookName;
+    [HideInInspector] public TextMeshPro bookSyno;
+    public bool shown;
+    [HideInInspector] public BookData bookData;
+    public MeshRenderer meshRenderer;
+    [SerializeField] public List<SpriteData> spritesCouverture;
+    [SerializeField] public List<SpriteData> spritesBack;
+    [HideInInspector] public SpriteMerger spriteMerger;
     
-    private BookData bookData;
     private Outline outline;
     private Animator animator;
-    
     private bool inspected;
     private float duration = 0.75f;
     private Vector3 startPosition;
     private Quaternion startRotation;
-    [SerializeField] private MeshRenderer meshRenderer;
     private bool isMoving;
-    
-    [SerializeField] private List<SpriteData> spritesCouverture;
-    [SerializeField] private List<SpriteData> spritesBack;
-    private TMP_FontAsset fontTitle;
-    private TMP_FontAsset fontSyno;
-    private SpriteMerger spriteMerger;
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -53,19 +55,13 @@ public class Book : MonoBehaviour
         // Get Component
         outline = GetComponent<Outline>();
         animator = GetComponent<Animator>();
-        //meshRenderer = GetComponent<MeshRenderer>();
         
         // Init Outline and initialTransform
         outline.enabled = false;
         startPosition = transform.position;
         startRotation = transform.rotation;
         bookGameObject.SetActive(shown);
-
-        if (shown)
-        {
-            Merge(meshRenderer, spritesCouverture, true);
-            Merge(meshRenderer, spritesBack, false);
-        }
+        
     }
 
     // Rotate Book (inspect)
@@ -82,8 +78,9 @@ public class Book : MonoBehaviour
         if (!inspected && !bookManager.movingInspected)
         {
             outline.enabled = true;
-            if (!(animator.GetCurrentAnimatorStateInfo(0).IsName("MouseExit") && animator.GetCurrentAnimatorStateInfo(0).normalizedTime < 1f)) 
-                animator.Play("MouseOver");
+            if (!movingBack)
+                if (!(animator.GetCurrentAnimatorStateInfo(0).IsName("MouseExit") && animator.GetCurrentAnimatorStateInfo(0).normalizedTime < 1f) && !movingBack) 
+                    animator.Play("MouseOver");
         }
     }
 
@@ -94,12 +91,14 @@ public class Book : MonoBehaviour
         if (!inspected && !bookManager.movingInspected)
         {
             outline.enabled = false;
-            StartCoroutine(Wait(0.35f));
+            if (movingForward) StartCoroutine(Wait(0.35f));
+            else animator.Play("MouseExit");
         }
     }
 
     private IEnumerator Wait(float delay)
     {
+        movingForward = true;
         yield return new WaitForSeconds(delay);
         animator.Play("MouseExit");
     }
@@ -120,10 +119,11 @@ public class Book : MonoBehaviour
             outline.enabled = false;
             
             bookManager.bookInspecting = this;
-            StartCoroutine(MoveObject(startPosition, bookManager.inspectTransform.position, startRotation, bookManager.inspectTransform.rotation));
+            StartCoroutine(MoveObject(bookGameObject.transform.position, bookManager.inspectTransform.position, bookGameObject.transform.rotation, bookManager.inspectTransform.rotation));
         }
     }
 
+    // Put Book in Lib place
     public void ResetPosition()
     {
         StartCoroutine(MoveObject(bookGameObject.transform.position, startPosition, bookGameObject.transform.rotation,  startRotation));
@@ -149,55 +149,6 @@ public class Book : MonoBehaviour
         isMoving = false;
         transform.position = endPos;
         transform.rotation = endRot;
-    }
-
-    public void SetTitle(string title)
-    {
-        bookName.text = title;
-        bookData.title = title;
-    }
-
-    public void SetSyno(string syno)
-    {
-        bookSyno.text = syno;
-        bookData.synopsis = syno;
-    }
-
-    public void SetAuthor(string author)
-    {
-        // ADD THINGS HERE
-        bookData.author = author;
-    }
-
-    public void AddToCouverture(SpriteData _spriteData)
-    {
-        spritesCouverture.Add(_spriteData);
-        spritesCouverture.OrderBy(x => x.level).ToList();
-        spriteMerger.Merge(meshRenderer, spritesCouverture, true);
-    }
-    
-    public void AddToBack(SpriteData _spriteData)
-    {
-        spritesBack.Add(_spriteData);
-        spritesBack.OrderBy(x => x.level).ToList();
-        spriteMerger.Merge(meshRenderer, spritesBack, false);
-    }
-
-    public void SetFontTitle(TMP_FontAsset font)
-    {
-        fontTitle = font;
-        bookName.font = fontTitle;
-    }
-
-    public void SetFontSyno(TMP_FontAsset font)
-    {
-        fontSyno = font;
-        bookSyno.font = fontSyno;
-    }
-    
-    public void CreateBook(TMP_FontAsset font)
-    {
-        
     }
 
     private void Merge(MeshRenderer _meshRenderer, List<SpriteData> spriteList, bool couverture)
@@ -245,5 +196,26 @@ public class Book : MonoBehaviour
             _meshRenderer.materials[0].mainTexture = finalSprite.texture;
         else 
             _meshRenderer.materials[1].mainTexture = finalSprite.texture;
+    }
+
+    public void ShowBook()
+    {
+        spritesCouverture.Sort((a, b) => a.level.CompareTo(b.level));
+        spritesBack.Sort((a, b) => a.level.CompareTo(b.level));
+        Merge(meshRenderer, spritesCouverture, true);
+        Merge(meshRenderer, spritesBack, false);
+    }
+
+
+    public void SetOnAnimStartBook()
+    {
+        movingForward = true;
+        movingBack = false;
+    }
+    
+    public void SetOffAnimStartBook()
+    {
+        movingForward = false;
+        movingBack = true;
     }
 }
