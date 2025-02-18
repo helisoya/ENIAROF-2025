@@ -14,6 +14,9 @@ public class QuizGUI : MonoBehaviour
     [Header("Progress")]
     [SerializeField] private Image progressFill;
 
+    [Header("Transition")]
+    [SerializeField] private Animator transitionAnimator;
+
     public static QuizGUI instance;
 
     void Awake()
@@ -79,6 +82,12 @@ public class QuizGUI : MonoBehaviour
         questionLabelText.text = label;
     }
 
-
+    /// <summary>
+    /// Starts the transition
+    /// </summary>
+    public void ShowTransition()
+    {
+        transitionAnimator.SetTrigger("Transition");
+    }
 
 }

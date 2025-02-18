@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
 /// <summary>
 /// Handles the quiz
@@ -20,6 +21,8 @@ public class QuizManager : MonoBehaviour
 
     void Start()
     {
+        SceneManager.LoadScene("Library", LoadSceneMode.Additive);
+
         steps = Resources.LoadAll<Step>("Steps/");
         currentStep = -1;
         questionsDone = new List<string>();
@@ -136,6 +139,10 @@ public class QuizManager : MonoBehaviour
         QuizGUI.instance.StartAnimationForButton(idxAnwser);
 
         yield return new WaitForSeconds(1f);
+
+        QuizGUI.instance.ShowTransition();
+
+        yield return new WaitForSeconds(0.5f);
 
         QuizGUI.instance.SetButtonHidden(false);
         QuizGUI.instance.SetQuestionLabel("");
