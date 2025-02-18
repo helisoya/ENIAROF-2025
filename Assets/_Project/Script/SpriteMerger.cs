@@ -3,9 +3,10 @@ using UnityEngine;
 public class SpriteMerger : MonoBehaviour
 {
     [SerializeField] private Sprite[] spritesToMerge;
-    [SerializeField] private SpriteRenderer finalSpriteRenderer;
-    [SerializeField] private int width = 500;
-    [SerializeField] private int height = 500;
+    //[SerializeField] private SpriteRenderer finalSpriteRenderer;
+    [SerializeField] private MeshRenderer meshRenderer;
+    [SerializeField] private int width = 2048;
+    [SerializeField] private int height = 2048;
 
     void Start()
     {
@@ -35,6 +36,9 @@ public class SpriteMerger : MonoBehaviour
         newTexture.Apply();
         var finalSprite = Sprite.Create(newTexture, new Rect(0, 0, newTexture.width, newTexture.height), new Vector2(0.5f, 0.5f));
         finalSprite.name = "New Sprite";
-        finalSpriteRenderer.sprite = finalSprite;
+        
+        meshRenderer.materials[1].mainTexture = finalSprite.texture;
+        meshRenderer.materials[0].mainTexture = finalSprite.texture;
+        //finalSpriteRenderer.sprite = finalSprite;
     }
 }

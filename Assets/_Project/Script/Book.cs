@@ -56,9 +56,10 @@ public class Book : MonoBehaviour
         outline.enabled = false;
         startPosition = transform.position;
         startRotation = transform.rotation;
-        meshRenderer.enabled = shown;
+        bookGameObject.SetActive(shown);
+        /*meshRenderer.enabled = shown;
         bookName.enabled = shown;
-        bookSyno.enabled = shown;
+        bookSyno.enabled = shown;*/
     }
 
     // Rotate Book (inspect)
