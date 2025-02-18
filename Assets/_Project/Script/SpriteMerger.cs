@@ -7,6 +7,11 @@ public class SpriteMerger : MonoBehaviour
     [SerializeField] private int width = 500;
     [SerializeField] private int height = 500;
 
+    void Start()
+    {
+        Merge();        
+    }
+    
     private void Merge()
     {
         Resources.UnloadUnusedAssets();

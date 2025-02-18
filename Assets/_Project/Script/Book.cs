@@ -1,11 +1,35 @@
 using System.Collections;
+using System.Collections.Generic;
+using System.Linq;
+using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
+
+
+public struct SpriteData
+{
+    public Sprite sprite;
+    public int level;
+}
 
 public class Book : MonoBehaviour
 {
+    struct BookData
+    {
+        public string title;
+        public string author;
+        public string synopsis;
+        public Sprite spriteCouverture;
+        public Sprite spriteBack;
+    }
+    
     [SerializeField] private GameObject bookGameObject;
     [SerializeField] private BookManager bookManager;
+    [SerializeField] private TextMeshPro bookName;
+    [SerializeField] private TextMeshPro bookSyno;
+    [SerializeField] private bool shown;
     
+    private BookData bookData;
     private Outline outline;
     private Animator animator;
     
@@ -13,8 +37,13 @@ public class Book : MonoBehaviour
     private float duration = 0.75f;
     private Vector3 startPosition;
     private Quaternion startRotation;
-    
+    private MeshRenderer meshRenderer;
     private bool isMoving;
+    
+    private List<SpriteData> spritesCouverture;
+    private List<SpriteData> spritesBack;
+    private TMP_FontAsset fontTitle;
+    private TMP_FontAsset fontSyno;
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -22,11 +51,14 @@ public class Book : MonoBehaviour
         // Get Component
         outline = GetComponent<Outline>();
         animator = GetComponent<Animator>();
-        
+        meshRenderer = GetComponent<MeshRenderer>();
         // Init Outline and initialTransform
         outline.enabled = false;
         startPosition = transform.position;
         startRotation = transform.rotation;
+        meshRenderer.enabled = shown;
+        bookName.enabled = shown;
+        bookSyno.enabled = shown;
     }
 
     // Rotate Book (inspect)
@@ -37,6 +69,7 @@ public class Book : MonoBehaviour
     
     private void OnMouseOver()
     {
+        if (!shown) return;
         bookManager.bookSelected = this;
         
         if (!inspected && !bookManager.movingInspected)
@@ -49,6 +82,7 @@ public class Book : MonoBehaviour
 
     private void OnMouseExit()
     {
+        if (!shown) return;
         if (bookManager.bookSelected == this) bookManager.bookSelected = null;
         if (!inspected && !bookManager.movingInspected)
         {
@@ -65,6 +99,7 @@ public class Book : MonoBehaviour
 
     private void OnMouseDown()
     {
+        if (!shown) return;
         if (!inspected)
         {
             // reset position of the last book inspected if there is one
@@ -108,5 +143,56 @@ public class Book : MonoBehaviour
         transform.position = endPos;
         transform.rotation = endRot;
     }
+
+    public void SetTitle(string title)
+    {
+        bookName.text = title;
+        bookData.title = title;
+    }
+
+    public void SetSyno(string syno)
+    {
+        bookSyno.text = syno;
+        bookData.synopsis = syno;
+    }
+
+    public void SetAuthor(string author)
+    {
+        // ADD THINGS HERE
+        bookData.author = author;
+    }
+
+    public void AddToCouverture(SpriteData _spriteData)
+    {
+        spritesCouverture.Add(_spriteData);
+        spritesCouverture.OrderBy(x => x.level).ToList();
+    }
     
+    public void AddToBack(SpriteData _spriteData)
+    {
+        spritesBack.Add(_spriteData);
+        spritesBack.OrderBy(x => x.level).ToList();
+    }
+
+    public void SetFontTitle(TMP_FontAsset font)
+    {
+        fontTitle = font;
+        bookName.font = fontTitle;
+    }
+
+    public void SetFontSyno(TMP_FontAsset font)
+    {
+        fontSyno = font;
+        bookSyno.font = fontSyno;
+    }
+    
+    public void CreateBook(TMP_FontAsset font)
+    {
+        
+    }
+
+    private void SortListSprites(List<SpriteData> spriteList)
+    {
+        spriteList.OrderBy(x => x.level).ToList();
+    }
 }
