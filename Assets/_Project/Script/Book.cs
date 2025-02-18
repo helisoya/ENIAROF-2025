@@ -6,10 +6,11 @@ using Unity.VisualScripting;
 using UnityEngine;
 
 
-public struct SpriteData
+
+[System.Serializable] public struct SpriteData
 {
-    public Sprite sprite;
-    public int level;
+    [SerializeField] public Sprite sprite;
+    [SerializeField] public int level;
 }
 
 public class Book : MonoBehaviour
@@ -37,13 +38,14 @@ public class Book : MonoBehaviour
     private float duration = 0.75f;
     private Vector3 startPosition;
     private Quaternion startRotation;
-    private MeshRenderer meshRenderer;
+    [SerializeField] private MeshRenderer meshRenderer;
     private bool isMoving;
     
-    private List<SpriteData> spritesCouverture;
-    private List<SpriteData> spritesBack;
+    [SerializeField] private List<SpriteData> spritesCouverture;
+    [SerializeField] private List<SpriteData> spritesBack;
     private TMP_FontAsset fontTitle;
     private TMP_FontAsset fontSyno;
+    private SpriteMerger spriteMerger;
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -51,15 +53,19 @@ public class Book : MonoBehaviour
         // Get Component
         outline = GetComponent<Outline>();
         animator = GetComponent<Animator>();
-        meshRenderer = GetComponent<MeshRenderer>();
+        //meshRenderer = GetComponent<MeshRenderer>();
+        
         // Init Outline and initialTransform
         outline.enabled = false;
         startPosition = transform.position;
         startRotation = transform.rotation;
         bookGameObject.SetActive(shown);
-        /*meshRenderer.enabled = shown;
-        bookName.enabled = shown;
-        bookSyno.enabled = shown;*/
+
+        if (shown)
+        {
+            Merge(meshRenderer, spritesCouverture, true);
+            Merge(meshRenderer, spritesBack, false);
+        }
     }
 
     // Rotate Book (inspect)
@@ -167,12 +173,14 @@ public class Book : MonoBehaviour
     {
         spritesCouverture.Add(_spriteData);
         spritesCouverture.OrderBy(x => x.level).ToList();
+        spriteMerger.Merge(meshRenderer, spritesCouverture, true);
     }
     
     public void AddToBack(SpriteData _spriteData)
     {
         spritesBack.Add(_spriteData);
         spritesBack.OrderBy(x => x.level).ToList();
+        spriteMerger.Merge(meshRenderer, spritesBack, false);
     }
 
     public void SetFontTitle(TMP_FontAsset font)
@@ -192,8 +200,50 @@ public class Book : MonoBehaviour
         
     }
 
-    private void SortListSprites(List<SpriteData> spriteList)
+    private void Merge(MeshRenderer _meshRenderer, List<SpriteData> spriteList, bool couverture)
     {
-        spriteList.OrderBy(x => x.level).ToList();
+        int textureSize = 2048;
+        Texture2D newTexture = new Texture2D(textureSize, textureSize, TextureFormat.RGBA32, false);
+        
+        Color[] clearPixels = new Color[textureSize * textureSize];
+        for (int i = 0; i < clearPixels.Length; i++)
+            clearPixels[i] = new Color(1, 1, 1, 0);
+    
+        newTexture.SetPixels(clearPixels);
+        
+        foreach (var spriteData in spriteList)
+        {
+            Texture2D spriteTexture = spriteData.sprite.texture;
+            Color[] spritePixels = spriteTexture.GetPixels();
+        
+            int startX = Mathf.RoundToInt(spriteData.sprite.rect.x);
+            int startY = Mathf.RoundToInt(spriteData.sprite.rect.y);
+            int width = Mathf.RoundToInt(spriteData.sprite.rect.width);
+            int height = Mathf.RoundToInt(spriteData.sprite.rect.height);
+
+            for (int y = 0; y < height; y++)
+            {
+                for (int x = 0; x < width; x++)
+                {
+                    Color spriteColor = spritePixels[y * width + x];
+                    if (spriteColor.a > 0)
+                    {
+                        int pixelIndex = (startY + y) * textureSize + (startX + x);
+                        clearPixels[pixelIndex] = spriteColor;
+                    }
+                }
+            }
+        }
+        
+        newTexture.SetPixels(clearPixels);
+        newTexture.Apply();
+        
+        var finalSprite = Sprite.Create(newTexture, new Rect(0, 0, newTexture.width, newTexture.height), new Vector2(0.5f, 0.5f));
+        finalSprite.name = "New Sprite";
+        
+        if (couverture) 
+            _meshRenderer.materials[0].mainTexture = finalSprite.texture;
+        else 
+            _meshRenderer.materials[1].mainTexture = finalSprite.texture;
     }
 }
