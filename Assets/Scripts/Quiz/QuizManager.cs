@@ -45,6 +45,8 @@ public class QuizManager : MonoBehaviour
         {
             QuizGUI.instance.SetButtonHidden(true);
             QuizGUI.instance.SetQuestionLabel("");
+
+            GenerateTitle();
         }
         else
         {
@@ -155,6 +157,42 @@ public class QuizManager : MonoBehaviour
         {
             SelectAnwser(1);
         }
+    }
+
+    /// <summary>
+    /// Generates the book's title
+    /// </summary>
+    public void GenerateTitle()
+    {
+        TitlePool[] pools = Resources.LoadAll<TitlePool>("Titles/");
+
+        string selectedStart = "";
+        string selectedEnd = "";
+        int startMax = -1;
+        int endMax = -1;
+        int currentMax;
+
+        foreach (TitlePool pool in pools)
+        {
+            currentMax = 0;
+            foreach (string anwser in pool.linkedAnwsers)
+            {
+                if (anwsersSelected.Contains(anwser)) currentMax++;
+            }
+
+            if (pool.place == TitlePool.TitlePlace.START && currentMax > startMax)
+            {
+                startMax = currentMax;
+                selectedStart = pool.poolContent[Random.Range(0, pool.poolContent.Length)];
+            }
+            else if (pool.place == TitlePool.TitlePlace.END && currentMax > endMax)
+            {
+                endMax = currentMax;
+                selectedEnd = pool.poolContent[Random.Range(0, pool.poolContent.Length)];
+            }
+        }
+
+        print("Selected title : " + selectedStart + " " + selectedEnd);
     }
 
 }
