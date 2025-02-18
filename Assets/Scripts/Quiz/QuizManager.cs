@@ -50,6 +50,7 @@ public class QuizManager : MonoBehaviour
             QuizGUI.instance.SetQuestionLabel("");
 
             GenerateTitle();
+            GenerateCoverElements();
         }
         else
         {
@@ -200,6 +201,22 @@ public class QuizManager : MonoBehaviour
         }
 
         print("Selected title : " + selectedStart + " " + selectedEnd);
+    }
+
+    /// <summary>
+    /// Generates the cover elements
+    /// </summary>
+    public void GenerateCoverElements()
+    {
+        CoverElement[] coverElements = Resources.LoadAll<CoverElement>("CoverElements/");
+
+        foreach (CoverElement coverElement in coverElements)
+        {
+            if (anwsersSelected.Contains(coverElement.linkedAnwser))
+            {
+                print("Adding " + coverElement.ID + " (" + coverElement.type + ", " + coverElement.placement + ")");
+            }
+        }
     }
 
 }
