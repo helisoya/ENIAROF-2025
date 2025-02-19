@@ -57,7 +57,7 @@ public class BookManager : MonoBehaviour
                 return;
             }
             movingInspected = true;
-            Vector3 rotation = new Vector3(0, -Input.GetAxis("Mouse X"), Input.GetAxis("Mouse Y"));
+            Vector3 rotation = new Vector3(0, -Input.GetAxis("Mouse X") * 5.0f, Input.GetAxis("Mouse Y")* 5.0f);
             bookInspecting.RotateBook(rotation);
         }
         else
