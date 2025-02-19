@@ -19,9 +19,12 @@ public class QuizManager : MonoBehaviour
     private int globalProgress;
     private int maxProgress;
 
+    private Dictionary<string, int> titlePoolsWeights;
+
     void Start()
     {
         SceneManager.LoadScene("Library", LoadSceneMode.Additive);
+        titlePoolsWeights = new Dictionary<string, int>();
 
         steps = Resources.LoadAll<Step>("Steps/");
         currentStep = -1;
@@ -128,11 +131,33 @@ public class QuizManager : MonoBehaviour
 
         foreach (string action in currentQuestion.anwsers[idxAnwser].actions)
         {
-            print(action);
+            ProcessAction(action);
         }
         currentQuestion = null;
 
         StartCoroutine(Routine_SelectionAnimation(idxAnwser));
+    }
+
+    /// <summary>
+    /// Process an action
+    /// </summary>
+    /// <param name="action">The action's string</param>
+    private void ProcessAction(string action)
+    {
+        print(action);
+
+        string[] command = action.Split(new char[] { '(', ')' });
+        string[] param = command[1].Split(';');
+
+        switch (command[0])
+        {
+            case "AddPoolScore":
+                if (!titlePoolsWeights.ContainsKey(param[0])) titlePoolsWeights.Add(param[0], 0);
+                titlePoolsWeights[param[0]] += int.Parse(param[1]);
+                break;
+            case "AddElement":
+                break;
+        }
     }
 
     IEnumerator Routine_SelectionAnimation(int idxAnwser)
@@ -183,10 +208,8 @@ public class QuizManager : MonoBehaviour
         foreach (TitlePool pool in pools)
         {
             currentMax = 0;
-            foreach (string anwser in pool.linkedAnwsers)
-            {
-                if (anwsersSelected.Contains(anwser)) currentMax++;
-            }
+
+            if (titlePoolsWeights.ContainsKey(pool.ID)) currentMax = titlePoolsWeights[pool.ID];
 
             if (pool.place == TitlePool.TitlePlace.START && currentMax > startMax)
             {

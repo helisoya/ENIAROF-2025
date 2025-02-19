@@ -16,5 +16,4 @@ public class TitlePool : ScriptableObject
 
 	public TitlePlace place;
 	public string[] poolContent;
-	public string[] linkedAnwsers;
 }
