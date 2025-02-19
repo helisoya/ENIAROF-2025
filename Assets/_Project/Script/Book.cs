@@ -217,12 +217,12 @@ public class Book : MonoBehaviour
 
         if (couverture)
         {
-            _meshRenderer.materials[0].mainTexture = finalSprite.texture;
+            _meshRenderer.materials[1].mainTexture = finalSprite.texture;
             bookData.spriteCouverture = finalSprite;
         }
         else
         {
-            _meshRenderer.materials[1].mainTexture = finalSprite.texture;
+            _meshRenderer.materials[2].mainTexture = finalSprite.texture;
             bookData.spriteBack = finalSprite;
         }
     }
