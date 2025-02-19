@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aca5e72944da48049b88250ba800a9d5, type: 3}
+  m_Name: "Amour_Masc_D\xE9but_Lieux"
+  m_EditorClassIdentifier: 
+  ID: "Amour_Masc_D\xE9but_Lieux"
+  place: 0
+  poolContent:
+  - Le Jardin
+  - "Le Ch\xE2teau"
+  - "Le Caf\xE9"
+  - Le Lac
+  - Le Parc
+  - "Le th\xE9\xE2tre"
+  - Le Sentier
+  linkedAnwsers: []

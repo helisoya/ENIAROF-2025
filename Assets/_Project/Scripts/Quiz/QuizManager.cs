@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
 /// <summary>
 /// Handles the quiz
@@ -18,8 +19,13 @@ public class QuizManager : MonoBehaviour
     private int globalProgress;
     private int maxProgress;
 
+    private Dictionary<string, int> titlePoolsWeights;
+
     void Start()
     {
+        SceneManager.LoadScene("Library", LoadSceneMode.Additive);
+        titlePoolsWeights = new Dictionary<string, int>();
+
         steps = Resources.LoadAll<Step>("Steps/");
         currentStep = -1;
         questionsDone = new List<string>();
@@ -45,6 +51,9 @@ public class QuizManager : MonoBehaviour
         {
             QuizGUI.instance.SetButtonHidden(true);
             QuizGUI.instance.SetQuestionLabel("");
+
+            GenerateTitle();
+            GenerateCoverElements();
         }
         else
         {
@@ -122,11 +131,33 @@ public class QuizManager : MonoBehaviour
 
         foreach (string action in currentQuestion.anwsers[idxAnwser].actions)
         {
-            print(action);
+            ProcessAction(action);
         }
         currentQuestion = null;
 
         StartCoroutine(Routine_SelectionAnimation(idxAnwser));
+    }
+
+    /// <summary>
+    /// Process an action
+    /// </summary>
+    /// <param name="action">The action's string</param>
+    private void ProcessAction(string action)
+    {
+        print(action);
+
+        string[] command = action.Split(new char[] { '(', ')' });
+        string[] param = command[1].Split(';');
+
+        switch (command[0])
+        {
+            case "AddPoolScore":
+                if (!titlePoolsWeights.ContainsKey(param[0])) titlePoolsWeights.Add(param[0], 0);
+                titlePoolsWeights[param[0]] += int.Parse(param[1]);
+                break;
+            case "AddElement":
+                break;
+        }
     }
 
     IEnumerator Routine_SelectionAnimation(int idxAnwser)
@@ -134,6 +165,10 @@ public class QuizManager : MonoBehaviour
         QuizGUI.instance.StartAnimationForButton(idxAnwser);
 
         yield return new WaitForSeconds(1f);
+
+        QuizGUI.instance.ShowTransition();
+
+        yield return new WaitForSeconds(0.5f);
 
         QuizGUI.instance.SetButtonHidden(false);
         QuizGUI.instance.SetQuestionLabel("");
@@ -154,6 +189,56 @@ public class QuizManager : MonoBehaviour
         if (input.isPressed && currentQuestion != null)
         {
             SelectAnwser(1);
+        }
+    }
+
+    /// <summary>
+    /// Generates the book's title
+    /// </summary>
+    public void GenerateTitle()
+    {
+        TitlePool[] pools = Resources.LoadAll<TitlePool>("Titles/");
+
+        string selectedStart = "";
+        string selectedEnd = "";
+        int startMax = -1;
+        int endMax = -1;
+        int currentMax;
+
+        foreach (TitlePool pool in pools)
+        {
+            currentMax = 0;
+
+            if (titlePoolsWeights.ContainsKey(pool.ID)) currentMax = titlePoolsWeights[pool.ID];
+
+            if (pool.place == TitlePool.TitlePlace.START && currentMax > startMax)
+            {
+                startMax = currentMax;
+                selectedStart = pool.poolContent[Random.Range(0, pool.poolContent.Length)];
+            }
+            else if (pool.place == TitlePool.TitlePlace.END && currentMax > endMax)
+            {
+                endMax = currentMax;
+                selectedEnd = pool.poolContent[Random.Range(0, pool.poolContent.Length)];
+            }
+        }
+
+        print("Selected title : " + selectedStart + " " + selectedEnd);
+    }
+
+    /// <summary>
+    /// Generates the cover elements
+    /// </summary>
+    public void GenerateCoverElements()
+    {
+        CoverElement[] coverElements = Resources.LoadAll<CoverElement>("CoverElements/");
+
+        foreach (CoverElement coverElement in coverElements)
+        {
+            if (anwsersSelected.Contains(coverElement.linkedAnwser))
+            {
+                print("Adding " + coverElement.ID + " (" + coverElement.type + ", " + coverElement.placement + ")");
+            }
         }
     }
 

@@ -1,0 +1,37 @@
+Nom (Id)	Emplacement	Notes	Liste des contenus
+Fantasy_Masc_Début_Lieux	Début	Fantasy	Le Royaume, Le Château, Le Cimetière
+Fantasy_Masc_Début_Objets	Début	Fantasy	Le Sortilège, Le Sceptre, Le Grimoire, Le Trône
+Fantasy_Masc_Début_Heros	Début	Fantasy	Le Roi, Le Prince, Le Géant, Le Magicien, L'Esprit, Le Prodige, L'Enchanteur, Le Seigneur, Le Chevalier
+Fantasy_Masc_Début_Ennemis	Début	Fantasy	Le Dragon, Le Démon, L'Ogre, Le Nécromancien, Le Basilic
+Fantasy_Fem_Début_Lieux	Début	Fantasy	La Bibliothèque, La Tour, La Crypte
+Fantasy_Fem_Début_Objets	Début	Fantasy	L'Épée, La Clé, La Porte, La Relique
+Fantasy_Fem_Début_Heros	Début	Fantasy	La Reine, L'Enchanteresse, l'Impératrice, La Voyageuse, La Gardienne
+Fantasy_Fem_Début_Ennemis	Début	Fantasy	L'Ogresse, La Démone, La Dragone, La Trahison, La Vengeance, La Colère, La Peur
+SF_Masc_Début_Lieux	Début	SF	Le Spatioport, L'Espace, Le Cyberespace
+SF_Masc_Début_Objets	Début	SF	Le Vaisseau, Le Moteur, Le Droïde
+SF_Masc_Début_Heros	Début	SF	Le Commandant, Le Cosmonaute
+SF_Masc_Début_Ennemis	Début	SF	L'Alien, Le Commandant, Le Tyran
+SF_Fem_Début_Lieux	Début	SF	La Planète, La Galaxie
+SF_Fem_Début_Objets	Début	SF	La Cybercaisse, L'Armure, La Sphère, L'Interface, La puce
+SF_Fem_Début_Heros	Début	SF	La Commandante, La Lumière, La Créatrice, L'Astronaute, L'Androïde, La Supernova
+SF_Fem_Début_Ennemis	Début	SF	La Créature, La Dimension, La Sentinelle, La Machine
+Horreur_Masc_Début_Lieux	Début	Horreur	Le Cimetière, Le Manoir, Le Sanatorium, Le Labyrinthe, Le Sous-Sol, Le Temple, Le Chalet
+Horreur_Masc_Début_Objets	Début	Horreur	Le Hachoir, Le Couteau, Le Grimoire, Le Cercueil, Le Talisman
+Horreur_Masc_Début_Heros	Début	Horreur	Le chasseur, Le Témoin, Le survivant, Le Veilleur, Le Détective
+Horreur_Masc_Début_Ennemis	Début	Horreur	Le Clown, Le Monstre, Le Zombie, Le Tueur
+Horreur_Fem_Début_Lieux	Début	Horreur	La Crypte, La Forêt, La Grotte, La Tour, La Prison 
+Horreur_Fem_Début_Objets	Début	Horreur	La Scie, La Tronçonneuse, La Poupée, La Montre, La Clé, La Lanterne 
+Horreur_Fem_Début_Heros	Début	Horreur	La Chasseuse, L'Exorciste, La Survivante, La Traqueuse
+Horreur_Fem_Début_Ennemis	Début	Horreur	La Créature, La Spectre, La Vampire, La Démone, La Médusa, La Prêtresse, 
+Amour_Masc_Début_Lieux	Début	Amour	Le Jardin, Le Château, Le Café, Le Lac, Le Parc, Le théâtre, Le Sentier
+Amour_Masc_Début_Objets	Début	Amour	Le Collier, Le Bouquet, Le Carnet, Le Miroir, Le Livre
+Amour_Masc_Début_Heros	Début	Amour	Le Chevalier, Le Poète, Le Prince, Le Martyr, L'amoureux, L'Amant
+Amour_Masc_Début_Ennemis	Début	Amour	Le Jaloux, Le Traître, Le Vengeur, Le Rival
+Amour_Fem_Début_Lieux	Début	Amour	La Mer, La Terrasse, La Colline, La Chambre, La Fontaine, La Montagne
+Amour_Fem_Début_Objets	Début	Amour	La Rose, La Bougie, La Plume, La Bague, La Perle
+Amour_Fem_Début_Heros	Début	Amour	L'Amante, La Princesse, La Reine, La Déesse, La Sirène
+Amour_Fem_Début_Ennemis	Début	Amour	La Traîtresse, La Rivale, La Vengeresse, La Jalouse, L'Ombre, La Manipulatrice
+Masc_Fin_Positif	Fin	Global	vaillant, déterminé, intelligent, loyal, doux, dynamique, généreux, inarrêtablement créatif, trop stylé, géniallissime
+Masc_Fin_Negatif	Fin	Global	couard, maudit, abandonné, oublié, anti-social, jaloux, manipulateur, menteur, arrogant
+Fem_Fin_Positif	Fin	Global	vaillante, déterminée, intelligente, loyale, douce, dynamique, généreuse, inarrêtablement créative, trop stylée, géniallissime
+Fem_Fin_Negatif	Fin	Global	couarde, maudite, abandonnée, oubliée, anti-sociale, jalouse, manipulatricen menteuse, arrogante
