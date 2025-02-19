@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0e2140d8a37cc6545bbc96e9d54e50bb, type: 3}
   m_Name: TEST2
   m_EditorClassIdentifier: 
-  ID: 
-  type: 0
+  ID: TEST2
+  type: 2
   placement: 0
-  linkedAnwser: 
+  linkedAnwser: 12
