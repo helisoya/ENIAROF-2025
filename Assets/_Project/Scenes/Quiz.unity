@@ -1438,12 +1438,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ced6f7aad755e3f45995a3d766ccfb70, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  questionLabelText: {fileID: 949231606}
-  anwsers:
-  - {fileID: 1879612815}
-  - {fileID: 1423406024}
-  progressFill: {fileID: 752108249}
-  transitionAnimator: {fileID: 316835593}
+  questionLabelText: {fileID: 0}
+  anwsers: []
+  progressFill: {fileID: 0}
+  transitionAnimator: {fileID: 0}
 --- !u!114 &1864652349
 MonoBehaviour:
   m_ObjectHideFlags: 0
