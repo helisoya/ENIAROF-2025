@@ -23,7 +23,7 @@ public class QuizManager : MonoBehaviour
 
     void Start()
     {
-        SceneManager.LoadScene("Library", LoadSceneMode.Additive);
+        //SceneManager.LoadScene("Library", LoadSceneMode.Additive);
         titlePoolsWeights = new Dictionary<string, int>();
 
         steps = Resources.LoadAll<Step>("Steps/");
