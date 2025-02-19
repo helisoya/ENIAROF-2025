@@ -6,13 +6,13 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/Quiz.unity
+    path: Assets/_Project/Scenes/SampleScene.unity
     guid: 99c9720ab356a0642a771bea13969a05
   - enabled: 1
-    path: Assets/Scenes/BapTest.unity
+    path: Assets/_Project/Scenes/BapTest.unity
     guid: d67052afd27520149a24ccff0587932d
   - enabled: 1
-    path: Assets/Scenes/Library.unity
+    path: Assets/_Project/Scenes/Library.unity
     guid: c9bb495b7a283f04ca9f9f5152714c72
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}
