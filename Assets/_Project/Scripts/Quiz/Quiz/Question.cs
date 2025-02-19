@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using JetBrains.Annotations;
 using UnityEngine;
 
@@ -11,8 +12,8 @@ public class Question : ScriptableObject
     public string ID;
     public bool isFirstQuestion;
     public string label;
-    public Requirement[] requirements;
-    public Anwser[] anwsers;
+    public List<Requirement> requirements;
+    public List<Anwser> anwsers;
 
     /// <summary>
     /// Represents a requirement for a question

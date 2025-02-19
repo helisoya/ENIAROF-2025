@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 /// <summary>
@@ -8,5 +9,5 @@ public class Anwser
 {
     public string ID;
     public string label;
-    public string[] actions;
+    public List<string> actions;
 }

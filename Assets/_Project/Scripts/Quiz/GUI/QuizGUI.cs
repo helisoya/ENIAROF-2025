@@ -38,13 +38,14 @@ public class QuizGUI : MonoBehaviour
     /// Changes the question of the GUI
     /// </summary>
     /// <param name="question">The question to display</param>
-    public void SetQuestion(Question question)
+    /// <param name="anwsers">The awnser to display</param>
+    public void SetQuestion(Question question, Anwser[] questionAnwsers)
     {
         questionLabelText.text = question.label;
 
-        for (int i = 0; i < question.anwsers.Length && i < anwsers.Length; i++)
+        for (int i = 0; i < questionAnwsers.Length && i < anwsers.Length; i++)
         {
-            anwsers[i].SetText(question.anwsers[i].label);
+            anwsers[i].SetText(questionAnwsers[i].label);
         }
     }
 

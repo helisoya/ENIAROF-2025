@@ -1,0 +1,5 @@
+Nom question (Id)	Étape	Corps de la question (200 caractères max)	Réponses	Doit avoir ces réponses	Doit NE PAS avoir ces réponses
+Genre_Reve	Genre	Le matin, vous vous rappelez de votre rêve :	Genre_Reve_SF, Genre_Reve_Horreur, Genre_Reve_Love, Genre_Reve_Fantasy		
+Genre_Passion	Genre	Votre plus grande passion dans la vie c'est :	Genre_Passion_SF, Genre_Passion_Horreur, Genre_Passion_Love, Genre_Passion_Fantasy		
+Couverture_Couleur	Couverture	Quel est votre fruit préféré ?	Couv_Couleur_R1, Couv_Couleur_R2, Couv_Couleur_R3, Couv_Couleur_R4, Couv_Couleur_R5			
+Titre_Sujet	Titre	Aujourd'hui, vous avez envie de...	Titre_Sujet_Lieux, Titre_Sujet_Objets, Titre_Sujet_Heros, Titre_Sujet_Ennemis		

@@ -1,0 +1,63 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 715c0086bf2e5364583fa3a3164a8e66, type: 3}
+  m_Name: Genre_Reve
+  m_EditorClassIdentifier: 
+  ID: Genre_Reve
+  isFirstQuestion: 1
+  label: "Le matin, vous vous rappelez de votre r\xEAve :"
+  requirements: []
+  anwsers:
+  - ID: Genre_Reve_SF
+    label: "Vous \xE9tiez en train d'explorer une plan\xE8te inconnue luxuriante"
+    actions:
+    - "AddPoolScore(SF_Masc_D\xE9but_Lieux;1)"
+    - "AddPoolScore(SF_Masc_D\xE9but_Objets;1)"
+    - "AddPoolScore(SF_Masc_D\xE9but_Heros;1)"
+    - "AddPoolScore(SF_Masc_D\xE9but_Ennemis;1)"
+    - "AddPoolScore(SF_Fem_D\xE9but_Lieux;1)"
+    - "AddPoolScore(SF_Fem_D\xE9but_Objets;1)"
+    - "AddPoolScore(SF_Fem_D\xE9but_Heros;1)"
+    - "AddPoolScore(SF_Fem_D\xE9but_Ennemis;1)"
+  - ID: Genre_Reve_Horreur
+    label: "Vous \xE9tiez pourchass\xE9-e par une cr\xE9ature horrible"
+    actions:
+    - "AddPoolScore(Horreur_Masc_D\xE9but_Lieux;1)"
+    - "AddPoolScore(Horreur_Masc_D\xE9but_Objets;1)"
+    - "AddPoolScore(Horreur_Masc_D\xE9but_Heros;1)"
+    - "AddPoolScore(Horreur_Masc_D\xE9but_Ennemis;1)"
+    - "AddPoolScore(Horreur_Fem_D\xE9but_Lieux;1)"
+    - "AddPoolScore(Horreur_Fem_D\xE9but_Objets;1)"
+    - "AddPoolScore(Horreur_Fem_D\xE9but_Heros;1)"
+    - "AddPoolScore(Horreur_Fem_D\xE9but_Ennemis;1)"
+  - ID: Genre_Reve_Love
+    label: Vous viviez la plus belle passion amoureuse de votre vie
+    actions:
+    - "AddPoolScore(Amour_Masc_D\xE9but_Lieux;1)"
+    - "AddPoolScore(Amour_Masc_D\xE9but_Objets;1)"
+    - "AddPoolScore(Amour_Masc_D\xE9but_Heros;1)"
+    - "AddPoolScore(Amour_Masc_D\xE9but_Ennemis;1)"
+    - "AddPoolScore(Amour_Fem_D\xE9but_Objets;1)"
+    - "AddPoolScore(Amour_Fem_D\xE9but_Heros;1)"
+    - "AddPoolScore(Amour_Fem_D\xE9but_Ennemis;1)"
+    - "AddPoolScore(Amour_Fem_D\xE9but_Lieux;1)"
+  - ID: Genre_Reve_Fantasy
+    label: "Vous parveniez \xE0 ma\xEEtriser la magie comme personne"
+    actions:
+    - "AddPoolScore(Fantasy_Masc_D\xE9but_Lieux;1)"
+    - "AddPoolScore(Fantasy_Masc_D\xE9but_Objets;1)"
+    - "AddPoolScore(Fantasy_Masc_D\xE9but_Heros;1)"
+    - "AddPoolScore(Fantasy_Masc_D\xE9but_Ennemis;1)"
+    - "AddPoolScore(Fantasy_Fem_D\xE9but_Lieux;1)"
+    - "AddPoolScore(Fantasy_Fem_D\xE9but_Objets;1)"
+    - "AddPoolScore(Fantasy_Fem_D\xE9but_Heros;1)"
+    - "AddPoolScore(Fantasy_Fem_D\xE9but_Ennemis;1)"

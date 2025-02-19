@@ -9,11 +9,12 @@ using UnityEngine.SceneManagement;
 /// </summary>
 public class QuizManager : MonoBehaviour
 {
-    private Step[] steps;
+    [SerializeField] private Step[] steps;
     private int currentStep;
     private List<string> questionsDone;
     private List<string> anwsersSelected;
     private Question currentQuestion;
+    private Anwser[] currentAnwsers;
     private int stepProgress;
 
     private int globalProgress;
@@ -23,17 +24,19 @@ public class QuizManager : MonoBehaviour
 
     void Start()
     {
-        //SceneManager.LoadScene("Library", LoadSceneMode.Additive);
         titlePoolsWeights = new Dictionary<string, int>();
 
-        steps = Resources.LoadAll<Step>("Steps/");
         currentStep = -1;
         questionsDone = new List<string>();
         anwsersSelected = new List<string>();
 
+        currentAnwsers = new Anwser[2];
+
         QuizGUI.instance.SetProgressFill(0f);
 
         foreach (Step step in steps) maxProgress += step.stepsAmount;
+
+        BookManager.instance.StartGame();
 
         NextStep();
     }
@@ -54,6 +57,8 @@ public class QuizManager : MonoBehaviour
 
             GenerateTitle();
             GenerateCoverElements();
+
+            BookManager.instance.GameFinished();
         }
         else
         {
@@ -94,10 +99,37 @@ public class QuizManager : MonoBehaviour
         else
         {
             currentQuestion = subPool[Random.Range(0, subPool.Count)];
+            SelectRandomQuestions();
             // Display
 
-            QuizGUI.instance.SetQuestion(currentQuestion);
+            QuizGUI.instance.SetQuestion(currentQuestion, currentAnwsers);
         }
+    }
+
+    /// <summary>
+    /// Selects random questions from the current question
+    /// </summary>
+    private void SelectRandomQuestions()
+    {
+        if (currentQuestion.anwsers.Count < 2)
+        {
+            Debug.LogError("Not enough anwsers for question : " + currentQuestion.ID);
+            return;
+        }
+
+        List<int> pool = new List<int>();
+        for (int i = 0; i < currentQuestion.anwsers.Count; i++)
+        {
+            pool.Add(i);
+        }
+
+
+        int selected = pool[Random.Range(0, pool.Count)];
+        currentAnwsers[0] = currentQuestion.anwsers[selected];
+        pool.Remove(selected);
+
+        selected = pool[Random.Range(0, pool.Count)];
+        currentAnwsers[1] = currentQuestion.anwsers[selected];
     }
 
     /// <summary>
@@ -127,9 +159,9 @@ public class QuizManager : MonoBehaviour
         QuizGUI.instance.SetProgressFill((float)globalProgress / maxProgress);
 
         questionsDone.Add(currentQuestion.ID);
-        anwsersSelected.Add(currentQuestion.anwsers[idxAnwser].ID);
+        anwsersSelected.Add(currentAnwsers[idxAnwser].ID);
 
-        foreach (string action in currentQuestion.anwsers[idxAnwser].actions)
+        foreach (string action in currentAnwsers[idxAnwser].actions)
         {
             ProcessAction(action);
         }
@@ -224,6 +256,8 @@ public class QuizManager : MonoBehaviour
         }
 
         print("Selected title : " + selectedStart + " " + selectedEnd);
+
+        BookManager.instance.SetTitle(selectedStart + " " + selectedEnd);
     }
 
     /// <summary>

@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 /// <summary>
@@ -8,6 +9,6 @@ public class Step : ScriptableObject
 {
     public string ID;
     public int stepsAmount;
-    public Question[] pool;
+    public List<Question> pool;
 }
 
