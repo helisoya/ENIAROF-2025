@@ -16,4 +16,48 @@ MonoBehaviour:
   isFirstQuestion: 1
   label: "Quel est votre fruit pr\xE9f\xE9r\xE9 ?"
   requirements: []
-  anwsers: []
+  anwsers:
+  - ID: Genre_Passion_SF
+    label: "Admirer les \xE9toiles"
+    actions:
+    - "AddPoolScore(SF_Masc_D\xE9but_Lieux;1)"
+    - "AddPoolScore(SF_Masc_D\xE9but_Objets;1)"
+    - "AddPoolScore(SF_Masc_D\xE9but_Heros;1)"
+    - "AddPoolScore(SF_Masc_D\xE9but_Ennemis;1)"
+    - "AddPoolScore(SF_Fem_D\xE9but_Lieux;1)"
+    - "AddPoolScore(SF_Fem_D\xE9but_Objets;1)"
+    - "AddPoolScore(SF_Fem_D\xE9but_Heros;1)"
+    - "AddPoolScore(SF_Fem_D\xE9but_Ennemis;1)"
+  - ID: Genre_Passion_Horreur
+    label: "Suivre des gens au hasard jusqu'\xE0 chez eux, la nuit"
+    actions:
+    - "AddPoolScore(Horreur_Masc_D\xE9but_Lieux;1)"
+    - "AddPoolScore(Horreur_Masc_D\xE9but_Objets;1)"
+    - "AddPoolScore(Horreur_Masc_D\xE9but_Heros;1)"
+    - "AddPoolScore(Horreur_Masc_D\xE9but_Ennemis;1)"
+    - "AddPoolScore(Horreur_Fem_D\xE9but_Lieux;1)"
+    - "AddPoolScore(Horreur_Fem_D\xE9but_Objets;1)"
+    - "AddPoolScore(Horreur_Fem_D\xE9but_Heros;1)"
+    - "AddPoolScore(Horreur_Fem_D\xE9but_Ennemis;1)"
+  - ID: Genre_Passion_Love
+    label: Mettre en couple vos ami-es
+    actions:
+    - "AddPoolScore(Amour_Masc_D\xE9but_Lieux;1)"
+    - "AddPoolScore(Amour_Masc_D\xE9but_Objets;1)"
+    - "AddPoolScore(Amour_Masc_D\xE9but_Heros;1)"
+    - "AddPoolScore(Amour_Masc_D\xE9but_Ennemis;1)"
+    - "AddPoolScore(Amour_Fem_D\xE9but_Objets;1)"
+    - "AddPoolScore(Amour_Fem_D\xE9but_Heros;1)"
+    - "AddPoolScore(Amour_Fem_D\xE9but_Ennemis;1)"
+    - "AddPoolScore(Amour_Fem_D\xE9but_Lieux;1)"
+  - ID: Genre_Passion_Fantasy
+    label: Le cosplay
+    actions:
+    - "AddPoolScore(Fantasy_Masc_D\xE9but_Lieux;1)"
+    - "AddPoolScore(Fantasy_Masc_D\xE9but_Objets;1)"
+    - "AddPoolScore(Fantasy_Masc_D\xE9but_Heros;1)"
+    - "AddPoolScore(Fantasy_Masc_D\xE9but_Ennemis;1)"
+    - "AddPoolScore(Fantasy_Fem_D\xE9but_Lieux;1)"
+    - "AddPoolScore(Fantasy_Fem_D\xE9but_Objets;1)"
+    - "AddPoolScore(Fantasy_Fem_D\xE9but_Heros;1)"
+    - "AddPoolScore(Fantasy_Fem_D\xE9but_Ennemis;1)"

@@ -5,9 +5,10 @@ using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
 
- 
 
-[System.Serializable] public struct SpriteData
+
+[System.Serializable]
+public struct SpriteData
 {
     [SerializeField] public Sprite sprite;
     [SerializeField] public int level;
@@ -23,14 +24,14 @@ public class Book : MonoBehaviour
         public string synopsis;
         public Sprite spriteCouverture;
         public Sprite spriteBack;
-        public TMP_FontAsset   fontTitle;
-        public TMP_FontAsset   fontAuthor;
-        public TMP_FontAsset   fontSynopsis;
+        public TMP_FontAsset fontTitle;
+        public TMP_FontAsset fontAuthor;
+        public TMP_FontAsset fontSynopsis;
     }
-    
+
     private bool movingBack = false;
     private bool movingForward = false;
-    
+
     [SerializeField] private GameObject bookGameObject;
     [SerializeField] private BookManager bookManager;
     [HideInInspector] public TextMeshPro bookName;
@@ -41,7 +42,7 @@ public class Book : MonoBehaviour
     [SerializeField] public List<SpriteData> spritesCouverture;
     [SerializeField] public List<SpriteData> spritesBack;
     [HideInInspector] public SpriteMerger spriteMerger;
-    
+
     private Outline outline;
     private Animator animator;
     private bool inspected;
@@ -49,22 +50,22 @@ public class Book : MonoBehaviour
     private Vector3 startPosition;
     private Quaternion startRotation;
     private bool isMoving;
-    
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         // Get Component
         outline = GetComponent<Outline>();
         animator = GetComponent<Animator>();
-        
+
         // Init Outline and initialTransform
         outline.enabled = false;
         startPosition = transform.position;
         startRotation = transform.rotation;
         bookGameObject.SetActive(shown);
-        
-        
-        FileManager.SaveJSON(FileManager.savPath+"/book.json",bookData);
+
+
+        FileManager.SaveJSON(FileManager.savPath + "/book.json", bookData);
     }
 
     // Rotate Book (inspect)
@@ -72,17 +73,17 @@ public class Book : MonoBehaviour
     {
         bookGameObject.transform.eulerAngles += rotation;
     }
-    
+
     private void OnMouseOver()
     {
         if (!shown) return;
         bookManager.bookSelected = this;
-        
+
         if (!inspected && !bookManager.movingInspected)
         {
             outline.enabled = true;
             if (!movingBack)
-                if (!(animator.GetCurrentAnimatorStateInfo(0).IsName("MouseExit") && animator.GetCurrentAnimatorStateInfo(0).normalizedTime < 1f) && !movingBack) 
+                if (!(animator.GetCurrentAnimatorStateInfo(0).IsName("MouseExit") && animator.GetCurrentAnimatorStateInfo(0).normalizedTime < 1f) && !movingBack)
                     animator.Play("MouseOver");
         }
     }
@@ -120,7 +121,7 @@ public class Book : MonoBehaviour
             animator.Play("MouseExit");
             inspected = true;
             outline.enabled = false;
-            
+
             bookManager.bookInspecting = this;
             StopAllCoroutines();
             StartCoroutine(MoveObject(bookGameObject.transform.position, bookManager.inspectTransform.position, bookGameObject.transform.rotation, bookManager.inspectTransform.rotation));
@@ -130,10 +131,10 @@ public class Book : MonoBehaviour
     // Put Book in Lib place
     public void ResetPosition()
     {
-        StartCoroutine(MoveObject(bookGameObject.transform.position, startPosition, bookGameObject.transform.rotation,  startRotation));
+        StartCoroutine(MoveObject(bookGameObject.transform.position, startPosition, bookGameObject.transform.rotation, startRotation));
         inspected = false;
     }
-    
+
     IEnumerator MoveObject(Vector3 startPos, Vector3 endPos, Quaternion startRot, Quaternion endRot)
     {
         float time = 0;
@@ -159,18 +160,18 @@ public class Book : MonoBehaviour
     {
         int textureSize = 2048;
         Texture2D newTexture = new Texture2D(textureSize, textureSize, TextureFormat.RGBA32, false);
-        
+
         Color[] clearPixels = new Color[textureSize * textureSize];
         for (int i = 0; i < clearPixels.Length; i++)
             clearPixels[i] = new Color(1, 1, 1, 0);
-    
+
         newTexture.SetPixels(clearPixels);
-        
+
         foreach (var spriteData in spriteList)
         {
             Texture2D spriteTexture = spriteData.sprite.texture;
             Color[] spritePixels = spriteTexture.GetPixels();
-        
+
             int startX = Mathf.RoundToInt(spriteData.sprite.rect.x);
             int startY = Mathf.RoundToInt(spriteData.sprite.rect.y);
             int width = Mathf.RoundToInt(spriteData.sprite.rect.width);
@@ -189,16 +190,16 @@ public class Book : MonoBehaviour
                 }
             }
         }
-        
+
         newTexture.SetPixels(clearPixels);
         newTexture.Apply();
-        
+
         var finalSprite = Sprite.Create(newTexture, new Rect(0, 0, newTexture.width, newTexture.height), new Vector2(0.5f, 0.5f));
         finalSprite.name = "New Sprite";
-        
-        if (couverture) 
+
+        if (couverture)
             _meshRenderer.materials[0].mainTexture = finalSprite.texture;
-        else 
+        else
             _meshRenderer.materials[1].mainTexture = finalSprite.texture;
     }
 
@@ -208,6 +209,7 @@ public class Book : MonoBehaviour
         spritesBack.Sort((a, b) => a.level.CompareTo(b.level));
         Merge(meshRenderer, spritesCouverture, true);
         Merge(meshRenderer, spritesBack, false);
+        bookGameObject.SetActive(true);
     }
 
 
@@ -216,7 +218,7 @@ public class Book : MonoBehaviour
         movingForward = true;
         movingBack = false;
     }
-    
+
     public void SetOffAnimStartBook()
     {
         movingForward = false;

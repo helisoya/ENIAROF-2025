@@ -24,7 +24,6 @@ public class QuizManager : MonoBehaviour
 
     void Start()
     {
-        //SceneManager.LoadScene("Library", LoadSceneMode.Additive);
         titlePoolsWeights = new Dictionary<string, int>();
 
         currentStep = -1;
@@ -36,6 +35,8 @@ public class QuizManager : MonoBehaviour
         QuizGUI.instance.SetProgressFill(0f);
 
         foreach (Step step in steps) maxProgress += step.stepsAmount;
+
+        BookManager.instance.StartGame();
 
         NextStep();
     }
@@ -56,6 +57,8 @@ public class QuizManager : MonoBehaviour
 
             GenerateTitle();
             GenerateCoverElements();
+
+            BookManager.instance.GameFinished();
         }
         else
         {
@@ -253,6 +256,8 @@ public class QuizManager : MonoBehaviour
         }
 
         print("Selected title : " + selectedStart + " " + selectedEnd);
+
+        BookManager.instance.SetTitle(selectedStart + " " + selectedEnd);
     }
 
     /// <summary>
