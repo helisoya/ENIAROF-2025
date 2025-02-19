@@ -22,7 +22,7 @@ public class SpriteMerger : MonoBehaviour
         for(int x = 0; x < width; x++)
             for (int y = 0; y < height; y++)
                 newTexture.SetPixel(x, y, new Color(1, 1, 1, 0));
-        
+         
         //
         for (int i = 0; i < spritesToMerge.Length; i++)
             for(int x = 0; x < spritesToMerge[i].texture.width; x++)

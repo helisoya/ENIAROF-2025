@@ -5,7 +5,7 @@ using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
 
-
+ 
 
 [System.Serializable] public struct SpriteData
 {
@@ -15,6 +15,7 @@ using UnityEngine;
 
 public class Book : MonoBehaviour
 {
+    [System.Serializable]
     public struct BookData
     {
         public string title;
@@ -62,6 +63,8 @@ public class Book : MonoBehaviour
         startRotation = transform.rotation;
         bookGameObject.SetActive(shown);
         
+        
+        FileManager.SaveJSON(FileManager.savPath+"/book.json",bookData);
     }
 
     // Rotate Book (inspect)

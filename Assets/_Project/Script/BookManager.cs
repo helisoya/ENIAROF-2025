@@ -15,7 +15,7 @@ public class BookManager : MonoBehaviour
 
     private int caseTooMuch;
     private int nextBook;
-    
+     
     private void Start()
     {
         caseTooMuch = 0;
