@@ -118,6 +118,15 @@ MonoBehaviour:
   bookName: {fileID: 2640947017281280697}
   bookSyno: {fileID: 4024495806966755006}
   shown: 0
+  bookData:
+    title: 
+    author: 
+    synopsis: 
+    spriteCouverture: {fileID: 0}
+    spriteBack: {fileID: 0}
+    fontTitle: {fileID: 0}
+    fontAuthor: {fileID: 0}
+    fontSynopsis: {fileID: 0}
   meshRenderer: {fileID: 3805904642887906852}
   spritesCouverture:
   - sprite: {fileID: 21300000, guid: 5f2937bd816cadc4283c0086f6d20b0d, type: 3}
