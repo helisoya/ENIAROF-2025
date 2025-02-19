@@ -218,7 +218,8 @@ public class QuizManager : MonoBehaviour
 
                     };
 
-                    BookManager.instance.AddToCouverture(data);
+                    if (!param[0].EndsWith("_BACK")) BookManager.instance.AddToCouverture(data);
+                    if (!param[0].EndsWith("_FRONT")) BookManager.instance.AddToBack(data);
                 }
 
                 break;
