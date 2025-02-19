@@ -183,6 +183,13 @@ MonoBehaviour:
       Data3: -1692322133
       Data4: -396325779
     Path: event:/BookPick_SFX
+  <BookStored_SFX>k__BackingField:
+    Guid:
+      Data1: 1183685517
+      Data2: 1188509094
+      Data3: -307171946
+      Data4: 914635161
+    Path: event:/BookStored_SFX
   <Library_AMB>k__BackingField:
     Guid:
       Data1: -692785369

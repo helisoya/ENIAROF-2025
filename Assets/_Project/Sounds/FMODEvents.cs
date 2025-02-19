@@ -18,6 +18,7 @@ public class FMODEvents : MonoBehaviour
     [field: SerializeField] public EventReference BookHover_SFX { get; private set; }
     [field: SerializeField] public EventReference BookPick_SFX { get; private set; }
     
+    [field: SerializeField] public EventReference BookStored_SFX { get; private set; }
     [field: SerializeField] public EventReference Library_AMB { get; private set; }
 
     [field: Header("Music")]
