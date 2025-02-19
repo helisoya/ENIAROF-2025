@@ -1,5 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Data.Common;
+using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
@@ -188,6 +190,37 @@ public class QuizManager : MonoBehaviour
                 titlePoolsWeights[param[0]] += int.Parse(param[1]);
                 break;
             case "AddElement":
+
+                if (param[0].StartsWith("TYP_"))
+                {
+                    TMP_FontAsset font = Resources.Load<TMP_FontAsset>("Fonts/" + param[0]);
+                    BookManager.instance.SetFontAuthor(font);
+                    BookManager.instance.SetFontSyno(font);
+                    BookManager.instance.SetFontTitle(font);
+                }
+                else if (param[0].StartsWith("MAT_"))
+                {
+                    // Change material
+                }
+                else
+                {
+                    Sprite sprite = Resources.Load<Sprite>("Elements/" + param[0]);
+                    int layer = 0;
+                    if (param[0].StartsWith("BG_")) layer = 0;
+                    else if (param[0].StartsWith("ENL_")) layer = 3;
+                    else if (param[0].StartsWith("DEC_")) layer = 1;
+                    else if (param[0].StartsWith("SUJ_")) layer = 2;
+
+                    SpriteData data = new()
+                    {
+                        level = layer,
+                        sprite = sprite
+
+                    };
+
+                    BookManager.instance.AddToCouverture(data);
+                }
+
                 break;
         }
     }
