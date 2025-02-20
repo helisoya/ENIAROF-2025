@@ -15,7 +15,8 @@ public class FMODEvents : MonoBehaviour
     [field: SerializeField] public EventReference BookCompleted_SFX {get; private set;}
 
     [field: Header("Library Menu")]
-    [field: SerializeField] public EventReference BookHover_SFX { get; private set; }
+    [field: SerializeField] public EventReference BookHoverIn_SFX { get; private set; }
+    [field: SerializeField] public EventReference BookHoverOut_SFX { get; private set; }
     [field: SerializeField] public EventReference BookPick_SFX { get; private set; }
     
     [field: SerializeField] public EventReference BookStored_SFX { get; private set; }

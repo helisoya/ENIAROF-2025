@@ -56,7 +56,8 @@ public class Book : MonoBehaviour
     private Vector3 startPosition;
     private Quaternion startRotation;
     private bool isMoving;
-    
+
+    private bool audioPlayed = false;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -89,8 +90,17 @@ public class Book : MonoBehaviour
         {
             outline.enabled = true;
             if (!movingBack)
-                if (!(animator.GetCurrentAnimatorStateInfo(0).IsName("MouseExit") && animator.GetCurrentAnimatorStateInfo(0).normalizedTime < 1f) && !movingBack) 
+                if (!(animator.GetCurrentAnimatorStateInfo(0).IsName("MouseExit") && animator.GetCurrentAnimatorStateInfo(0).normalizedTime < 1f) && !movingBack)
+                {
                     animator.Play("MouseOver");
+                    if (!audioPlayed) // Prevent sound from playing repeatedly while hovering
+                    {
+                        AudioManager.instance.PlayOneShot(FMODEvents.instance.BookHoverIn_SFX, this.transform.position);
+                        audioPlayed = true; // Set flag to true to prevent replaying
+                    }
+                }
+
+
         }
     }
 
@@ -112,6 +122,8 @@ public class Book : MonoBehaviour
         movingForward = true;
         yield return new WaitForSeconds(delay);
         animator.Play("MouseExit");
+        AudioManager.instance.PlayOneShot(FMODEvents.instance.BookHoverOut_SFX, this.transform.position);
+        audioPlayed = false; // Reset flag
     }
 
     private void OnMouseDown()
@@ -124,7 +136,7 @@ public class Book : MonoBehaviour
             {
                 if (bookManager.bookInspecting.isMoving) bookManager.bookInspecting.StopAllCoroutines();
                 bookManager.bookInspecting.ResetPosition();
-                //AudioManager.instance.PlayOneShot(FMODEvents.instance.BookStored_SFX, this.transform.position);
+                AudioManager.instance.PlayOneShot(FMODEvents.instance.BookStored_SFX, this.transform.position);
             }
             UITextTitle.text = "\" " + bookData.title + " \"";
             UITextSyn.text = bookData.synopsis;

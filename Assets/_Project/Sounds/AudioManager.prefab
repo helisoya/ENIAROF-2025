@@ -169,7 +169,14 @@ MonoBehaviour:
       Data3: 1540906134
       Data4: 1643845183
     Path: event:/BookCompleted_SFX
-  <BookHover_SFX>k__BackingField:
+  <BookHoverIn_SFX>k__BackingField:
+    Guid:
+      Data1: -599659033
+      Data2: 1313816544
+      Data3: 2133521563
+      Data4: 337480810
+    Path: event:/BookHover_SFX
+  <BookHoverOut_SFX>k__BackingField:
     Guid:
       Data1: -599659033
       Data2: 1313816544
