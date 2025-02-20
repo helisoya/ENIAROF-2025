@@ -169,13 +169,20 @@ MonoBehaviour:
       Data3: 706810554
       Data4: 478301902
     Path: event:/ButtonGameFinish_SFX
-  <Transition_SFX>k__BackingField:
+  <Transition_RL_SFX>k__BackingField:
+    Guid:
+      Data1: 716948147
+      Data2: 1127189663
+      Data3: 555666049
+      Data4: -104700340
+    Path: event:/Transition_RL_SFX
+  <Transition_LR_SFX>k__BackingField:
     Guid:
       Data1: 875311598
       Data2: 1313814482
       Data3: 1799644047
       Data4: -1070034642
-    Path: event:/Transition_SFX
+    Path: event:/Transition_LR_SFX
   <BookCompleted_SFX>k__BackingField:
     Guid:
       Data1: -1345694982

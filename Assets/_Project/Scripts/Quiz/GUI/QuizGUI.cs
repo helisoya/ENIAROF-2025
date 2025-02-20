@@ -124,6 +124,7 @@ public class QuizGUI : MonoBehaviour
     {
         //questionLabelText.text = label;
         questionLabelText.ShowText(label);
+
     }
 
     /// <summary>
@@ -131,9 +132,17 @@ public class QuizGUI : MonoBehaviour
     /// </summary>
     public void ShowTransition(int index)
     {
-        if (index == 0) transitionAnimator.SetTrigger("TransitionLeft");
-        else transitionAnimator.SetTrigger("TransitionRight");
-        AudioManager.instance.PlayOneShot(FMODEvents.instance.Transition_SFX, this.transform.position);
+        if (index == 0)
+        {
+            transitionAnimator.SetTrigger("TransitionLeft");
+            AudioManager.instance.PlayOneShot(FMODEvents.instance.Transition_LR_SFX, this.transform.position);
+        }
+        else
+        {
+            transitionAnimator.SetTrigger("TransitionRight");
+            AudioManager.instance.PlayOneShot(FMODEvents.instance.Transition_RL_SFX, this.transform.position);
+        }
+
     }
 
 }
