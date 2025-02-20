@@ -7,6 +7,7 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "TitlePool", menuName = "ENIAROF/TitlePool")]
 public class TitlePool : ScriptableObject
 {
+
 	public string ID;
 	public enum TitlePlace
 	{

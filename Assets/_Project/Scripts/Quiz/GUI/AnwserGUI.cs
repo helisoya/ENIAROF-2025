@@ -7,6 +7,7 @@ using UnityEngine;
 /// </summary>
 public class AnwserGUI : MonoBehaviour
 {
+
     [SerializeField] private TextMeshProUGUI labelText;
     [SerializeField] private GameObject buttonRoot;
     [SerializeField] private Animator animator;
@@ -17,7 +18,6 @@ public class AnwserGUI : MonoBehaviour
     /// <param name="txt">The new text to display</param>
     public void SetText(string txt)
     {
-
         labelText.text = txt;
     }
 

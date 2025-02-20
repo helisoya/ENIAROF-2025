@@ -7,6 +7,7 @@ using UnityEngine.UI;
 /// </summary>
 public class QuizGUI : MonoBehaviour
 {
+
     [Header("Question")]
     [SerializeField] private TextMeshProUGUI questionLabelText;
     [SerializeField] private AnwserGUI[] anwsers;
