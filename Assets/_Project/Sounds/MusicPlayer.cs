@@ -8,7 +8,8 @@ public class MusicPlayer : MonoBehaviour
     public static MusicPlayer instance; // Singleton instance
 
     private EventInstance myMusicInstance;
-    
+    private EventInstance CongratulationsInstance;
+
     private void Awake()
     {
         // Ensure this is the only instance
@@ -27,8 +28,8 @@ public class MusicPlayer : MonoBehaviour
     {
         FMODEvents bonjour = FMODEvents.instance;
         myMusicInstance = RuntimeManager.CreateInstance(bonjour.Gameplay_Music);
-        myMusicInstance.start();    
-
+        myMusicInstance.start();
+        CongratulationsInstance = RuntimeManager.CreateInstance(bonjour.BookCompleted_SFX);
     }
 
     private void Update()
@@ -39,6 +40,14 @@ public class MusicPlayer : MonoBehaviour
     public void SetMusicProgression(string parameterName,float parameterValue)
     {
         myMusicInstance.setParameterByName(parameterName, parameterValue);
+    }
+    public void CongratulationsSFXStart()
+    {
+        CongratulationsInstance.start();
+    }
+    public void CongratulationsSFXStop()
+    {
+        CongratulationsInstance.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
     }
 
     public void OutofMenu()

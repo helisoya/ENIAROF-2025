@@ -118,7 +118,7 @@ public class QuizManager : MonoBehaviour
             GenerateTitle();
             GenerateCoverElements();
 
-            AudioManager.instance.PlayOneShot(FMODEvents.instance.BookCompleted_SFX, this.transform.position);
+            MusicPlayer.instance.CongratulationsSFXStart();
             Book book = BookManager.instance.GameFinished();
 
             endBookMeshRenderer.materials[2].mainTexture = book.bookData.spriteBack.texture;
@@ -138,7 +138,7 @@ public class QuizManager : MonoBehaviour
         {
             print("New Step : " + currentStep);
             PoolNewQuestion();
-            AudioManager.instance.StopEvent(FMODEvents.instance.BookCompleted_SFX, false);
+            MusicPlayer.instance.CongratulationsSFXStop();
 
         }
 
