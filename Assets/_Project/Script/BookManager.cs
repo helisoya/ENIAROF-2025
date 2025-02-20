@@ -193,9 +193,9 @@ public class BookManager : MonoBehaviour
     public void GameFinished()
     {
         // set book position behind Cam, set display camera into lib one, set book in inspectionPlace.
-
         books[nextBook].shown = true;
         books[nextBook].ShowBook();
+        nextBook = -1;
     }
 
     public void CreateBook(Book book)

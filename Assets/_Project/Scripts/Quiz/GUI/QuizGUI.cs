@@ -1,3 +1,4 @@
+using System.Collections;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -8,21 +9,55 @@ using UnityEngine.UI;
 public class QuizGUI : MonoBehaviour
 {
 
-    [Header("Question")]
+    [Header("QCM")]
+    [SerializeField] private GameObject qcmRoot;
     [SerializeField] private TextMeshProUGUI questionLabelText;
     [SerializeField] private AnwserGUI[] anwsers;
-
-    [Header("Progress")]
     [SerializeField] private Image progressFill;
+
+    [Header("Menu")]
+    [SerializeField] private GameObject menuRoot;
+
+    [Header("End")]
+    [SerializeField] private GameObject endRoot;
 
     [Header("Transition")]
     [SerializeField] private Animator transitionAnimator;
+
+    private Coroutine routineTransition;
+    public bool IsTransitioning { get { return routineTransition != null; } }
 
     public static QuizGUI instance;
 
     void Awake()
     {
         instance = this;
+    }
+
+    /// <summary>
+    /// Starts a transition to a menu
+    /// </summary>
+    /// <param name="menu">Menu Index</param>
+    public void TransitionTo(int menu)
+    {
+        if (routineTransition != null) return;
+
+        routineTransition = StartCoroutine(Routine_To(menu));
+    }
+
+    IEnumerator Routine_To(int menu)
+    {
+        ShowTransition();
+
+        yield return new WaitForSeconds(0.5f);
+
+        menuRoot.SetActive(menu == 0);
+        qcmRoot.SetActive(menu == 1);
+        endRoot.SetActive(menu == 2);
+
+        yield return new WaitForSeconds(0.5f);
+
+        routineTransition = null;
     }
 
     /// <summary>

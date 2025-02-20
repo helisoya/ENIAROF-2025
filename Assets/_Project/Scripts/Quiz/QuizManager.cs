@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Data.Common;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
@@ -26,8 +27,11 @@ public class QuizManager : MonoBehaviour
     private Dictionary<string, int> titlePoolsWeights;
     private Dictionary<string, int> elementsWeights;
 
+    private int status; // 0 Main Menu, 1 QCM, 2 End
+
     void Start()
     {
+        status = 0;
         titlePoolsWeights = new Dictionary<string, int>();
         elementsWeights = new Dictionary<string, int>();
         elements = new Dictionary<string, CoverElement>();
@@ -38,21 +42,40 @@ public class QuizManager : MonoBehaviour
             elements.Add(element.ID, element);
         }
 
-        BoostRandomTitles();
-
         currentStep = -1;
         questionsDone = new List<string>();
         anwsersSelected = new List<string>();
 
         currentAnwsers = new Anwser[2];
 
-        QuizGUI.instance.SetProgressFill(0f);
-
         foreach (Step step in steps) maxProgress += step.stepsAmount;
 
-        BookManager.instance.StartGame();
+        QuizGUI.instance.TransitionTo(0);
+    }
 
+    /// <summary>
+    /// Starts a new Game
+    /// </summary>
+    void NewGame()
+    {
+        titlePoolsWeights.Clear();
+        elementsWeights.Clear();
+
+        BoostRandomTitles();
+
+        status = 1;
+        currentStep = -1;
+        globalProgress = 0;
+        questionsDone.Clear();
+        anwsersSelected.Clear();
+        currentQuestion = null;
+
+        QuizGUI.instance.SetProgressFill(0f);
+
+        BookManager.instance.StartGame();
         NextStep();
+
+        QuizGUI.instance.TransitionTo(1);
     }
 
     /// <summary>
@@ -89,6 +112,9 @@ public class QuizManager : MonoBehaviour
             GenerateCoverElements();
 
             BookManager.instance.GameFinished();
+
+            status = 2;
+            QuizGUI.instance.TransitionTo(2);
         }
         else
         {
@@ -135,7 +161,7 @@ public class QuizManager : MonoBehaviour
             currentQuestion = subPool[Random.Range(0, subPool.Count)];
             SelectRandomQuestions();
             // Display
-
+            QuizGUI.instance.SetButtonHidden(false);
             QuizGUI.instance.SetQuestion(currentQuestion, currentAnwsers);
         }
     }
@@ -265,17 +291,39 @@ public class QuizManager : MonoBehaviour
 
     void OnAnwserOne(InputValue input)
     {
-        if (input.isPressed && currentQuestion != null)
+        if (input.isPressed && !QuizGUI.instance.IsTransitioning)
         {
-            SelectAnwser(0);
+            if (status == 0)
+            {
+                NewGame();
+            }
+            else if (status == 1 && currentQuestion != null)
+            {
+                SelectAnwser(0);
+            }
+            else if (status == 2)
+            {
+                NewGame();
+            }
         }
     }
 
     void OnAnwserTwo(InputValue input)
     {
-        if (input.isPressed && currentQuestion != null)
+        if (input.isPressed && !QuizGUI.instance.IsTransitioning)
         {
-            SelectAnwser(1);
+            if (status == 0)
+            {
+                NewGame();
+            }
+            else if (status == 1 && currentQuestion != null)
+            {
+                SelectAnwser(1);
+            }
+            else if (status == 2)
+            {
+                NewGame();
+            }
         }
     }
 
