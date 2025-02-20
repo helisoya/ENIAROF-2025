@@ -263,7 +263,7 @@ public class Book : MonoBehaviour
 
         bookGameObject.SetActive(true);
 
-        FileManager.SaveJSON(FileManager.savPath + "/book.json", bookData);
+        //FileManager.SaveJSON(FileManager.savPath + "/book.json", bookData);
     }
 
 
