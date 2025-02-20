@@ -6,7 +6,7 @@ using UnityEngine.InputSystem.Controls;
 public class BookManager : MonoBehaviour
 {
     public static BookManager instance;
-
+ 
     void Awake() { instance = this; }
 
     public Transform inspectTransform;

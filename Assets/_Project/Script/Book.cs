@@ -124,10 +124,12 @@ public class Book : MonoBehaviour
             {
                 if (bookManager.bookInspecting.isMoving) bookManager.bookInspecting.StopAllCoroutines();
                 bookManager.bookInspecting.ResetPosition();
+                //AudioManager.instance.PlayOneShot(FMODEvents.instance.BookStored_SFX, this.transform.position);
             }
             UITextTitle.text = "\" " + bookData.title + " \"";
             UITextSyn.text = bookData.synopsis;
             animator.Play("MouseExit");
+            AudioManager.instance.PlayOneShot(FMODEvents.instance.BookPick_SFX, this.transform.position);
             inspected = true;
             outline.enabled = false;
             
@@ -142,6 +144,8 @@ public class Book : MonoBehaviour
     {
         StartCoroutine(MoveObject(bookGameObject.transform.position, startPosition, bookGameObject.transform.rotation,  startRotation, true));
         inspected = false;
+        
+        AudioManager.instance.PlayOneShot(FMODEvents.instance.BookStored_SFX, this.transform.position);
     }
     
     IEnumerator MoveObject(Vector3 startPos, Vector3 endPos, Quaternion startRot, Quaternion endRot, bool reset)
