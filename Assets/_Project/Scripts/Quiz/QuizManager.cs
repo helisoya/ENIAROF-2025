@@ -36,6 +36,9 @@ public class QuizManager : MonoBehaviour
 
     private int status; // 0 Main Menu, 1 QCM, 2 End
 
+    private int amountOne;
+    private int amountTwo;
+
     void Start()
     {
         status = 0;
@@ -95,7 +98,7 @@ public class QuizManager : MonoBehaviour
         TitlePool[] pools = Resources.LoadAll<TitlePool>("Titles/");
         foreach (TitlePool pool in pools)
         {
-            if ((boostFem && pool.ID.Contains("_Fem_")) || (!boostFem && pool.ID.Contains("_Masc_")))
+            if ((boostFem && pool.ID.Contains("Fem_")) || (!boostFem && pool.ID.Contains("Masc_")))
             {
                 titlePoolsWeights.Add(pool.ID, 100);
             }
@@ -231,6 +234,9 @@ public class QuizManager : MonoBehaviour
     /// <param name="idxAnwser">The anwser's index</param>
     public void SelectAnwser(int idxAnwser)
     {
+        if (idxAnwser == 0) amountOne++;
+        else if (idxAnwser == 1) amountTwo++;
+
         stepProgress++;
         globalProgress++;
         QuizGUI.instance.SetProgressFill((float)globalProgress / maxProgress);
