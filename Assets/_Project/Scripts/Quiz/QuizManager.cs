@@ -138,7 +138,6 @@ public class QuizManager : MonoBehaviour
         {
             print("New Step : " + currentStep);
             PoolNewQuestion();
-            MusicPlayer.instance.CongratulationsSFXStop();
 
         }
 
@@ -328,7 +327,7 @@ public class QuizManager : MonoBehaviour
             {
                 NewGame();
                 AudioManager.instance.PlayOneShot(FMODEvents.instance.ButtonGameFinish_SFX, this.transform.position);
-
+                MusicPlayer.instance.CongratulationsSFXStop();
                 //Play Sound (livre à la fin, appuyer pour relancer une partie)
             }
         }
@@ -351,6 +350,8 @@ public class QuizManager : MonoBehaviour
             else if (status == 2)
             {
                 NewGame();
+                AudioManager.instance.PlayOneShot(FMODEvents.instance.ButtonGameFinish_SFX, this.transform.position);
+                MusicPlayer.instance.CongratulationsSFXStop();
             }
         }
     }
