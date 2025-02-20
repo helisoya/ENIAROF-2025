@@ -38,6 +38,8 @@ public class QuizManager : MonoBehaviour
             elements.Add(element.ID, element);
         }
 
+        BoostRandomTitles();
+
         currentStep = -1;
         questionsDone = new List<string>();
         anwsersSelected = new List<string>();
@@ -53,6 +55,22 @@ public class QuizManager : MonoBehaviour
         NextStep();
     }
 
+    /// <summary>
+    /// Boost random titles (masculine / feminine)
+    /// </summary>
+    private void BoostRandomTitles()
+    {
+        bool boostFem = Random.Range(0, 2) == 0;
+
+        TitlePool[] pools = Resources.LoadAll<TitlePool>("Titles/");
+        foreach (TitlePool pool in pools)
+        {
+            if ((boostFem && pool.ID.Contains("_Fem_")) || (!boostFem && pool.ID.Contains("_Masc_")))
+            {
+                titlePoolsWeights.Add(pool.ID, 100);
+            }
+        }
+    }
 
     /// <summary>
     /// Starts the next step
@@ -94,8 +112,12 @@ public class QuizManager : MonoBehaviour
         {
             if (questionsDone.Contains(question.ID)) continue;
 
+            /*
             if ((question.isFirstQuestion && stepProgress == 0) ||
                 (!question.isFirstQuestion && stepProgress != 0 && RequirementsFulfilled(question)))
+            */
+
+            if (RequirementsFulfilled(question))
             {
                 subPool.Add(question);
             }
