@@ -12,7 +12,14 @@ using UnityEngine.SceneManagement;
 /// </summary>
 public class QuizManager : MonoBehaviour
 {
+    [Header("Steps")]
     [SerializeField] private Step[] steps;
+
+    [Header("End Book")]
+    [SerializeField] private MeshRenderer endBookMeshRenderer;
+    [SerializeField] private TextMeshPro endBookTitle;
+    [SerializeField] private TextMeshPro endBookSyno;
+
     private int currentStep;
     private List<string> questionsDone;
     private List<string> anwsersSelected;
@@ -111,7 +118,17 @@ public class QuizManager : MonoBehaviour
             GenerateTitle();
             GenerateCoverElements();
 
-            BookManager.instance.GameFinished();
+            Book book = BookManager.instance.GameFinished();
+
+            endBookMeshRenderer.materials[2].mainTexture = book.bookData.spriteBack.texture;
+            endBookMeshRenderer.materials[1].mainTexture = book.bookData.spriteCouverture.texture;
+
+
+            endBookMeshRenderer.materials[2].SetFloat("_IsHolographic", book.meshRenderer.materials[2].GetFloat("_IsHolographic"));
+            endBookMeshRenderer.materials[2].SetFloat("_IsGolden", book.meshRenderer.materials[2].GetFloat("_IsGolden"));
+
+            endBookMeshRenderer.materials[1].SetFloat("_IsHolographic", book.meshRenderer.materials[1].GetFloat("_IsHolographic"));
+            endBookMeshRenderer.materials[1].SetFloat("_IsGolden", book.meshRenderer.materials[1].GetFloat("_IsGolden"));
 
             status = 2;
             QuizGUI.instance.TransitionTo(2);
@@ -359,7 +376,7 @@ public class QuizManager : MonoBehaviour
         }
 
         print("Selected title : " + selectedStart + " " + selectedEnd);
-
+        endBookTitle.text = selectedStart + " " + selectedEnd;
         BookManager.instance.SetTitle(selectedStart + " " + selectedEnd);
     }
 
