@@ -66,7 +66,7 @@ public class QuizGUI : MonoBehaviour
     /// <param name="fillAmount">The fill amount of the GUI</param>
     public void SetProgressFill(float fillAmount)
     {
-        progressFill.fillAmount = fillAmount;
+        progressFill.fillAmount = fillAmount; //fillAmount entre 0 et 1
     }
 
 
@@ -125,6 +125,7 @@ public class QuizGUI : MonoBehaviour
     public void ShowTransition()
     {
         transitionAnimator.SetTrigger("Transition");
+        AudioManager.instance.PlayOneShot(FMODEvents.instance.Transition_SFX, this.transform.position);
     }
 
 }

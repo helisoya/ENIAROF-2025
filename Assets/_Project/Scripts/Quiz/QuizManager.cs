@@ -112,6 +112,7 @@ public class QuizManager : MonoBehaviour
             GenerateCoverElements();
 
             BookManager.instance.GameFinished();
+            AudioManager.instance.PlayOneShot(FMODEvents.instance.BookCompleted_SFX, this.transform.position);
 
             status = 2;
             QuizGUI.instance.TransitionTo(2);
@@ -120,6 +121,8 @@ public class QuizManager : MonoBehaviour
         {
             print("New Step : " + currentStep);
             PoolNewQuestion();
+            AudioManager.instance.StopEvent(FMODEvents.instance.BookCompleted_SFX, false);
+
         }
 
     }
@@ -296,14 +299,20 @@ public class QuizManager : MonoBehaviour
             if (status == 0)
             {
                 NewGame();
+                //Play Sound1 (lance une partie)
+                AudioManager.instance.PlayOneShot(FMODEvents.instance.ButtonGameStart_SFX, this.transform.position);
             }
             else if (status == 1 && currentQuestion != null)
             {
-                SelectAnwser(0);
+                SelectAnwser(0); //Play Sound (bouton 1)
+                AudioManager.instance.PlayOneShot(FMODEvents.instance.ButtonClickLeft_SFX, this.transform.position);
             }
             else if (status == 2)
             {
                 NewGame();
+                AudioManager.instance.PlayOneShot(FMODEvents.instance.ButtonGameFinish_SFX, this.transform.position);
+
+                //Play Sound (livre à la fin, appuyer pour relancer une partie)
             }
         }
     }
@@ -314,11 +323,13 @@ public class QuizManager : MonoBehaviour
         {
             if (status == 0)
             {
-                NewGame();
+                NewGame(); 
+                AudioManager.instance.PlayOneShot(FMODEvents.instance.ButtonGameStart_SFX, this.transform.position);
             }
             else if (status == 1 && currentQuestion != null)
             {
                 SelectAnwser(1);
+                AudioManager.instance.PlayOneShot(FMODEvents.instance.ButtonClickRight_SFX, this.transform.position);
             }
             else if (status == 2)
             {

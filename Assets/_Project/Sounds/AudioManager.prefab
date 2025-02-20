@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3830721650203758338}
   - component: {fileID: 8607788872694690192}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: MusicPlayer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -54,7 +54,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7525034655881986706}
   - component: {fileID: 4623509480895721001}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: GameObject
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -98,7 +98,7 @@ GameObject:
   m_Component:
   - component: {fileID: 679288633909689325}
   - component: {fileID: 8532540232574009185}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: FMODEvents
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -155,6 +155,20 @@ MonoBehaviour:
       Data3: -833064826
       Data4: -1551056431
     Path: event:/ButtonClickRight_SFX
+  <ButtonGameStart_SFX>k__BackingField:
+    Guid:
+      Data1: 444228447
+      Data2: 1177593428
+      Data3: -982909029
+      Data4: 1556864162
+    Path: event:/ButtonGameStart_SFX
+  <ButtonGameFinish_SFX>k__BackingField:
+    Guid:
+      Data1: -1129897334
+      Data2: 1205704767
+      Data3: 706810554
+      Data4: 478301902
+    Path: event:/ButtonGameFinish_SFX
   <Transition_SFX>k__BackingField:
     Guid:
       Data1: 875311598
@@ -229,7 +243,7 @@ GameObject:
   - component: {fileID: 8173184379084268092}
   - component: {fileID: 9000454414599838005}
   - component: {fileID: 1293828178332847839}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: AudioManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}

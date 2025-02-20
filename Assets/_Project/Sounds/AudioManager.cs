@@ -85,6 +85,13 @@ public class AudioManager : MonoBehaviour
 
 
     }
+    
+        public void StopEvent(EventReference eventReference, bool allowFadeOut = true)
+    {
+        EventInstance eventInstance = CreateEventInstance(eventReference);
+        eventInstance.stop(allowFadeOut ? FMOD.Studio.STOP_MODE.ALLOWFADEOUT : FMOD.Studio.STOP_MODE.IMMEDIATE);
+        eventInstance.release();
+    }
 
     public void SetParameter(EventInstance eventInstance, string parameterName, float parameterValue)
     {
