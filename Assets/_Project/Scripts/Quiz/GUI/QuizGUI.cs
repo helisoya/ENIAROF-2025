@@ -1,4 +1,5 @@
 using System.Collections;
+using Febucci.UI;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -11,7 +12,7 @@ public class QuizGUI : MonoBehaviour
 
     [Header("QCM")]
     [SerializeField] private GameObject qcmRoot;
-    [SerializeField] private TextMeshProUGUI questionLabelText;
+    [SerializeField] private TypewriterByCharacter questionLabelText;
     [SerializeField] private AnwserGUI[] anwsers;
     [SerializeField] private Image progressFill;
 
@@ -79,7 +80,8 @@ public class QuizGUI : MonoBehaviour
     /// <param name="anwsers">The awnser to display</param>
     public void SetQuestion(Question question, Anwser[] questionAnwsers)
     {
-        questionLabelText.text = question.label;
+        //questionLabelText.text = question.label;
+        questionLabelText.ShowText(question.label);
 
         for (int i = 0; i < questionAnwsers.Length && i < anwsers.Length; i++)
         {
@@ -118,7 +120,8 @@ public class QuizGUI : MonoBehaviour
     /// <param name="label">The label to display</param>
     public void SetQuestionLabel(string label)
     {
-        questionLabelText.text = label;
+        //questionLabelText.text = label;
+        questionLabelText.ShowText(label);
     }
 
     /// <summary>
