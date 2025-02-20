@@ -20,6 +20,7 @@ public class QuizGUI : MonoBehaviour
 
     [Header("End")]
     [SerializeField] private GameObject endRoot;
+    [SerializeField] private GameObject endBook;
 
     [Header("Transition")]
     [SerializeField] private Animator transitionAnimator;
@@ -54,6 +55,7 @@ public class QuizGUI : MonoBehaviour
         menuRoot.SetActive(menu == 0);
         qcmRoot.SetActive(menu == 1);
         endRoot.SetActive(menu == 2);
+        endBook.SetActive(menu == 2);
 
         yield return new WaitForSeconds(0.5f);
 

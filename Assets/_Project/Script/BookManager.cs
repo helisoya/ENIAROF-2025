@@ -190,12 +190,15 @@ public class BookManager : MonoBehaviour
         books[nextBook].bookData.fontAuthor = font;
     }
 
-    public void GameFinished()
+    public Book GameFinished()
     {
+        Book current = books[nextBook];
         // set book position behind Cam, set display camera into lib one, set book in inspectionPlace.
-        books[nextBook].shown = true;
-        books[nextBook].ShowBook();
+        current.shown = true;
+        current.ShowBook();
         nextBook = -1;
+
+        return current;
     }
 
     public void CreateBook(Book book)
