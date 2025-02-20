@@ -1,0 +1,48 @@
+Préfixe + Nom (ID)	Type d'élément	Emplacement	Genre associé	Ensemble d'éléments	Description
+DEC_Skyscrapper_FRONT	décor	Couverture	Science-Fiction		gratte ciel futuristes de nuit
+DEC_Sci_Lab_FRONT	décor	Couverture	Science-Fiction		laboratoire scientifique
+DEC_Shapes_FRONT	décor	Couverture	Science-Fiction		formes géométriques abstraites 
+DEC_Stars_FRONT	décor	Couverture	Science-Fiction		étoiles dans l'espace
+DEC_Post_Apo_FRONT	décor	Couverture	Science-Fiction		paysage post apocalyptique : champ vide et éolienne sur ligne d'horizon
+SUJ_Future_Warrior_FRONT	sujet	Couverture	Science-Fiction		guerrier futuriste
+SUJ_Reptile_Skel_FRONT	sujet	Couverture	Science-Fiction		squelette guerrier reptile
+SUJ_Stylish_Guy_Stars_FRONT	sujet	Couverture	Science-Fiction		personne stylisée avec étoiles tatouée
+SUJ_Alien_FRONT	sujet	Couverture	Science-Fiction		alien/extraterrestre
+SUJ_Reptile_FRONT	sujet	Couverture	Science-Fiction		reptile
+DEC_Sea_Side_Rocks_FRONT	décor	Couverture	Amour		bord de mer rocher
+DEC_Alley_FRONT	décor	Couverture	Amour		ruelle
+DEC_Venice_FRONT	décor	Couverture	Amour		venise
+DEC_Table_FRONT	décor	Couverture	Amour		table et chaises
+DEC_Love_Forest_FRONT	décor	Couverture	Amour		forêt
+SUJ_Roses_FRONT	sujet	Couverture	Amour		perso qui tient des roses
+SUJ_People_Kiss_FRONT	sujet	Couverture	Amour		gens qui s'embrassent
+SUJ_Animals_Kiss_FRONT	sujet	Couverture	Amour		animaux qui se font des bisous
+SUJ_Hothothot_FRONT	sujet	Couverture	Amour		scène un peu hot
+DEC_Nature_Rain_FRONT	décor	Couverture	Fantasy		nature et pluie
+DEC_Nature_Temple_FRONT	décor	Couverture	Fantasy		nature, pluie, et temple
+DEC_Fantasy_Forest_FRONT	décor	Couverture	Fantasy		forêt
+DEC_Castle_FRONT	décor	Couverture	Fantasy		campagne et chateau
+SUJ_Green_Monster_FRONT	sujet	Couverture	Fantasy		monstre vert avec lampadaire au bout de la tête style Arcane
+SUJ_Fae_FRONT	sujet	Couverture	Fantasy		fée
+SUJ_Cherub_FRONT	sujet	Couverture	Fantasy		anges genre chérubins ailés
+SUJ_Knight_FRONT	sujet	Couverture	Fantasy		chevalier
+SUJ_Unicorn_FRONT	sujet	Couverture	Fantasy		licorne
+DEC_Cemetary_FRONT	décor	Couverture	Horreur		cimetière
+DEC_Urban_FRONT	décor	Couverture	Horreur		espace urbain de nuit
+DEC_Creepy_Forest_FRONT	décor	Couverture	Horreur		forêt creepy : arbres verts avec des ecailles 
+DEC_Gore_Room_FRONT	décor	Couverture	Horreur		salon absurde avec membres du corps humain suspendus dans des sacs plastiques et carrelage craquelé. 
+DEC_Horror_City_FRONT	décor	Couverture	Horreur		ville : railles de trains tordues, maisons tordue et cassés
+SUJ_Zombie_FRONT	sujet	Couverture	Horreur		zombie
+SUJ_Deads_FRONT	sujet	Couverture	Horreur		morts
+SUJ_Killer_FRONT	sujet	Couverture	Horreur		tueur
+SUJ_Monster_FRONT	sujet	Couverture	Horreur		monstre
+SUJ_Ghost_FRONT	sujet	Couverture	Horreur		fantôme
+BG_Black_FRONT	couleur de background	Les 2			noir
+BG_Brown_FRONT	couleur de background	Les 2			marron
+BG_Red_FRONT	couleur de background	Les 2			rouge
+BG_Orange_FRONT	couleur de background	Les 2			orange
+BG_Yellow_FRONT	couleur de background	Les 2			jaune pétant
+MAT_Holo_FRONT	matériel	Couverture			effet holographique
+MAT_Golden_FRONT	matériel	Couverture			effet doré
+SET_persos	set			SUJ_Future_Warrior_FRONT, SUJ_Reptile_Skel_FRONT, SUJ_Stylish_Guy_Stars_FRONT, SUJ_Alien_FRONT, SUJ_Reptile_FRONT, SUJ_People_Kiss_FRONT, SUJ_Hothothot_FRONT, SUJ_Cherub_FRONT, SUJ_Knight_FRONT, SUJ_Unicorn_FRONT, SUJ_Zombie_FRONT, SUJ_Killer_FRONT, SUJ_Deads_FRONT, SUJ_Monster_FRONT, SUJ_Ghost_FRONT	
+SET_batiments	set			DEC_Skyscrapper_FRONT, DEC_Sci_Lab_FRONT, DEC_Post_Apo_FRONT, DEC_Alley_FRONT, DEC_Venice_FRONT, DEC_Nature_Temple_FRONT, DEC_Urban_FRONT, DEC_Castle_FRONT, DEC_Horror_City_FRONT	

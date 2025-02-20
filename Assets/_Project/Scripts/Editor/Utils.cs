@@ -33,8 +33,77 @@ public class Utils : MonoBehaviour
             }
 
 
-            AssetDatabase.CreateAsset(titlePool, "Assets/Resources/Titles/" + titlePool.ID.Replace(" ", "") + ".asset");
+            AssetDatabase.CreateAsset(titlePool, "Assets/_Project/Resources/Titles/" + titlePool.ID.Replace(" ", "") + ".asset");
             AssetDatabase.SaveAssets();
+        }
+    }
+
+    [MenuItem("ENIAROF/Generate Elements")]
+    public static void GenerateCoverElements()
+    {
+        List<string> lines = FileManager.ReadTextAsset(Resources.Load<TextAsset>("CSV/elements"));
+        string[] splitedLine;
+        string[] splitedInner;
+
+        for (int i = 1; i < lines.Count; i++)
+        {
+            splitedLine = lines[i].Split("\t");
+
+            CoverElement element = ScriptableObject.CreateInstance<CoverElement>();
+            element.ID = splitedLine[0];
+            element.type = FindElementTypeOf(splitedLine[1]);
+            element.placement = FindElementPlacementOf(splitedLine[2]);
+
+            element.linkedElements = new List<string>();
+            if (!string.IsNullOrEmpty(splitedLine[4]) && !string.IsNullOrWhiteSpace(splitedLine[4]))
+            {
+                splitedInner = splitedLine[4].Split(", ");
+                for (int j = 0; j < splitedInner.Length; j++)
+                {
+                    element.linkedElements.Add(splitedInner[j]);
+                }
+            }
+
+            AssetDatabase.CreateAsset(element, "Assets/_Project/Resources/Elements/" + element.ID.Replace(" ", "") + ".asset");
+            AssetDatabase.SaveAssets();
+        }
+    }
+
+    private static CoverElement.CoverElementType FindElementTypeOf(string type)
+    {
+        switch (type)
+        {
+            case "décor": return CoverElement.CoverElementType.SCENERY;
+            case "enluminure": return CoverElement.CoverElementType.ENLUMINURE;
+            case "couleur de background": return CoverElement.CoverElementType.BACKGROUNDCOLOR;
+            case "sujet": return CoverElement.CoverElementType.SUBJECT;
+            case "typo": return CoverElement.CoverElementType.TYPOGRAPHY;
+            case "set": return CoverElement.CoverElementType.SET;
+            case "auteur": return CoverElement.CoverElementType.AUTHOR;
+            case "matériel": return CoverElement.CoverElementType.MATERIAL;
+            case "editeur": return CoverElement.CoverElementType.EDITOR;
+        }
+
+        return CoverElement.CoverElementType.BACKGROUNDCOLOR;
+    }
+
+    private static CoverElement.CoverElementPlacement FindElementPlacementOf(string place)
+    {
+        if (place.Equals("Couverture")) return CoverElement.CoverElementPlacement.FRONT;
+        if (place.Equals("Les 2")) return CoverElement.CoverElementPlacement.BOTH;
+        return CoverElement.CoverElementPlacement.BACK;
+    }
+
+
+    private static void ResetSteps()
+    {
+        Step[] steps = Resources.LoadAll<Step>("Steps/");
+        foreach (Step step in steps)
+        {
+            step.pool.Clear();
+            step.ID = step.name;
+            step.stepsAmount = 3;
+            EditorUtility.SetDirty(step);
         }
     }
 
@@ -80,6 +149,7 @@ public class Utils : MonoBehaviour
     [MenuItem("ENIAROF/Generate Questions")]
     public static void GenerateQuestions()
     {
+        ResetSteps();
         Dictionary<string, Anwser> anwers = GenerateAnwsers();
 
         Step step;

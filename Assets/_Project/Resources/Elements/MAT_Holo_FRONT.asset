@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0e2140d8a37cc6545bbc96e9d54e50bb, type: 3}
-  m_Name: TEST2
+  m_Name: MAT_Holo_FRONT
   m_EditorClassIdentifier: 
-  ID: TEST2
-  type: 2
+  ID: MAT_Holo_FRONT
+  type: 7
   placement: 0
-  linkedAnwser: 12
+  linkedElements: []

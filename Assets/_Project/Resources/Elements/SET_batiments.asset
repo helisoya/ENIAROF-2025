@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0e2140d8a37cc6545bbc96e9d54e50bb, type: 3}
+  m_Name: SET_batiments
+  m_EditorClassIdentifier: 
+  ID: SET_batiments
+  type: 8
+  placement: 1
+  linkedElements:
+  - DEC_Skyscrapper_FRONT
+  - DEC_Sci_Lab_FRONT
+  - DEC_Post_Apo_FRONT
+  - DEC_Alley_FRONT
+  - DEC_Venice_FRONT
+  - DEC_Nature_Temple_FRONT
+  - DEC_Urban_FRONT
+  - DEC_Castle_FRONT
+  - DEC_Horror_City_FRONT

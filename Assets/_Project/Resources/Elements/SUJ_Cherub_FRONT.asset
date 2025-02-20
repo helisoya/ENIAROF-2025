@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0e2140d8a37cc6545bbc96e9d54e50bb, type: 3}
-  m_Name: TEST1
+  m_Name: SUJ_Cherub_FRONT
   m_EditorClassIdentifier: 
-  ID: TEST1
-  type: 0
+  ID: SUJ_Cherub_FRONT
+  type: 3
   placement: 0
-  linkedAnwser: 11
+  linkedElements: []
