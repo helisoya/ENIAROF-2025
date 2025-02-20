@@ -299,7 +299,7 @@ public class QuizManager : MonoBehaviour
 
         yield return new WaitForSeconds(1f);
 
-        QuizGUI.instance.ShowTransition();
+        QuizGUI.instance.ShowTransition(idxAnwser);
 
         yield return new WaitForSeconds(0.5f);
 

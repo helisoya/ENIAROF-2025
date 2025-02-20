@@ -48,7 +48,7 @@ public class QuizGUI : MonoBehaviour
 
     IEnumerator Routine_To(int menu)
     {
-        ShowTransition();
+        ShowTransition(0);
 
         yield return new WaitForSeconds(0.5f);
 
@@ -124,9 +124,10 @@ public class QuizGUI : MonoBehaviour
     /// <summary>
     /// Starts the transition
     /// </summary>
-    public void ShowTransition()
+    public void ShowTransition(int index)
     {
-        transitionAnimator.SetTrigger("Transition");
+        if (index == 0) transitionAnimator.SetTrigger("TransitionLeft");
+        else transitionAnimator.SetTrigger("TransitionRight");
         AudioManager.instance.PlayOneShot(FMODEvents.instance.Transition_SFX, this.transform.position);
     }
 
