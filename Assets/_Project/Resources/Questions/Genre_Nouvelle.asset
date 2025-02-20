@@ -1,0 +1,63 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 715c0086bf2e5364583fa3a3164a8e66, type: 3}
+  m_Name: Genre_Nouvelle
+  m_EditorClassIdentifier: 
+  ID: Genre_Nouvelle
+  isFirstQuestion: 1
+  label: 'Quelle nouvelle vous ferait le plus plaisir :'
+  requirements: []
+  anwsers:
+  - ID: Genre_Nouvelle_SF
+    label: "Lidl propose lundi prochain un sabre laser \xE0 39,90\u20AC !"
+    actions:
+    - "AddPoolScore(SF_Masc_D\xE9but_Lieux;1)"
+    - "AddPoolScore(SF_Masc_D\xE9but_Objets;1)"
+    - "AddPoolScore(SF_Masc_D\xE9but_Heros;1)"
+    - "AddPoolScore(SF_Masc_D\xE9but_Ennemis;1)"
+    - "AddPoolScore(SF_Fem_D\xE9but_Lieux;1)"
+    - "AddPoolScore(SF_Fem_D\xE9but_Objets;1)"
+    - "AddPoolScore(SF_Fem_D\xE9but_Heros;1)"
+    - "AddPoolScore(SF_Fem_D\xE9but_Ennemis;1)"
+  - ID: Genre_Nouvelle_Horreur
+    label: "Le meurtre est d\xE9sormais l\xE9gal pendant une soir\xE9e !"
+    actions:
+    - "AddPoolScore(Horreur_Masc_D\xE9but_Lieux;1)"
+    - "AddPoolScore(Horreur_Masc_D\xE9but_Objets;1)"
+    - "AddPoolScore(Horreur_Masc_D\xE9but_Heros;1)"
+    - "AddPoolScore(Horreur_Masc_D\xE9but_Ennemis;1)"
+    - "AddPoolScore(Horreur_Fem_D\xE9but_Lieux;1)"
+    - "AddPoolScore(Horreur_Fem_D\xE9but_Objets;1)"
+    - "AddPoolScore(Horreur_Fem_D\xE9but_Heros;1)"
+    - "AddPoolScore(Horreur_Fem_D\xE9but_Ennemis;1)"
+  - ID: Genre_Nouvelle_Love
+    label: Michou et Elsa se remettent ensemble !
+    actions:
+    - "AddPoolScore(Amour_Masc_D\xE9but_Lieux;1)"
+    - "AddPoolScore(Amour_Masc_D\xE9but_Objets;1)"
+    - "AddPoolScore(Amour_Masc_D\xE9but_Heros;1)"
+    - "AddPoolScore(Amour_Masc_D\xE9but_Ennemis;1)"
+    - "AddPoolScore(Amour_Fem_D\xE9but_Objets;1)"
+    - "AddPoolScore(Amour_Fem_D\xE9but_Heros;1)"
+    - "AddPoolScore(Amour_Fem_D\xE9but_Ennemis;1)"
+    - "AddPoolScore(Amour_Fem_D\xE9but_Lieux;1)"
+  - ID: Genre_Nouvelle_Fantasy
+    label: Des portails vers des mondes merveilleux s'ouvrent dans les armoires !
+    actions:
+    - "AddPoolScore(Fantasy_Masc_D\xE9but_Lieux;1)"
+    - "AddPoolScore(Fantasy_Masc_D\xE9but_Objets;1)"
+    - "AddPoolScore(Fantasy_Masc_D\xE9but_Heros;1)"
+    - "AddPoolScore(Fantasy_Masc_D\xE9but_Ennemis;1)"
+    - "AddPoolScore(Fantasy_Fem_D\xE9but_Lieux;1)"
+    - "AddPoolScore(Fantasy_Fem_D\xE9but_Objets;1)"
+    - "AddPoolScore(Fantasy_Fem_D\xE9but_Heros;1)"
+    - "AddPoolScore(Fantasy_Fem_D\xE9but_Ennemis;1)"

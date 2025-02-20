@@ -116,7 +116,7 @@ MonoBehaviour:
   bookManager: {fileID: 0}
   bookName: {fileID: 2640947017281280697}
   bookSyno: {fileID: 4024495806966755006}
-  shown: 0
+  shown: 1
   bookData:
     title: 
     author: 
@@ -128,20 +128,18 @@ MonoBehaviour:
     fontSynopsis: {fileID: 0}
   meshRenderer: {fileID: 2701931452546325411}
   spritesCouverture:
-  - sprite: {fileID: 21300000, guid: 5f2937bd816cadc4283c0086f6d20b0d, type: 3}
-    level: 0
-  - sprite: {fileID: 21300000, guid: 3b4e457cf1ed57b41b0fe0b02e0cc827, type: 3}
-    level: 1
-  spritesBack:
   - sprite: {fileID: 21300000, guid: 206de68d032f05e4c94f61ced91a34a2, type: 3}
-    level: 1
-  - sprite: {fileID: 21300000, guid: 3b4e457cf1ed57b41b0fe0b02e0cc827, type: 3}
-    level: 2
-  - sprite: {fileID: 21300000, guid: 5f2937bd816cadc4283c0086f6d20b0d, type: 3}
     level: 0
+  spritesBack:
+  - sprite: {fileID: 21300000, guid: 1b197a1e1c820f9438cf2c27d2578768, type: 3}
+    level: 0
+  - sprite: {fileID: 21300000, guid: 3b4e457cf1ed57b41b0fe0b02e0cc827, type: 3}
+    level: 1
   spriteMerger: {fileID: 0}
   postProcess: {fileID: 0}
   darkImage: {fileID: 0}
+  UITextTitle: {fileID: 0}
+  UITextSyn: {fileID: 0}
 --- !u!33 &7436107874939834076
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -595,6 +593,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: d614099cdeeff314a96a3ed9b844c927, type: 3}
+      propertyPath: 'm_Materials.Array.data[1]'
+      value: 
+      objectReference: {fileID: 2100000, guid: f69fd583c74d3d84a952c51ed403e08b, type: 2}
     - target: {fileID: 919132149155446097, guid: d614099cdeeff314a96a3ed9b844c927, type: 3}
       propertyPath: m_Name
       value: ZINE_1 (1)

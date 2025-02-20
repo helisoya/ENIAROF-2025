@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 /// <summary>
@@ -14,17 +15,20 @@ public class CoverElement : ScriptableObject
 		SUBJECT,
 		TYPOGRAPHY,
 		EDITOR,
-		AUTHOR
+		AUTHOR,
+		MATERIAL,
+		SET
 	}
 
 	public enum CoverElementPlacement
 	{
 		FRONT,
-		BACK
+		BACK,
+		BOTH
 	}
 
 	public string ID;
 	public CoverElementType type;
 	public CoverElementPlacement placement;
-	public string linkedAnwser;
+	public List<string> linkedElements;
 }

@@ -9,18 +9,18 @@ using System.IO;
 public class AudioManager : MonoBehaviour
 {
     [Header("Volume")]
-    [Range(0,1)]
-    public float masterVolume=1;
-    [Range(0,1)]
-    public float sfxVolume=1;
-    [Range(0,1)]    
-    public float musicVolume=1;
+    [Range(0, 1)]
+    public float masterVolume = 1;
+    [Range(0, 1)]
+    public float sfxVolume = 1;
+    [Range(0, 1)]
+    public float musicVolume = 1;
 
     private Bus masterBus;
     private Bus musicBus;
-    private Bus sfxBus;    
+    private Bus sfxBus;
 
-    public static AudioManager instance { get; private set;}
+    public static AudioManager instance { get; private set; }
 
     private List<EventInstance> eventInstances;
     private List<StudioEventEmitter> eventEmitters;
@@ -32,11 +32,11 @@ public class AudioManager : MonoBehaviour
         if (instance == null)
         {
             instance = this;
-            DontDestroyOnLoad(this);
+            DontDestroyOnLoad(gameObject);
         }
         else
         {
-            Destroy(this);
+            Destroy(gameObject);
         }
 
         eventInstances = new List<EventInstance>();
@@ -70,12 +70,12 @@ public class AudioManager : MonoBehaviour
 
     public void SetAmbienceParameter(string parameterName, float parameterValue)
     {
-        ambienceEventInstance.setParameterByName(parameterName,parameterValue);
+        ambienceEventInstance.setParameterByName(parameterName, parameterValue);
     }
 
     public void PlayOneShot(EventReference sound, Vector3 worldPos)
     {
-        RuntimeManager.PlayOneShot(sound,worldPos);
+        RuntimeManager.PlayOneShot(sound, worldPos);
     }
 
     public EventInstance CreateEventInstance(EventReference eventReference)
@@ -101,7 +101,7 @@ public class AudioManager : MonoBehaviour
 
     public void CleanUp()
     {
-        foreach(EventInstance eventInstance in eventInstances)
+        foreach (EventInstance eventInstance in eventInstances)
         {
             eventInstance.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
             eventInstance.release();
@@ -114,6 +114,6 @@ public class AudioManager : MonoBehaviour
 
     private void OnDestroy()
     {
-        CleanUp();  
+        CleanUp();
     }
 }

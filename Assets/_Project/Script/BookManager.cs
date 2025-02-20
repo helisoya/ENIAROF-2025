@@ -70,7 +70,7 @@ public class BookManager : MonoBehaviour
                 bookInspecting.bookGameObject.transform.localPosition = pos;
             }
         }
-        
+
         if (Input.GetMouseButtonDown(0) && bookSelected == bookInspecting) startMouseOnInspected = true;
         if (Input.GetMouseButtonUp(0)) startMouseOnInspected = false;
         if (Input.GetMouseButton(0) && bookInspecting) // 0 = Click gauche
@@ -83,7 +83,7 @@ public class BookManager : MonoBehaviour
                 return;
             }
             movingInspected = true;
-            Vector3 rotation = new Vector3(0, -Input.GetAxis("Mouse X") * 5.0f, Input.GetAxis("Mouse Y")* 5.0f);
+            Vector3 rotation = new Vector3(0, -Input.GetAxis("Mouse X") * 5.0f, Input.GetAxis("Mouse Y") * 5.0f);
             bookInspecting.RotateBook(rotation);
         }
         else
@@ -170,6 +170,18 @@ public class BookManager : MonoBehaviour
     {
         books[nextBook].bookSyno.font = font;
         books[nextBook].bookData.fontSynopsis = font;
+    }
+
+    public void SetBackMaterial(bool holographic, bool golden)
+    {
+        books[nextBook].meshRenderer.materials[2].SetFloat("_IsHolographic", holographic ? 1 : 0);
+        books[nextBook].meshRenderer.materials[2].SetFloat("_IsGolden", golden ? 1 : 0);
+    }
+
+    public void SetFrontMaterial(bool holographic, bool golden)
+    {
+        books[nextBook].meshRenderer.materials[1].SetFloat("_IsHolographic", holographic ? 1 : 0);
+        books[nextBook].meshRenderer.materials[1].SetFloat("_IsGolden", golden ? 1 : 0);
     }
 
     public void SetFontAuthor(TMP_FontAsset font)

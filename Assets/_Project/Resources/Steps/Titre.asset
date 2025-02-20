@@ -15,4 +15,5 @@ MonoBehaviour:
   ID: Titre
   stepsAmount: 3
   pool:
+  - {fileID: 11400000, guid: 5034ec4e42d32404dbec4ed5ba575457, type: 2}
   - {fileID: 11400000, guid: 5c2e4b1aff275374bafd295843d0d6ce, type: 2}
