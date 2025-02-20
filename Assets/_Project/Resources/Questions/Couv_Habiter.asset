@@ -1,0 +1,35 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 715c0086bf2e5364583fa3a3164a8e66, type: 3}
+  m_Name: Couv_Habiter
+  m_EditorClassIdentifier: 
+  ID: Couv_Habiter
+  isFirstQuestion: 1
+  label: "Dans quel endroit pr\xE9f\xE9reriez-vous habiter ?"
+  requirements: []
+  anwsers:
+  - ID: Couv_Habiter_GratteCiel
+    label: Dans une ville cyberpunk
+    actions:
+    - AddElement(DEC_Alley_FRONT;1)
+  - ID: Couv_Habiter_Chateau
+    label: "Dans un ch\xE2teau moyenn\xE2geux"
+    actions:
+    - AddElement(DEC_Alley_FRONT;1)
+  - ID: Couv_Habiter_Urbain
+    label: En grande ville
+    actions:
+    - AddElement(DEC_Alley_FRONT;1)
+  - ID: Couv_Habiter_Cimetiere
+    label: Dans une vieille abbaye
+    actions:
+    - AddElement(DEC_Alley_FRONT;1)

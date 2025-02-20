@@ -12,13 +12,22 @@ Genre_Nouvelle_Horreur	Genre_Nouvelle	Quelle nouvelle vous ferait le plus plaisi
 Genre_Nouvelle_Love	Genre_Nouvelle	Quelle nouvelle vous ferait le plus plaisir :	Genre	Michou et Elsa se remettent ensemble !	Amour	Amour_Masc_Début_Lieux, Amour_Masc_Début_Objets, Amour_Masc_Début_Heros, Amour_Masc_Début_Ennemis, Amour_Fem_Début_Objets, Amour_Fem_Début_Heros, Amour_Fem_Début_Ennemis, Amour_Fem_Début_Lieux	
 Genre_Nouvelle_Fantasy	Genre_Nouvelle	Quelle nouvelle vous ferait le plus plaisir :	Genre	Des portails vers des mondes merveilleux s'ouvrent dans les armoires !	Fantasy	Fantasy_Masc_Début_Lieux, Fantasy_Masc_Début_Objets, Fantasy_Masc_Début_Heros, Fantasy_Masc_Début_Ennemis, Fantasy_Fem_Début_Lieux, Fantasy_Fem_Début_Objets, Fantasy_Fem_Début_Heros, Fantasy_Fem_Début_Ennemis	
 Couv_Couleur_Noir	Couverture_Couleur	Quel est votre fruit préféré ?	Couverture	Myrtille			noir
-Couv_Couleur_Marron	Couverture_Couleur	Quel est votre fruit préféré ?	Couverture	Kiwi			marron
+Couv_Couleur_Marron	Couverture_Couleur	Quel est votre fruit préféré ?	Couverture	Noix de coco			marron
 Couv_Couleur_Jaune	Couverture_Couleur	Quel est votre fruit préféré ?	Couverture	Citron			jaune pétant
 Couv_Couleur_Orange	Couverture_Couleur	Quel est votre fruit préféré ?	Couverture	Clémentine			orange
 Couv_Couleur_Rouge	Couverture_Couleur	Quel est votre fruit préféré ?	Couverture	Fraise			rouge
+Couv_Couleur_Blanche	Couverture_Couleur_Astre	Quel est votre astre préféré ?	Couverture	Lune			
+Couv_Couleur_Bleu	Couverture_Couleur_Astre	Quel est votre astre préféré ?	Couverture	La Terre bien sûr <3			
+Couv_Couleur_Rose	Couverture_Couleur_Fleur	T'AIME QUEL TYPE DE FLEUR ????	Couverture	LA ROSE ROSE #love	Amour		
+Couv_Couleur_Violet	Couverture_Couleur_Fleur	T'AIME QUEL TYPE DE FLEUR ????	Couverture	LES LILAS ^^			
+Couv_Couleur_Or	Couverture_Couleur_Fleur	T'AIME QUEL TYPE DE FLEUR ????	Couverture	LES CHRYSANTHEMES MIAAAMMM	Horreur		
 Titre_Sujet_Lieux	Titre_Sujet	Aujourd'hui, vous avez envie de...	Titre	découvrir un nouvel endroit, voyager !		Fantasy_Masc_Début_Lieux, SF_Masc_Début_Lieux, Fantasy_Fem_Début_Lieux, SF_Fem_Début_Lieux, Horreur_Masc_Début_Lieux, Horreur_Fem_Début_Lieux, Amour_Masc_Début_Lieux, Amour_Fem_Début_Lieux	
-Titre_Sujet_Objets	Titre_Sujet	Aujourd'hui, vous avez envie de...	Titre	maitriser des outils, faire des travaux manuels.		Fantasy_Masc_Début_Objets, Fantasy_Fem_Début_Objets, SF_Masc_Début_Objets, SF_Fem_Début_Objets, Horreur_Masc_Début_Objets, Horreur_Fem_Début_Objets, Amour_Masc_Début_Objets, Amour_Fem_Début_Objets	
-Titre_Sujet_Heros	Titre_Sujet	Aujourd'hui, vous avez envie de...	Titre	sauver la veuve et l'orphelin		Fantasy_Masc_Début_Heros, Fantasy_Fem_Début_Heros, SF_Masc_Début_Heros, SF_Fem_Début_Heros, Horreur_Masc_Début_Heros, Horreur_Fem_Début_Heros, Amour_Masc_Début_Heros, Amour_Fem_Début_Heros	
+Titre_Sujet_Objets	Titre_Sujet	Aujourd'hui, vous avez envie de...	Titre	monter un meuble Ikea.		Fantasy_Masc_Début_Objets, Fantasy_Fem_Début_Objets, SF_Masc_Début_Objets, SF_Fem_Début_Objets, Horreur_Masc_Début_Objets, Horreur_Fem_Début_Objets, Amour_Masc_Début_Objets, Amour_Fem_Début_Objets	
+Titre_Sujet_Heros	Titre_Sujet	Aujourd'hui, vous avez envie de...	Titre	sauver la veuve et l'orphelin.		Fantasy_Masc_Début_Heros, Fantasy_Fem_Début_Heros, SF_Masc_Début_Heros, SF_Fem_Début_Heros, Horreur_Masc_Début_Heros, Horreur_Fem_Début_Heros, Amour_Masc_Début_Heros, Amour_Fem_Début_Heros	
 Titre_Sujet_Ennemis	Titre_Sujet	Aujourd'hui, vous avez envie de...	Titre	générer du chaos #malveillancemäx		Fantasy_Masc_Début_Ennemis, Fantasy_Fem_Début_Ennemis, SF_Masc_Début_Ennemis, SF_Fem_Début_Ennemis, Horreur_Masc_Début_Ennemis, Horreur_Fem_Début_Ennemis, Amour_Masc_Début_Ennemis, Amour_Fem_Début_Ennemis	
-Titre_Adjectif_Positif	Titre_Adjectif	En vrai de vrai, vos parents sont fiers de vous ?		En vrai ouais y'a de quoi j'suis un.e crack		Masc_Fin_Positif, Fem_Fin_Positif	
-Titre_Adjectif_Negatif	Titre_Adjectif	En vrai de vrai, vos parents sont fiers de vous ?		non ouiiinnnnnn		Fem_Fin_Negatif, Masc_Fin_Negatif	
+Titre_Adjectif_Positif	Titre_Adjectif	En vrai de vrai, vos parents sont fiers de vous ?	Titre	En vrai ouais y'a de quoi j'suis un.e crack		Masc_Fin_Positif, Fem_Fin_Positif	
+Titre_Adjectif_Negatif	Titre_Adjectif	En vrai de vrai, vos parents sont fiers de vous ?	Titre	non ouiiinnnnnn		Fem_Fin_Negatif, Masc_Fin_Negatif	
+Couv_Habiter_GratteCiel	Couv_Habiter	Dans quel endroit préféreriez-vous habiter ?	Couverture	Dans une ville cyberpunk	Science-Fiction		gratte ciel futuristes de nuit
+Couv_Habiter_Chateau	Couv_Habiter	Dans quel endroit préféreriez-vous habiter ?	Couverture	Dans un château moyennâgeux	Fantasy		campagne et chateau
+Couv_Habiter_Urbain	Couv_Habiter	Dans quel endroit préféreriez-vous habiter ?	Couverture	En grande ville			espace urbain de nuit
+Couv_Habiter_Cimetiere	Couv_Habiter	Dans quel endroit préféreriez-vous habiter ?	Couverture	Dans une vieille abbaye	Horreur		cimetière

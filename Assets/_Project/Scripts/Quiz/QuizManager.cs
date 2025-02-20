@@ -22,11 +22,21 @@ public class QuizManager : MonoBehaviour
     private int globalProgress;
     private int maxProgress;
 
+    private Dictionary<string, CoverElement> elements;
     private Dictionary<string, int> titlePoolsWeights;
+    private Dictionary<string, int> elementsWeights;
 
     void Start()
     {
         titlePoolsWeights = new Dictionary<string, int>();
+        elementsWeights = new Dictionary<string, int>();
+        elements = new Dictionary<string, CoverElement>();
+
+        CoverElement[] elementsArray = Resources.LoadAll<CoverElement>("Elements/");
+        foreach (CoverElement element in elementsArray)
+        {
+            elements.Add(element.ID, element);
+        }
 
         currentStep = -1;
         questionsDone = new List<string>();
@@ -191,37 +201,26 @@ public class QuizManager : MonoBehaviour
                 break;
             case "AddElement":
 
-                if (param[0].StartsWith("TYP_"))
+                if (!elements.ContainsKey(param[0]))
                 {
-                    TMP_FontAsset font = Resources.Load<TMP_FontAsset>("Fonts/" + param[0]);
-                    BookManager.instance.SetFontAuthor(font);
-                    BookManager.instance.SetFontSyno(font);
-                    BookManager.instance.SetFontTitle(font);
+                    Debug.LogError("Missing Element : " + param[0]);
+                    return;
                 }
-                else if (param[0].StartsWith("MAT_"))
+
+                CoverElement element = elements[param[0]];
+                if (element.type == CoverElement.CoverElementType.SET)
                 {
-                    // Change material
+                    foreach (string elementInSet in element.linkedElements)
+                    {
+                        if (!elementsWeights.ContainsKey(elementInSet)) elementsWeights.Add(elementInSet, 0);
+                        elementsWeights[elementInSet]++;
+                    }
                 }
                 else
                 {
-                    Sprite sprite = Resources.Load<Sprite>("Elements/" + param[0]);
-                    int layer = 0;
-                    if (param[0].StartsWith("BG_")) layer = 0;
-                    else if (param[0].StartsWith("ENL_")) layer = 3;
-                    else if (param[0].StartsWith("DEC_")) layer = 1;
-                    else if (param[0].StartsWith("SUJ_")) layer = 2;
-
-                    SpriteData data = new()
-                    {
-                        level = layer,
-                        sprite = sprite
-
-                    };
-
-                    if (!param[0].EndsWith("_BACK")) BookManager.instance.AddToCouverture(data);
-                    if (!param[0].EndsWith("_FRONT")) BookManager.instance.AddToBack(data);
+                    if (!elementsWeights.ContainsKey(element.ID)) elementsWeights.Add(element.ID, 0);
+                    elementsWeights[element.ID]++;
                 }
-
                 break;
         }
     }
@@ -299,14 +298,135 @@ public class QuizManager : MonoBehaviour
     /// </summary>
     public void GenerateCoverElements()
     {
-        CoverElement[] coverElements = Resources.LoadAll<CoverElement>("CoverElements/");
+        Dictionary<SearchElementKey, SearchElementValue> search = new Dictionary<SearchElementKey, SearchElementValue>();
+        CoverElement coverElement;
+        SearchElementKey key;
+        SearchElementValue value;
+        int scoreForElment;
 
-        foreach (CoverElement coverElement in coverElements)
+        foreach (string element in elementsWeights.Keys)
         {
-            if (anwsersSelected.Contains(coverElement.linkedAnwser))
+            coverElement = elements[element];
+            scoreForElment = elementsWeights[element];
+
+            if (coverElement.placement != CoverElement.CoverElementPlacement.BACK)
             {
-                print("Adding " + coverElement.ID + " (" + coverElement.type + ", " + coverElement.placement + ")");
+                key = new SearchElementKey
+                {
+                    placement = CoverElement.CoverElementPlacement.FRONT,
+                    type = coverElement.type
+                };
+
+                if (search.ContainsKey(key))
+                {
+                    if (search[key].score < scoreForElment)
+                    {
+                        search[key].score = scoreForElment;
+                        search[key].value = coverElement;
+                    }
+                }
+                else
+                {
+                    value = new SearchElementValue
+                    {
+                        value = coverElement,
+                        score = scoreForElment
+                    };
+                    search.Add(key, value);
+                }
             }
+            if (coverElement.placement != CoverElement.CoverElementPlacement.FRONT)
+            {
+                key = new SearchElementKey
+                {
+                    placement = CoverElement.CoverElementPlacement.BACK,
+                    type = coverElement.type
+                };
+
+                if (search.ContainsKey(key))
+                {
+                    if (search[key].score < scoreForElment)
+                    {
+                        search[key].score = scoreForElment;
+                        search[key].value = coverElement;
+                    }
+                }
+                else
+                {
+                    value = new SearchElementValue
+                    {
+                        value = coverElement,
+                        score = scoreForElment
+                    };
+                    search.Add(key, value);
+                }
+            }
+
+        }
+
+        foreach (SearchElementValue v in search.Values)
+        {
+            AddElement(v.value);
+        }
+    }
+
+    private class SearchElementKey
+    {
+        public CoverElement.CoverElementPlacement placement;
+        public CoverElement.CoverElementType type;
+
+        public override bool Equals(object? obj) => obj is SearchElementKey other && this.Equals(other);
+
+        public bool Equals(SearchElementKey p) => placement == p.placement && type == p.type;
+
+        public override int GetHashCode() => (placement, type).GetHashCode();
+
+        public static bool operator ==(SearchElementKey lhs, SearchElementKey rhs) => lhs.Equals(rhs);
+
+        public static bool operator !=(SearchElementKey lhs, SearchElementKey rhs) => !(lhs == rhs);
+    }
+    private class SearchElementValue
+    {
+        public CoverElement value;
+        public int score;
+    }
+
+    /// <summary>
+    /// Adds an element to the current book
+    /// </summary>
+    /// <param name="element">The element to add</param>
+    private void AddElement(CoverElement element)
+    {
+
+        if (element.type == CoverElement.CoverElementType.TYPOGRAPHY)
+        {
+            TMP_FontAsset font = Resources.Load<TMP_FontAsset>("Fonts/" + element.ID);
+            BookManager.instance.SetFontAuthor(font);
+            BookManager.instance.SetFontSyno(font);
+            BookManager.instance.SetFontTitle(font);
+        }
+        else if (element.type == CoverElement.CoverElementType.MATERIAL)
+        {
+            // Change material
+        }
+        else
+        {
+            Sprite sprite = Resources.Load<Sprite>("Sprites/Elements/" + element.ID);
+            int layer = 0;
+            if (element.type == CoverElement.CoverElementType.BACKGROUNDCOLOR) layer = 0;
+            else if (element.type == CoverElement.CoverElementType.ENLUMINURE) layer = 3;
+            else if (element.type == CoverElement.CoverElementType.SCENERY) layer = 1;
+            else if (element.type == CoverElement.CoverElementType.SUBJECT) layer = 2;
+
+            SpriteData data = new()
+            {
+                level = layer,
+                sprite = sprite
+
+            };
+
+            if (!(element.placement == CoverElement.CoverElementPlacement.BACK)) BookManager.instance.AddToCouverture(data);
+            if (!(element.placement == CoverElement.CoverElementPlacement.FRONT)) BookManager.instance.AddToBack(data);
         }
     }
 
