@@ -166,9 +166,9 @@ public class Book : MonoBehaviour
         float time = 0;
         isMoving = true;
         float aStart = darkImage.color.a;
-        float aEnd = reset ? 0.0f : 200 / 255f;
+        float aEnd = reset ? 0.0f : 200 / 255f;    
         float dofStart = darkImage.color.a;
-        float dofEnd = reset ? 11.2f : 8.67f;
+        float dofEnd = reset ? 2.50f : 0.70f;
         float descStart = darkImage.color.a;
         float descEnd = reset ? 0.0f : 1.0f;
 

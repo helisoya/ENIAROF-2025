@@ -1849,6 +1849,9 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 8709ef3d85977d54db139227d898890a, type: 2}
   - {fileID: 11400000, guid: 8d2300ec0c4850245a2d558dc2e4151e, type: 2}
   - {fileID: 11400000, guid: 5c58b27a98bf9cc498f54fd337f8b4be, type: 2}
+  endBookMeshRenderer: {fileID: 0}
+  endBookTitle: {fileID: 0}
+  endBookSyno: {fileID: 0}
 --- !u!4 &1593760722
 Transform:
   m_ObjectHideFlags: 0
@@ -2191,6 +2194,7 @@ MonoBehaviour:
   progressFill: {fileID: 735201756}
   menuRoot: {fileID: 373714623}
   endRoot: {fileID: 241336452}
+  endBook: {fileID: 0}
   transitionAnimator: {fileID: 1775119352}
 --- !u!114 &1778769834
 MonoBehaviour:

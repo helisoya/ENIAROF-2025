@@ -30,8 +30,8 @@ Transform:
   m_GameObject: {fileID: 1687531730097361073}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.09000039, y: 0, z: 0.030000009}
-  m_LocalScale: {x: 0.34943068, y: 1.3989468, z: 1}
+  m_LocalPosition: {x: -4.726, y: 0, z: 0.030000009}
+  m_LocalScale: {x: 0.7051925, y: 1.3989468, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 3833720568681947340}
@@ -58,8 +58,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 0.36, y: 1.02, z: 1}
+  m_Center: {x: 0.08, y: 0, z: 0}
 --- !u!114 &8635060241281550278
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -182,7 +182,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.058, y: -0.06}
+  m_AnchoredPosition: {x: -0.047, y: -0.06}
   m_SizeDelta: {x: 0.6, y: 0.86}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!23 &4899834662023563698
@@ -250,8 +250,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: c'est l'histoire d'un petit poussin qui se baladait dans les bois OH UN
-    LOUP NAN J'AIME PAS LES LOUPS RAHHHHHHHHHHHHH bahahhaahaha que j'aime rire
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -351,7 +350,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.23911737, y: 0.23911737, z: 0.23911737}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 6808027406569105732}
@@ -391,7 +390,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.215, y: 0.153}
+  m_AnchoredPosition: {x: 0.219, y: 0.153}
   m_SizeDelta: {x: 20, y: 5}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!23 &8144164370375715697
