@@ -1,11 +1,12 @@
 using System.Linq;
 using TMPro;
 using UnityEngine;
+using UnityEngine.InputSystem.Controls;
 
 public class BookManager : MonoBehaviour
 {
     public static BookManager instance;
-
+ 
     void Awake() { instance = this; }
 
     public Transform inspectTransform;
@@ -45,6 +46,31 @@ public class BookManager : MonoBehaviour
     }
     private void Update()
     {
+        float scroll = Input.GetAxis("Mouse ScrollWheel");
+
+        // Molette vers le haut
+        if (scroll > 0f)
+        {
+            if (bookInspecting != null)
+            {
+                Vector3 pos = bookInspecting.bookGameObject.transform.localPosition;
+                float z = Mathf.Clamp(pos.z - scroll * 10f, 5f, 10f);
+                pos.z = z;
+                bookInspecting.bookGameObject.transform.localPosition = pos;
+            }
+        }
+        // Molette vers bas
+        else if (scroll < 0f)
+        {
+            if (bookInspecting != null)
+            {
+                Vector3 pos = bookInspecting.bookGameObject.transform.localPosition;
+                float z = Mathf.Clamp(pos.z - scroll * 10f, 5f, 10f);
+                pos.z = z;
+                bookInspecting.bookGameObject.transform.localPosition = pos;
+            }
+        }
+        
         if (Input.GetMouseButtonDown(0) && bookSelected == bookInspecting) startMouseOnInspected = true;
         if (Input.GetMouseButtonUp(0)) startMouseOnInspected = false;
         if (Input.GetMouseButton(0) && bookInspecting) // 0 = Click gauche
@@ -57,7 +83,7 @@ public class BookManager : MonoBehaviour
                 return;
             }
             movingInspected = true;
-            Vector3 rotation = new Vector3(0, -Input.GetAxis("Mouse X"), Input.GetAxis("Mouse Y"));
+            Vector3 rotation = new Vector3(0, -Input.GetAxis("Mouse X") * 5.0f, Input.GetAxis("Mouse Y")* 5.0f);
             bookInspecting.RotateBook(rotation);
         }
         else
@@ -102,12 +128,14 @@ public class BookManager : MonoBehaviour
     {
         books[nextBook].bookName.text = title;
         books[nextBook].bookData.title = title;
+        books[nextBook].UITextTitle.text = "\" " + title + " \"";
     }
 
     public void SetSyno(string syno)
     {
         books[nextBook].bookSyno.text = syno;
         books[nextBook].bookData.synopsis = syno;
+        books[nextBook].UITextTitle.text = syno;
     }
 
     public void SetAuthor(string author)
