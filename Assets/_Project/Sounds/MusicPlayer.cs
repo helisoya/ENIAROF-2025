@@ -27,7 +27,7 @@ public class MusicPlayer : MonoBehaviour
     {
         FMODEvents bonjour = FMODEvents.instance;
         myMusicInstance = RuntimeManager.CreateInstance(bonjour.Gameplay_Music);
-        myMusicInstance.start();
+        myMusicInstance.start();    
 
     }
 
