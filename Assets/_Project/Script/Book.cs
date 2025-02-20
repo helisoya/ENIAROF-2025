@@ -9,7 +9,8 @@ using UnityEngine.Rendering.Universal;
 using UnityEngine.UI;
 
 
-[System.Serializable] public struct SpriteData
+[System.Serializable]
+public struct SpriteData
 {
     [SerializeField] public Sprite sprite;
     [SerializeField] public int level;
@@ -25,14 +26,14 @@ public class Book : MonoBehaviour
         public string synopsis;
         public Sprite spriteCouverture;
         public Sprite spriteBack;
-        public TMP_FontAsset   fontTitle;
-        public TMP_FontAsset   fontAuthor;
-        public TMP_FontAsset   fontSynopsis;
+        public TMP_FontAsset fontTitle;
+        public TMP_FontAsset fontAuthor;
+        public TMP_FontAsset fontSynopsis;
     }
-    
+
     private bool movingBack = false;
     private bool movingForward = false;
-    
+
     [HideInInspector] public GameObject bookGameObject;
     [SerializeField] private BookManager bookManager;
     [HideInInspector] public TextMeshPro bookName;
@@ -48,7 +49,7 @@ public class Book : MonoBehaviour
     private DepthOfField depthOfField;
     public TextMeshProUGUI UITextTitle;
     public TextMeshProUGUI UITextSyn;
-    
+
     private Outline outline;
     private Animator animator;
     private bool inspected;
@@ -66,7 +67,7 @@ public class Book : MonoBehaviour
         animator = GetComponent<Animator>();
         if (postProcess.profile.TryGet<DepthOfField>(out var _depthOfField))
             depthOfField = _depthOfField;
-        
+
         // Init Outline and initialTransform
         outline.enabled = false;
         startPosition = transform.position;
@@ -79,13 +80,13 @@ public class Book : MonoBehaviour
     {
         bookGameObject.transform.eulerAngles += rotation;
     }
-    
+
     private void OnMouseOver()
     {
-        if (!shown ) return;
+        if (!shown) return;
         bookManager.bookSelected = this;
         if (bookManager.bookInspecting != null) return;
-        
+
         if (!inspected && !bookManager.movingInspected)
         {
             outline.enabled = true;
@@ -144,7 +145,7 @@ public class Book : MonoBehaviour
             AudioManager.instance.PlayOneShot(FMODEvents.instance.BookPick_SFX, this.transform.position);
             inspected = true;
             outline.enabled = false;
-            
+
             bookManager.bookInspecting = this;
             StopAllCoroutines();
             StartCoroutine(MoveObject(bookGameObject.transform.position, bookManager.inspectTransform.position, bookGameObject.transform.rotation, bookManager.inspectTransform.rotation, false));
@@ -154,23 +155,23 @@ public class Book : MonoBehaviour
     // Put Book in Lib place
     public void ResetPosition()
     {
-        StartCoroutine(MoveObject(bookGameObject.transform.position, startPosition, bookGameObject.transform.rotation,  startRotation, true));
+        StartCoroutine(MoveObject(bookGameObject.transform.position, startPosition, bookGameObject.transform.rotation, startRotation, true));
         inspected = false;
-        
+
         AudioManager.instance.PlayOneShot(FMODEvents.instance.BookStored_SFX, this.transform.position);
     }
-    
+
     IEnumerator MoveObject(Vector3 startPos, Vector3 endPos, Quaternion startRot, Quaternion endRot, bool reset)
     {
         float time = 0;
         isMoving = true;
         float aStart = darkImage.color.a;
-        float aEnd = reset ? 0.0f : 200/255f;
+        float aEnd = reset ? 0.0f : 200 / 255f;
         float dofStart = darkImage.color.a;
         float dofEnd = reset ? 11.2f : 8.67f;
         float descStart = darkImage.color.a;
         float descEnd = reset ? 0.0f : 1.0f;
-        
+
         while (time < duration)
         {
             float t = time / duration;
@@ -178,19 +179,19 @@ public class Book : MonoBehaviour
 
             bookGameObject.transform.position = Vector3.Lerp(startPos, endPos, easedT);
             bookGameObject.transform.rotation = Quaternion.Slerp(startRot, endRot, easedT);
-            
+
             float a = Mathf.Lerp(aStart, aEnd, easedT);
             Color color = darkImage.color;
             color.a = a;
             darkImage.color = color;
 
             depthOfField.gaussianStart.value = Mathf.Lerp(dofStart, dofEnd, easedT);
-            
+
             Color colorDesc = UITextTitle.color;
             colorDesc.a = Mathf.Lerp(descStart, descEnd, easedT);
             UITextTitle.color = colorDesc;
             UITextSyn.color = colorDesc;
-            
+
             time += Time.deltaTime;
             yield return null;
         }
@@ -204,18 +205,18 @@ public class Book : MonoBehaviour
     {
         int textureSize = 2048;
         Texture2D newTexture = new Texture2D(textureSize, textureSize, TextureFormat.RGBA32, false);
-        
+
         Color[] clearPixels = new Color[textureSize * textureSize];
         for (int i = 0; i < clearPixels.Length; i++)
             clearPixels[i] = new Color(1, 1, 1, 0);
-    
+
         newTexture.SetPixels(clearPixels);
-        
+
         foreach (var spriteData in spriteList)
         {
             Texture2D spriteTexture = spriteData.sprite.texture;
             Color[] spritePixels = spriteTexture.GetPixels();
-        
+
             int startX = Mathf.RoundToInt(spriteData.sprite.rect.x);
             int startY = Mathf.RoundToInt(spriteData.sprite.rect.y);
             int width = Mathf.RoundToInt(spriteData.sprite.rect.width);
@@ -234,10 +235,10 @@ public class Book : MonoBehaviour
                 }
             }
         }
-        
+
         newTexture.SetPixels(clearPixels);
         newTexture.Apply();
-        
+
         var finalSprite = Sprite.Create(newTexture, new Rect(0, 0, newTexture.width, newTexture.height), new Vector2(0.5f, 0.5f));
         finalSprite.name = "New Sprite";
 
@@ -259,8 +260,10 @@ public class Book : MonoBehaviour
         spritesBack.Sort((a, b) => a.level.CompareTo(b.level));
         Merge(meshRenderer, spritesCouverture, true);
         Merge(meshRenderer, spritesBack, false);
-        
-        FileManager.SaveJSON(FileManager.savPath+"/book.json",bookData);
+
+        bookGameObject.SetActive(true);
+
+        FileManager.SaveJSON(FileManager.savPath + "/book.json", bookData);
     }
 
 
@@ -269,7 +272,7 @@ public class Book : MonoBehaviour
         movingForward = true;
         movingBack = false;
     }
-    
+
     public void SetOffAnimStartBook()
     {
         movingForward = false;
