@@ -33,7 +33,7 @@ public class Book : MonoBehaviour
     private bool movingBack = false;
     private bool movingForward = false;
     
-    [SerializeField] private GameObject bookGameObject;
+    [HideInInspector] public GameObject bookGameObject;
     [SerializeField] private BookManager bookManager;
     [HideInInspector] public TextMeshPro bookName;
     [HideInInspector] public TextMeshPro bookSyno;
@@ -46,6 +46,8 @@ public class Book : MonoBehaviour
     [SerializeField] private Volume postProcess;
     [SerializeField] private RawImage darkImage;
     private DepthOfField depthOfField;
+    public TextMeshProUGUI UITextTitle;
+    public TextMeshProUGUI UITextSyn;
     
     private Outline outline;
     private Animator animator;
@@ -123,6 +125,8 @@ public class Book : MonoBehaviour
                 if (bookManager.bookInspecting.isMoving) bookManager.bookInspecting.StopAllCoroutines();
                 bookManager.bookInspecting.ResetPosition();
             }
+            UITextTitle.text = "\" " + bookData.title + " \"";
+            UITextSyn.text = bookData.synopsis;
             animator.Play("MouseExit");
             inspected = true;
             outline.enabled = false;
@@ -148,7 +152,8 @@ public class Book : MonoBehaviour
         float aEnd = reset ? 0.0f : 200/255f;
         float dofStart = darkImage.color.a;
         float dofEnd = reset ? 11.2f : 8.67f;
-        
+        float descStart = darkImage.color.a;
+        float descEnd = reset ? 0.0f : 1.0f;
         
         while (time < duration)
         {
@@ -164,6 +169,11 @@ public class Book : MonoBehaviour
             darkImage.color = color;
 
             depthOfField.gaussianStart.value = Mathf.Lerp(dofStart, dofEnd, easedT);
+            
+            Color colorDesc = UITextTitle.color;
+            colorDesc.a = Mathf.Lerp(descStart, descEnd, easedT);
+            UITextTitle.color = colorDesc;
+            UITextSyn.color = colorDesc;
             
             time += Time.deltaTime;
             yield return null;
