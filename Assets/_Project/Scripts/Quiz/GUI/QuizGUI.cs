@@ -1,6 +1,7 @@
 using System.Collections;
 using Febucci.UI;
 using TMPro;
+using UnityEditor.MPE;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -70,6 +71,7 @@ public class QuizGUI : MonoBehaviour
     public void SetProgressFill(float fillAmount)
     {
         progressFill.fillAmount = fillAmount; //fillAmount entre 0 et 1
+        MusicPlayer.instance.SetMusicProgression("Progression", fillAmount);
     }
 
 

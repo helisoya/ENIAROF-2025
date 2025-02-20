@@ -36,6 +36,11 @@ public class MusicPlayer : MonoBehaviour
         //myMusicInstance.setParameterByName("Health", 10);
     }
 
+    public void SetMusicProgression(string parameterName,float parameterValue)
+    {
+        myMusicInstance.setParameterByName(parameterName, parameterValue);
+    }
+
     public void OutofMenu()
     {
        // myMusicInstance.setParameterByName("menu", 0);
