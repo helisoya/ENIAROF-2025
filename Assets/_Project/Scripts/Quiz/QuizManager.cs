@@ -407,7 +407,11 @@ public class QuizManager : MonoBehaviour
         }
         else if (element.type == CoverElement.CoverElementType.MATERIAL)
         {
+            bool golden = element.ID.Contains("Golden");
+            bool holo = element.ID.Contains("Holo");
             // Change material
+            if (element.placement != CoverElement.CoverElementPlacement.FRONT) BookManager.instance.SetBackMaterial(holo, golden);
+            if (element.placement != CoverElement.CoverElementPlacement.BACK) BookManager.instance.SetBackMaterial(holo, golden);
         }
         else
         {
