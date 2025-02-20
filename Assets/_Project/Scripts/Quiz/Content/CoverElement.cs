@@ -7,6 +7,7 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "CoverElement", menuName = "ENIAROF/CoverElement")]
 public class CoverElement : ScriptableObject
 {
+
 	public enum CoverElementType
 	{
 		BACKGROUNDCOLOR,
