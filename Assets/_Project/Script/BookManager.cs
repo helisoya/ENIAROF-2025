@@ -18,7 +18,7 @@ public class BookManager : MonoBehaviour
 
     public bool movingInspected;
     private bool startMouseOnInspected;
-    [HideInInspector] public Book[] books = new Book[96];
+    public Book[] books = new Book[96];
 
     private int caseTooMuch;
     [HideInInspector] public int nextBook;
@@ -101,7 +101,6 @@ public class BookManager : MonoBehaviour
     {
         GetUnusedBook();
         books[nextBook].SetPositionBeforeEditing();
-        books[nextBook].RotateBook();
         books[nextBook].rangee = false;
     }
 

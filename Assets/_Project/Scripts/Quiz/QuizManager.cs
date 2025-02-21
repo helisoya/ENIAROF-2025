@@ -15,11 +15,6 @@ public class QuizManager : MonoBehaviour
     [Header("Steps")]
     [SerializeField] private Step[] steps;
 
-    [Header("End Book")]
-    [SerializeField] private MeshRenderer endBookMeshRenderer;
-    [SerializeField] private TextMeshPro endBookTitle;
-    [SerializeField] private TextMeshPro endBookSyno;
-
     private int currentStep;
     private List<string> questionsDone;
     private List<string> anwsersSelected;

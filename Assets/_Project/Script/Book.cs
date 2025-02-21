@@ -72,8 +72,6 @@ public class Book : MonoBehaviour
 
         // Init Outline and initialTransform
         outline.enabled = false;
-        startPosition = gameObject.transform.position;
-        startRotation = gameObject.transform.rotation;
         //bookGameObject.SetActive(shown);
         meshRenderer.enabled = shown;
         bookName.enabled = shown;
@@ -172,12 +170,15 @@ public class Book : MonoBehaviour
 
     public void SetPositionBeforeEditing()
     {
+        startPosition = gameObject.transform.position;
+        startRotation = gameObject.transform.rotation;
         StartCoroutine(MoveObject(bookGameObject.transform.position,bookManager.beforeEditTransform.position, bookGameObject.transform.rotation, bookManager.beforeEditTransform.rotation, true, duration, false));
         // do not play sound !
     }
     
     public void SetPositionEditing()
     {
+        RotateBook();
         StartCoroutine(MoveObject(bookGameObject.transform.position,bookManager.editTransform.position, bookGameObject.transform.rotation, bookManager.editTransform.rotation, true, duration * 2f, false));
         // do not play sound !
     }
