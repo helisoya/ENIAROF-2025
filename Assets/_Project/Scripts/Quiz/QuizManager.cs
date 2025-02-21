@@ -32,6 +32,9 @@ public class QuizManager : MonoBehaviour
 
     private int status; // 0 Main Menu, 1 QCM, 2 End
 
+    private int amountOne;
+    private int amountTwo;
+
     void Start()
     {
         status = 0;
@@ -91,7 +94,7 @@ public class QuizManager : MonoBehaviour
         TitlePool[] pools = Resources.LoadAll<TitlePool>("Titles/");
         foreach (TitlePool pool in pools)
         {
-            if ((boostFem && pool.ID.Contains("_Fem_")) || (!boostFem && pool.ID.Contains("_Masc_")))
+            if ((boostFem && pool.ID.Contains("Fem_")) || (!boostFem && pool.ID.Contains("Masc_")))
             {
                 titlePoolsWeights.Add(pool.ID, 100);
             }
@@ -108,7 +111,7 @@ public class QuizManager : MonoBehaviour
 
         if (currentStep == steps.Length)
         {
-            QuizGUI.instance.SetButtonHidden(true);
+            QuizGUI.instance.SetButtonHidden(false);
             QuizGUI.instance.SetQuestionLabel("");
 
             GenerateTitle();
@@ -219,9 +222,11 @@ public class QuizManager : MonoBehaviour
     /// <param name="idxAnwser">The anwser's index</param>
     public void SelectAnwser(int idxAnwser)
     {
+        if (idxAnwser == 0) amountOne++;
+        else if (idxAnwser == 1) amountTwo++;
+
         stepProgress++;
         globalProgress++;
-        QuizGUI.instance.SetProgressFill((float)globalProgress / maxProgress);
 
         questionsDone.Add(currentQuestion.ID);
         anwsersSelected.Add(currentAnwsers[idxAnwser].ID);
@@ -281,13 +286,15 @@ public class QuizManager : MonoBehaviour
     IEnumerator Routine_SelectionAnimation(int idxAnwser)
     {
         QuizGUI.instance.StartAnimationForButton(idxAnwser);
-        
+
 
         yield return new WaitForSeconds(1f);
         QuizGUI.instance.ShowTransition(idxAnwser);
 
         yield return new WaitForSeconds(0.5f);
 
+
+        QuizGUI.instance.SetProgressFill((float)globalProgress / maxProgress);
         QuizGUI.instance.SetButtonHidden(false);
         QuizGUI.instance.SetQuestionLabel("");
 
@@ -311,13 +318,12 @@ public class QuizManager : MonoBehaviour
             }
             else if (status == 2)
             {
+                status = 0;
                 QuizGUI.instance.TransitionTo(0);
                 bookManager.books[bookManager.nextBook].StopAllCoroutines();
                 bookManager.books[bookManager.nextBook].ResetPosition(bookManager.books[bookManager.nextBook].duration, true);
                 AudioManager.instance.PlayOneShot(FMODEvents.instance.ButtonGameFinish_SFX, this.transform.position);
                 MusicPlayer.instance.CongratulationsSFXStop();
-                status = 0;
-
                 //Play Sound (livre à la fin, appuyer pour relancer une partie)
             }
         }
@@ -329,7 +335,7 @@ public class QuizManager : MonoBehaviour
         {
             if (status == 0)
             {
-                NewGame(); 
+                NewGame();
                 AudioManager.instance.PlayOneShot(FMODEvents.instance.ButtonGameStart_SFX, this.transform.position);
             }
             else if (status == 1 && currentQuestion != null)
@@ -339,12 +345,12 @@ public class QuizManager : MonoBehaviour
             }
             else if (status == 2)
             {
+                status = 0;
                 QuizGUI.instance.TransitionTo(0);
                 bookManager.books[bookManager.nextBook].StopAllCoroutines();
                 bookManager.books[bookManager.nextBook].ResetPosition(bookManager.books[bookManager.nextBook].duration, true);
                 AudioManager.instance.PlayOneShot(FMODEvents.instance.ButtonGameFinish_SFX, this.transform.position);
                 MusicPlayer.instance.CongratulationsSFXStop();
-                status = 0;
             }
         }
     }

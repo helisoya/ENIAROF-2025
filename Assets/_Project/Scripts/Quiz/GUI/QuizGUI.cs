@@ -101,9 +101,9 @@ public class QuizGUI : MonoBehaviour
             //else anwsers[i].SetHidden(true);
             else anwsers[i].SetAnimationTrigger("Hide");
         }*/
-        anwsers[buttonIdx].SetAnimationTrigger("Interract");
+        anwsers[0].SetAnimationTrigger(buttonIdx == 0 ? "Interract" : "Hide");
         //else anwsers[i].SetHidden(true);
-        anwsers[Mathf.Abs(buttonIdx - 1)].SetAnimationTrigger("Hide");
+        anwsers[1].SetAnimationTrigger(buttonIdx == 1 ? "Interract" : "Hide");
     }
 
     /// <summary>
