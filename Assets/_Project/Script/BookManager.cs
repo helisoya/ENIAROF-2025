@@ -132,6 +132,9 @@ public class BookManager : MonoBehaviour
         {
             books[nextBook].bookData.spriteSide = _spriteData.sprite;
             books[nextBook].meshRenderer.materials[0].mainTexture = _spriteData.sprite.texture;
+
+            float color = _spriteData.sprite.texture.GetPixel(_spriteData.sprite.texture.width / 2, _spriteData.sprite.texture.height / 2).grayscale;
+            books[nextBook].bookName.color = color < 0.5f ? Color.white : Color.black;
         }
         //books[nextBook].spritesCouverture.OrderBy(x => x.level).ToList();
         //books[nextBook].spriteMerger.Merge(books[nextBook].meshRenderer, books[nextBook].spritesCouverture, true);
