@@ -10,16 +10,18 @@ public class BookManager : MonoBehaviour
     void Awake() { instance = this; }
 
     public Transform inspectTransform;
+    public Transform beforeEditTransform;
+    public Transform editTransform;
 
     [HideInInspector] public Book bookInspecting;
     [HideInInspector] public Book bookSelected;
 
     public bool movingInspected;
     private bool startMouseOnInspected;
-    [SerializeField] private Book[] books = new Book[96];
+    [HideInInspector] public Book[] books = new Book[96];
 
     private int caseTooMuch;
-    private int nextBook;
+    [HideInInspector] public int nextBook;
 
     private void Start()
     {
@@ -34,14 +36,6 @@ public class BookManager : MonoBehaviour
             {
                 books[i].ShowBook();
             }
-            else if (nextBook == -1) nextBook = i; //First index with book unused
-        }
-
-        // case we don't have place for another book
-        if (nextBook == -1)
-        {
-            nextBook = caseTooMuch;
-            caseTooMuch++;
         }
     }
     private void Update()
@@ -49,23 +43,12 @@ public class BookManager : MonoBehaviour
         float scroll = Input.GetAxis("Mouse ScrollWheel");
 
         // Molette vers le haut
-        if (scroll > 0f)
+        if (scroll != 0f)
         {
             if (bookInspecting != null)
             {
                 Vector3 pos = bookInspecting.bookGameObject.transform.localPosition;
-                float z = Mathf.Clamp(pos.z - scroll * 10f, 5f, 10f);
-                pos.z = z;
-                bookInspecting.bookGameObject.transform.localPosition = pos;
-            }
-        }
-        // Molette vers bas
-        else if (scroll < 0f)
-        {
-            if (bookInspecting != null)
-            {
-                Vector3 pos = bookInspecting.bookGameObject.transform.localPosition;
-                float z = Mathf.Clamp(pos.z - scroll * 10f, 5f, 10f);
+                float z = Mathf.Clamp(pos.z - scroll * 1f, -13.19f, -12.75f);
                 pos.z = z;
                 bookInspecting.bookGameObject.transform.localPosition = pos;
             }
@@ -78,7 +61,7 @@ public class BookManager : MonoBehaviour
             if (!startMouseOnInspected)
             {
                 bookInspecting.StopAllCoroutines();
-                bookInspecting.ResetPosition();
+                bookInspecting.ResetPosition(bookInspecting.duration, bookInspecting.rangee);
                 bookInspecting = null;
                 return;
             }
@@ -116,12 +99,10 @@ public class BookManager : MonoBehaviour
     // Called every time we want to create another book
     public void StartGame()
     {
-        // case we restart a game (nextBook = -1 when game is finished)
-        if (nextBook == -1)
-            GetUnusedBook();
-
-        // Display questions view
-
+        GetUnusedBook();
+        books[nextBook].SetPositionBeforeEditing();
+        books[nextBook].RotateBook();
+        books[nextBook].rangee = false;
     }
 
     public void SetTitle(string title)
@@ -148,6 +129,11 @@ public class BookManager : MonoBehaviour
     public void AddToCouverture(SpriteData _spriteData)
     {
         books[nextBook].spritesCouverture.Add(_spriteData);
+        if (_spriteData.level == 0)
+        {
+            books[nextBook].bookData.spriteSide = _spriteData.sprite;
+            books[nextBook].meshRenderer.materials[0].mainTexture = _spriteData.sprite.texture;
+        }
         //books[nextBook].spritesCouverture.OrderBy(x => x.level).ToList();
         //books[nextBook].spriteMerger.Merge(books[nextBook].meshRenderer, books[nextBook].spritesCouverture, true);
     }
@@ -174,14 +160,14 @@ public class BookManager : MonoBehaviour
 
     public void SetBackMaterial(bool holographic, bool golden)
     {
-        books[nextBook].meshRenderer.materials[2].SetFloat("_IsHolographic", holographic ? 1 : 0);
-        books[nextBook].meshRenderer.materials[2].SetFloat("_IsGolden", golden ? 1 : 0);
+        books[nextBook].meshRenderer.materials[1].SetFloat("_IsHolographic", holographic ? 1 : 0);
+        books[nextBook].meshRenderer.materials[1].SetFloat("_IsGolden", golden ? 1 : 0);
     }
 
     public void SetFrontMaterial(bool holographic, bool golden)
     {
-        books[nextBook].meshRenderer.materials[1].SetFloat("_IsHolographic", holographic ? 1 : 0);
-        books[nextBook].meshRenderer.materials[1].SetFloat("_IsGolden", golden ? 1 : 0);
+        books[nextBook].meshRenderer.materials[2].SetFloat("_IsHolographic", holographic ? 1 : 0);
+        books[nextBook].meshRenderer.materials[2].SetFloat("_IsGolden", golden ? 1 : 0);
     }
 
     public void SetFontAuthor(TMP_FontAsset font)
@@ -196,7 +182,9 @@ public class BookManager : MonoBehaviour
         // set book position behind Cam, set display camera into lib one, set book in inspectionPlace.
         current.shown = true;
         current.ShowBook();
-        nextBook = -1;
+        //current.ResetPosition(current.duration * 3f);
+        current.SetPositionEditing();
+        //nextBook = -1;
 
         return current;
     }

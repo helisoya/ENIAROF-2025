@@ -26,6 +26,7 @@ public class Book : MonoBehaviour
         public string synopsis;
         public Sprite spriteCouverture;
         public Sprite spriteBack;
+        public Sprite spriteSide;
         public TMP_FontAsset fontTitle;
         public TMP_FontAsset fontAuthor;
         public TMP_FontAsset fontSynopsis;
@@ -41,8 +42,8 @@ public class Book : MonoBehaviour
     public bool shown;
     [HideInInspector] public BookData bookData;
     public MeshRenderer meshRenderer;
-    [SerializeField] public List<SpriteData> spritesCouverture;
-    [SerializeField] public List<SpriteData> spritesBack;
+    [HideInInspector] public List<SpriteData> spritesCouverture;
+    [HideInInspector] public List<SpriteData> spritesBack;
     [HideInInspector] public SpriteMerger spriteMerger;
     [SerializeField] private Volume postProcess;
     [SerializeField] private RawImage darkImage;
@@ -53,10 +54,11 @@ public class Book : MonoBehaviour
     private Outline outline;
     private Animator animator;
     private bool inspected;
-    private float duration = 0.75f;
+    public float duration = 0.75f;
     private Vector3 startPosition;
     private Quaternion startRotation;
     private bool isMoving;
+    public bool rangee = true;
 
     private bool audioPlayed = false;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -70,9 +72,15 @@ public class Book : MonoBehaviour
 
         // Init Outline and initialTransform
         outline.enabled = false;
-        startPosition = transform.position;
-        startRotation = transform.rotation;
-        bookGameObject.SetActive(shown);
+        startPosition = gameObject.transform.position;
+        startRotation = gameObject.transform.rotation;
+        //bookGameObject.SetActive(shown);
+        meshRenderer.enabled = shown;
+        bookName.enabled = shown;
+        bookSyno.enabled = shown;
+        
+        meshRenderer.materials[1].mainTextureScale = new Vector2(-1, 1);
+        meshRenderer.materials[2].mainTextureScale = new Vector2(-1, 1);
     }
 
     // Rotate Book (inspect)
@@ -83,7 +91,7 @@ public class Book : MonoBehaviour
 
     private void OnMouseOver()
     {
-        if (!shown) return;
+        if (!shown || !rangee) return;
         bookManager.bookSelected = this;
         if (bookManager.bookInspecting != null) return;
 
@@ -107,7 +115,7 @@ public class Book : MonoBehaviour
 
     private void OnMouseExit()
     {
-        if (!shown) return;
+        if (!shown || !rangee) return;
         if (bookManager.bookSelected == this) bookManager.bookSelected = null;
         if (bookManager.bookInspecting != null) return;
         if (!inspected && !bookManager.movingInspected)
@@ -129,14 +137,14 @@ public class Book : MonoBehaviour
 
     private void OnMouseDown()
     {
-        if (!shown) return;
+        if (!shown || !rangee) return;
         if (!inspected && bookManager.bookInspecting == null)
         {
             // reset position of the last book inspected if there is one
             if (bookManager.bookInspecting)
             {
                 if (bookManager.bookInspecting.isMoving) bookManager.bookInspecting.StopAllCoroutines();
-                bookManager.bookInspecting.ResetPosition();
+                bookManager.bookInspecting.ResetPosition(duration, rangee);
                 AudioManager.instance.PlayOneShot(FMODEvents.instance.BookStored_SFX, this.transform.position);
             }
             UITextTitle.text = "\" " + bookData.title + " \"";
@@ -148,21 +156,35 @@ public class Book : MonoBehaviour
 
             bookManager.bookInspecting = this;
             StopAllCoroutines();
-            StartCoroutine(MoveObject(bookGameObject.transform.position, bookManager.inspectTransform.position, bookGameObject.transform.rotation, bookManager.inspectTransform.rotation, false));
+            StartCoroutine(MoveObject(bookGameObject.transform.position, bookManager.inspectTransform.position, bookGameObject.transform.rotation, bookManager.inspectTransform.rotation, false, duration, rangee));
         }
     }
 
     // Put Book in Lib place
-    public void ResetPosition()
+    public void ResetPosition(float _duration, bool _rangee)
     {
-        StartCoroutine(MoveObject(bookGameObject.transform.position, startPosition, bookGameObject.transform.rotation, startRotation, true));
+        StopRotateBook();
+        StartCoroutine(MoveObject(bookGameObject.transform.position, startPosition, bookGameObject.transform.rotation, startRotation, true, _duration, _rangee));
         inspected = false;
 
         AudioManager.instance.PlayOneShot(FMODEvents.instance.BookStored_SFX, this.transform.position);
     }
 
-    IEnumerator MoveObject(Vector3 startPos, Vector3 endPos, Quaternion startRot, Quaternion endRot, bool reset)
+    public void SetPositionBeforeEditing()
     {
+        StartCoroutine(MoveObject(bookGameObject.transform.position,bookManager.beforeEditTransform.position, bookGameObject.transform.rotation, bookManager.beforeEditTransform.rotation, true, duration, false));
+        // do not play sound !
+    }
+    
+    public void SetPositionEditing()
+    {
+        StartCoroutine(MoveObject(bookGameObject.transform.position,bookManager.editTransform.position, bookGameObject.transform.rotation, bookManager.editTransform.rotation, true, duration * 2f, false));
+        // do not play sound !
+    }
+
+    IEnumerator MoveObject(Vector3 startPos, Vector3 endPos, Quaternion startRot, Quaternion endRot, bool reset, float _duration, bool _rangee)
+    {
+        // 0.7 plane distance if we don't want plants
         float time = 0;
         isMoving = true;
         float aStart = darkImage.color.a;
@@ -172,9 +194,9 @@ public class Book : MonoBehaviour
         float descStart = darkImage.color.a;
         float descEnd = reset ? 0.0f : 1.0f;
 
-        while (time < duration)
+        while (time < _duration)
         {
-            float t = time / duration;
+            float t = time / _duration;
             float easedT = t * t * (3 - 2 * t);
 
             bookGameObject.transform.position = Vector3.Lerp(startPos, endPos, easedT);
@@ -195,7 +217,7 @@ public class Book : MonoBehaviour
             time += Time.deltaTime;
             yield return null;
         }
-
+        rangee = _rangee;
         isMoving = false;
         transform.position = endPos;
         transform.rotation = endRot;
@@ -244,12 +266,12 @@ public class Book : MonoBehaviour
 
         if (couverture)
         {
-            _meshRenderer.materials[1].mainTexture = finalSprite.texture;
+            _meshRenderer.materials[2].mainTexture = finalSprite.texture;
             bookData.spriteCouverture = finalSprite;
         }
         else
         {
-            _meshRenderer.materials[2].mainTexture = finalSprite.texture;
+            _meshRenderer.materials[1].mainTexture = finalSprite.texture;
             bookData.spriteBack = finalSprite;
         }
     }
@@ -261,7 +283,10 @@ public class Book : MonoBehaviour
         Merge(meshRenderer, spritesCouverture, true);
         Merge(meshRenderer, spritesBack, false);
 
-        bookGameObject.SetActive(true);
+        //bookGameObject.SetActive(true);
+        meshRenderer.enabled = true;
+        bookName.enabled = true;
+        bookSyno.enabled = true;
 
         //FileManager.SaveJSON(FileManager.savPath + "/book.json", bookData);
     }
@@ -277,5 +302,31 @@ public class Book : MonoBehaviour
     {
         movingForward = false;
         movingBack = true;
+    }
+
+    public Texture GetTextureCouverture()
+    {
+        return meshRenderer.materials[2].mainTexture;
+    }
+
+    public Texture GetTextureBack()
+    {
+        return meshRenderer.materials[1].mainTexture;
+    }
+
+    public Texture GetTextureSide()
+    {
+        return meshRenderer.materials[0].mainTexture;
+    }
+
+    public void RotateBook()
+    {
+        animator.SetBool("isRotating", true);
+    }
+    
+    public void StopRotateBook()
+    {
+        animator.SetBool("isRotating", false);
+        gameObject.transform.rotation = Quaternion.identity;
     }
 }
