@@ -1,0 +1,33 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0e2140d8a37cc6545bbc96e9d54e50bb, type: 3}
+  m_Name: SET_persos
+  m_EditorClassIdentifier: 
+  ID: SET_persos
+  type: 8
+  placement: 1
+  linkedElements:
+  - SUJ_Future_Warrior_FRONT
+  - SUJ_Reptile_Skel_FRONT
+  - SUJ_Stylish_Guy_Stars_FRONT
+  - SUJ_Alien_FRONT
+  - SUJ_Reptile_FRONT
+  - SUJ_People_Kiss_FRONT
+  - SUJ_Hothothot_FRONT
+  - SUJ_Cherub_FRONT
+  - SUJ_Knight_FRONT
+  - SUJ_Unicorn_FRONT
+  - SUJ_Zombie_FRONT
+  - SUJ_Killer_FRONT
+  - SUJ_Deads_FRONT
+  - SUJ_Monster_FRONT
+  - SUJ_Ghost_FRONT

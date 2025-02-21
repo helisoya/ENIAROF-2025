@@ -1,5 +1,22 @@
 Nom question (Id)	Étape	Corps de la question (200 caractères max)	Réponses	Doit avoir ces réponses	Doit NE PAS avoir ces réponses
 Genre_Reve	Genre	Le matin, vous vous rappelez de votre rêve :	Genre_Reve_SF, Genre_Reve_Horreur, Genre_Reve_Love, Genre_Reve_Fantasy		
 Genre_Passion	Genre	Votre plus grande passion dans la vie c'est :	Genre_Passion_SF, Genre_Passion_Horreur, Genre_Passion_Love, Genre_Passion_Fantasy		
-Couverture_Couleur	Couverture	Quel est votre fruit préféré ?	Couv_Couleur_R1, Couv_Couleur_R2, Couv_Couleur_R3, Couv_Couleur_R4, Couv_Couleur_R5			
+Genre_Nouvelle	Genre	Quelle nouvelle vous ferait le plus plaisir :	Genre_Nouvelle_SF, Genre_Nouvelle_Horreur, Genre_Nouvelle_Love, Genre_Nouvelle_Fantasy		
+Gel_Douche	Genre	Votre gel douche de tous les jours :	Gel_Douche_1, Gel_Douche_2, Gel_Douche_3, Gel_Douche_4, Gel_Douche_5, Gel_Douche_6		
+Fromage	Genre	Si vous étiez un fromage :	Fromage_1, Fromage_2, Fromage_3, Fromage_4		
+Plat	Genre	Votre plat préféré :	Plat_1, Plat_2, Plat_3, Plat_4		
+Meteo	Genre	La météo qui vous donne le sourire :	Meteo_1, Meteo_2, Meteo_3, Meteo_4		
+Chocolatine	Genre	Préférez-vous les pains au chocolat ou les chocolatines ?	Chocolatine_1, Chocolatine_2, Chocolatine_3, Chocolatine_4, Chocolatine_5, Chocolatine_6		
+Chanson	Couverture	Quel est votre chanson préférée ?	Chanson_1, Chanson_2, Chanson_3, Chanson_4, Chanson_5, Chanson_6, Chanson_7, Chanson_8, Chanson_9, Chanson_10, Chanson_11, Chanson_12, Chanson_13		
+Couverture_Couleur	Couverture	Quel est votre fruit préféré ?	Couv_Couleur_Noir, Couv_Couleur_Marron, Couv_Couleur_Jaune, Couv_Couleur_Orange, Couv_Couleur_Rouge		
+Couverture_Couleur_Fleur	Couverture	Auel type de fleur préférez-vous ?	Couv_Couleur_Violet, Couv_Couleur_Or, Couv_Couleur_Rose		
+Couv_Habiter	Couverture	Dans quel endroit préféreriez-vous habiter ?	Couv_Habiter_GratteCiel, Couv_Habiter_Chateau, Couv_Habiter_Urbain, Couv_Habiter_Cimetiere		
+Droitier_Gaucher	Couverture	Droitier ou gaucher ?	Droitier_Gaucher_1, Droitier_Gaucher_2, Droitier_Gaucher_3, Droitier_Gaucher_4		
+Angouniarof	Couverture	Quelle attraction Angouniarof êtes-vous ?	Angouniarof_1, Angouniarof_2, Angouniarof_3, Angouniarof_4, Angouniarof_5, Angouniarof_6, Angouniarof_7, Angouniarof_8, Angouniarof_9, Angouniarof_10, Angouniarof_11		
+Crampte	Couverture	Avez-vous les cramptés ?	Crampte_1, Crampte_2, Crampte_3		
+Pizza	Couverture	Quelle pizza êtes-vous ?	Pizza_1, Pizza_2, Pizza_3, Pizza_4		
+Carriere_pro	Couverture	Votre carrière professionnelle de rêve :	Carriere_1, Carriere_2, Carriere_3, Carriere_4		
+Saucisson	Couverture	Quelle est l'occasion la plus appropriée pour sortir un saucisson ?	Saucisson_1, Saucisson_2, Saucisson_3, Saucisson_4, Saucisson_5		
+Titre_Adjectif	Titre	En vrai de vrai, vos parents sont fiers de vous ?	Titre_Adjectif_Positif, Titre_Adjectif_Negatif		
 Titre_Sujet	Titre	Aujourd'hui, vous avez envie de...	Titre_Sujet_Lieux, Titre_Sujet_Objets, Titre_Sujet_Heros, Titre_Sujet_Ennemis		
+Couverture_Couleur_Astre	Titre	Quel est votre astre préféré ?	Couv_Couleur_Blanche, Couv_Couleur_Bleu		

@@ -7,6 +7,7 @@ using UnityEngine;
 /// </summary>
 public class AnwserGUI : MonoBehaviour
 {
+
     [SerializeField] private TextMeshProUGUI labelText;
     [SerializeField] private GameObject buttonRoot;
     [SerializeField] private Animator animator;

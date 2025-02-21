@@ -10,12 +10,18 @@ public class FMODEvents : MonoBehaviour
     [field: SerializeField] public EventReference ButtonClickLeft_SFX {get; private set;}
     [field: SerializeField] public EventReference ButtonClickRight_SFX {get; private set;}
     
-    [field: SerializeField] public EventReference Transition_SFX {get; private set;}
+    [field: SerializeField] public EventReference ButtonGameStart_SFX {get; private set;}
+    [field: SerializeField] public EventReference ButtonGameFinish_SFX {get; private set;}
+
+    [field: SerializeField] public EventReference Transition_RL_SFX {get; private set;}
+
+    [field: SerializeField] public EventReference Transition_LR_SFX { get; private set; }
 
     [field: SerializeField] public EventReference BookCompleted_SFX {get; private set;}
 
     [field: Header("Library Menu")]
-    [field: SerializeField] public EventReference BookHover_SFX { get; private set; }
+    [field: SerializeField] public EventReference BookHoverIn_SFX { get; private set; }
+    [field: SerializeField] public EventReference BookHoverOut_SFX { get; private set; }
     [field: SerializeField] public EventReference BookPick_SFX { get; private set; }
     
     [field: SerializeField] public EventReference BookStored_SFX { get; private set; }

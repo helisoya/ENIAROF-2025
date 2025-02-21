@@ -1,0 +1,46 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 715c0086bf2e5364583fa3a3164a8e66, type: 3}
+  m_Name: Plat
+  m_EditorClassIdentifier: 
+  ID: Plat
+  isFirstQuestion: 0
+  label: "Votre plat pr\xE9f\xE9r\xE9 :"
+  requirements: []
+  anwsers:
+  - ID: Plat_1
+    label: "Le r\xF4ti de Manticore aux champignons, si savoureux !"
+    actions:
+    - "AddPoolScore(Fantasy_Masc_D\xE9but_Ennemis;1)"
+    - "AddPoolScore(Fantasy_Fem_D\xE9but_Ennemis;1)"
+    - AddElement(SET_fantasy;1)
+  - ID: Plat_2
+    label: "Des pillules extra parfaites pour la sant\xE9, quel gain de temps !"
+    actions:
+    - "AddPoolScore(SF_Fem_D\xE9but_Heros;1)"
+    - "AddPoolScore(SF_Masc_D\xE9but_Heros;1)"
+    - AddElement(SET_SF;1)
+    - AddElement(MAT_Holo_FRONT;1)
+  - ID: Plat_3
+    label: Un steak bien bien saignant avec un verre de chianti
+    actions:
+    - "AddPoolScore(Fantasy_Masc_D\xE9but_Objets;1)"
+    - "AddPoolScore(Fantasy_Fem_D\xE9but_Objets;1)"
+    - AddElement(SET_horreur;1)
+  - ID: Plat_4
+    label: "Un plat de spaghettis \xE0 partager \xE0 deux"
+    actions:
+    - "AddPoolScore(Amour_Masc_D\xE9but_Heros;1)"
+    - "AddPoolScore(Amour_Fem_D\xE9but_Heros;1)"
+    - AddElement(SUJ_Animals_Kiss_FRONT;1)
+    - AddElement(SUJ_People_Kiss_FRONT;1)
+    - AddElement(SET_amour;1)

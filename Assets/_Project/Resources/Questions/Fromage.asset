@@ -1,0 +1,38 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 715c0086bf2e5364583fa3a3164a8e66, type: 3}
+  m_Name: Fromage
+  m_EditorClassIdentifier: 
+  ID: Fromage
+  isFirstQuestion: 0
+  label: "Si vous \xE9tiez un fromage :"
+  requirements: []
+  anwsers:
+  - ID: Fromage_1
+    label: "Le fromage \xE0 tartiner, bien propre"
+    actions:
+    - AddElement(SET_SF;1)
+  - ID: Fromage_2
+    label: "Le camembert fermier, puissant et d\xE9goulinant"
+    actions:
+    - AddElement(SET_fantasy;1)
+  - ID: Fromage_3
+    label: "La tome de licorne, ros\xE9 et \xE0 paillettes"
+    actions:
+    - AddElement(MAT_Holo_FRONT;1)
+    - AddElement(SUJ_Unicorn_FRONT;1)
+    - AddElement(SET_fantasy;1)
+  - ID: Fromage_4
+    label: "Le caprice des dieux, caprice \xE0 deux :)"
+    actions:
+    - AddElement(SUJ_Cherub_FRONT;1)
+    - AddElement(SET_amour;1)

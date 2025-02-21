@@ -1,3 +1,5 @@
+using System.Collections;
+using Febucci.UI;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -7,15 +9,24 @@ using UnityEngine.UI;
 /// </summary>
 public class QuizGUI : MonoBehaviour
 {
-    [Header("Question")]
-    [SerializeField] private TextMeshProUGUI questionLabelText;
-    [SerializeField] private AnwserGUI[] anwsers;
 
-    [Header("Progress")]
+    [Header("QCM")]
+    [SerializeField] private GameObject qcmRoot;
+    [SerializeField] private TypewriterByCharacter questionLabelText;
+    [SerializeField] private AnwserGUI[] anwsers;
     [SerializeField] private Image progressFill;
+
+    [Header("Menu")]
+    [SerializeField] private GameObject menuRoot;
+
+    [Header("End")]
+    [SerializeField] private GameObject endRoot;
 
     [Header("Transition")]
     [SerializeField] private Animator transitionAnimator;
+
+    private Coroutine routineTransition;
+    public bool IsTransitioning { get { return routineTransition != null; } }
 
     public static QuizGUI instance;
 
@@ -25,12 +36,39 @@ public class QuizGUI : MonoBehaviour
     }
 
     /// <summary>
+    /// Starts a transition to a menu
+    /// </summary>
+    /// <param name="menu">Menu Index</param>
+    public void TransitionTo(int menu)
+    {
+        if (routineTransition != null) return;
+
+        routineTransition = StartCoroutine(Routine_To(menu));
+    }
+
+    IEnumerator Routine_To(int menu)
+    {
+        if (menu != 2) ShowTransition(0);
+
+        yield return new WaitForSeconds(0.5f);
+
+        menuRoot.SetActive(menu == 0);
+        qcmRoot.SetActive(menu == 1);
+        endRoot.SetActive(menu == 2);
+
+        yield return new WaitForSeconds(0.5f);
+
+        routineTransition = null;
+    }
+
+    /// <summary>
     /// Sets the progress's fill amount on the GUI
     /// </summary>
     /// <param name="fillAmount">The fill amount of the GUI</param>
     public void SetProgressFill(float fillAmount)
     {
-        progressFill.fillAmount = fillAmount;
+        progressFill.fillAmount = fillAmount; //fillAmount entre 0 et 1
+        MusicPlayer.instance.SetMusicProgression("Progression", fillAmount);
     }
 
 
@@ -41,7 +79,8 @@ public class QuizGUI : MonoBehaviour
     /// <param name="anwsers">The awnser to display</param>
     public void SetQuestion(Question question, Anwser[] questionAnwsers)
     {
-        questionLabelText.text = question.label;
+        //questionLabelText.text = question.label;
+        questionLabelText.ShowText(question.label);
 
         for (int i = 0; i < questionAnwsers.Length && i < anwsers.Length; i++)
         {
@@ -55,11 +94,15 @@ public class QuizGUI : MonoBehaviour
     /// <param name="buttonIdx">The button's index</param>
     public void StartAnimationForButton(int buttonIdx)
     {
-        for (int i = 0; i < anwsers.Length; i++)
+        /*for (int i = 0; i < anwsers.Length; i++)
         {
             if (i == buttonIdx) anwsers[i].SetAnimationTrigger("Interract");
-            else anwsers[i].SetHidden(true);
-        }
+            //else anwsers[i].SetHidden(true);
+            else anwsers[i].SetAnimationTrigger("Hide");
+        }*/
+        anwsers[0].SetAnimationTrigger(buttonIdx == 0 ? "Interract" : "Hide");
+        //else anwsers[i].SetHidden(true);
+        anwsers[1].SetAnimationTrigger(buttonIdx == 1 ? "Interract" : "Hide");
     }
 
     /// <summary>
@@ -80,15 +123,25 @@ public class QuizGUI : MonoBehaviour
     /// <param name="label">The label to display</param>
     public void SetQuestionLabel(string label)
     {
-        questionLabelText.text = label;
+        //questionLabelText.text = label;
+        questionLabelText.ShowText(label);
+
     }
 
     /// <summary>
     /// Starts the transition
     /// </summary>
-    public void ShowTransition()
+    public void ShowTransition(int index)
     {
-        transitionAnimator.SetTrigger("Transition");
+        if (index == 0)
+        {
+            transitionAnimator.SetTrigger("TransitionLeft");
+            AudioManager.instance.PlayOneShot(FMODEvents.instance.Transition_LR_SFX, this.transform.position);
+        }
+        else
+        {
+            transitionAnimator.SetTrigger("TransitionRight");
+            AudioManager.instance.PlayOneShot(FMODEvents.instance.Transition_RL_SFX, this.transform.position);
+        }
     }
-
 }

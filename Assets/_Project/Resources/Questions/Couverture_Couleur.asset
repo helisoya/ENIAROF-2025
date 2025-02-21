@@ -13,51 +13,27 @@ MonoBehaviour:
   m_Name: Couverture_Couleur
   m_EditorClassIdentifier: 
   ID: Couverture_Couleur
-  isFirstQuestion: 1
+  isFirstQuestion: 0
   label: "Quel est votre fruit pr\xE9f\xE9r\xE9 ?"
   requirements: []
   anwsers:
-  - ID: Genre_Passion_SF
-    label: "Admirer les \xE9toiles"
+  - ID: Couv_Couleur_Noir
+    label: Myrtille
     actions:
-    - "AddPoolScore(SF_Masc_D\xE9but_Lieux;1)"
-    - "AddPoolScore(SF_Masc_D\xE9but_Objets;1)"
-    - "AddPoolScore(SF_Masc_D\xE9but_Heros;1)"
-    - "AddPoolScore(SF_Masc_D\xE9but_Ennemis;1)"
-    - "AddPoolScore(SF_Fem_D\xE9but_Lieux;1)"
-    - "AddPoolScore(SF_Fem_D\xE9but_Objets;1)"
-    - "AddPoolScore(SF_Fem_D\xE9but_Heros;1)"
-    - "AddPoolScore(SF_Fem_D\xE9but_Ennemis;1)"
-  - ID: Genre_Passion_Horreur
-    label: "Suivre des gens au hasard jusqu'\xE0 chez eux, la nuit"
+    - AddElement(BG_Black_FRONT;1)
+  - ID: Couv_Couleur_Marron
+    label: Noix de coco
     actions:
-    - "AddPoolScore(Horreur_Masc_D\xE9but_Lieux;1)"
-    - "AddPoolScore(Horreur_Masc_D\xE9but_Objets;1)"
-    - "AddPoolScore(Horreur_Masc_D\xE9but_Heros;1)"
-    - "AddPoolScore(Horreur_Masc_D\xE9but_Ennemis;1)"
-    - "AddPoolScore(Horreur_Fem_D\xE9but_Lieux;1)"
-    - "AddPoolScore(Horreur_Fem_D\xE9but_Objets;1)"
-    - "AddPoolScore(Horreur_Fem_D\xE9but_Heros;1)"
-    - "AddPoolScore(Horreur_Fem_D\xE9but_Ennemis;1)"
-  - ID: Genre_Passion_Love
-    label: Mettre en couple vos ami-es
+    - AddElement(BG_Brown_FRONT;1)
+  - ID: Couv_Couleur_Jaune
+    label: Citron
     actions:
-    - "AddPoolScore(Amour_Masc_D\xE9but_Lieux;1)"
-    - "AddPoolScore(Amour_Masc_D\xE9but_Objets;1)"
-    - "AddPoolScore(Amour_Masc_D\xE9but_Heros;1)"
-    - "AddPoolScore(Amour_Masc_D\xE9but_Ennemis;1)"
-    - "AddPoolScore(Amour_Fem_D\xE9but_Objets;1)"
-    - "AddPoolScore(Amour_Fem_D\xE9but_Heros;1)"
-    - "AddPoolScore(Amour_Fem_D\xE9but_Ennemis;1)"
-    - "AddPoolScore(Amour_Fem_D\xE9but_Lieux;1)"
-  - ID: Genre_Passion_Fantasy
-    label: Le cosplay
+    - AddElement(BG_Yellow_FRONT;1)
+  - ID: Couv_Couleur_Orange
+    label: "Cl\xE9mentine"
     actions:
-    - "AddPoolScore(Fantasy_Masc_D\xE9but_Lieux;1)"
-    - "AddPoolScore(Fantasy_Masc_D\xE9but_Objets;1)"
-    - "AddPoolScore(Fantasy_Masc_D\xE9but_Heros;1)"
-    - "AddPoolScore(Fantasy_Masc_D\xE9but_Ennemis;1)"
-    - "AddPoolScore(Fantasy_Fem_D\xE9but_Lieux;1)"
-    - "AddPoolScore(Fantasy_Fem_D\xE9but_Objets;1)"
-    - "AddPoolScore(Fantasy_Fem_D\xE9but_Heros;1)"
-    - "AddPoolScore(Fantasy_Fem_D\xE9but_Ennemis;1)"
+    - AddElement(BG_Orange_FRONT;1)
+  - ID: Couv_Couleur_Rouge
+    label: Fraise
+    actions:
+    - AddElement(BG_Red_FRONT;1)
