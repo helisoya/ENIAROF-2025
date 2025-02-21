@@ -19,16 +19,22 @@ MonoBehaviour:
   anwsers:
   - ID: Saucisson_1
     label: "\xC0 un enterrement"
-    actions: []
+    actions:
+    - AddElement(DEC_Cemetary_FRONT;1)
   - ID: Saucisson_2
     label: "\xC0 un entretien d'embauche"
-    actions: []
+    actions:
+    - AddElement(DEC_Table_FRONT;1)
+    - AddElement(DEC_Skyscrapper_FRONT;1)
   - ID: Saucisson_3
     label: "En plong\xE9e sous-marine"
-    actions: []
+    actions:
+    - AddElement(DEC_Sea_Side_Rocks_FRONT;1)
   - ID: Saucisson_4
     label: "Dans le m\xE9tro"
-    actions: []
+    actions:
+    - AddElement(DEC_Horror_City_FRONT;1)
   - ID: Saucisson_5
-    label: Chez l'avocat
-    actions: []
+    label: Chez le dentiste
+    actions:
+    - AddElement(DEC_Sci_Lab_FRONT;1)

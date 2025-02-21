@@ -22,10 +22,12 @@ MonoBehaviour:
     actions: []
   - ID: Pizza_2
     label: Pizza quatre chaussures
-    actions: []
+    actions:
+    - AddElement(DEC_Alley_FRONT;1)
   - ID: Pizza_3
     label: Pizza au poisson mort
-    actions: []
+    actions:
+    - AddElement(SUJ_Deads_FRONT;1)
   - ID: Pizza_4
     label: Pizza burger
     actions: []

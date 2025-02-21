@@ -41,3 +41,12 @@ MonoBehaviour:
     label: Celui qui fait 15 en 1
     actions:
     - AddElement(BG_Black_FRONT;1)
+    - AddElement(BG_White_FRONT;1)
+    - AddElement(BG_Blue_FRONT;1)
+    - AddElement(BG_Pink_FRONT;1)
+    - AddElement(BG_Purple_FRONT;1)
+    - AddElement(BG_Gold_FRONT;1)
+    - AddElement(BG_Brown_FRONT;1)
+    - AddElement(BG_Red_FRONT;1)
+    - AddElement(BG_Orange_FRONT;1)
+    - AddElement(BG_Yellow_FRONT;1)

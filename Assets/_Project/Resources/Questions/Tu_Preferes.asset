@@ -1,0 +1,72 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 715c0086bf2e5364583fa3a3164a8e66, type: 3}
+  m_Name: Tu_Preferes
+  m_EditorClassIdentifier: 
+  ID: Tu_Preferes
+  isFirstQuestion: 0
+  label: "Honn\xEAtement, vous pr\xE9f\xE9rez :"
+  requirements: []
+  anwsers:
+  - ID: Tu_Preferes_1
+    label: "Payer un billet d'entr\xE9e avec un jet de d\xE9"
+    actions:
+    - AddElement(DEC_Post_Apo_FRONT;1)
+  - ID: Tu_Preferes_2
+    label: Une balade en bateau
+    actions:
+    - AddElement(DEC_Venice_FRONT;1)
+  - ID: Tu_Preferes_3
+    label: "Passer une journ\xE9e enti\xE8re \xE0 regarder des vid\xE9os de chat"
+    actions:
+    - AddElement(SUJ_Animals_Kiss_FRONT;1)
+  - ID: Tu_Preferes_4
+    label: Passer ton temps sur tinder
+    actions:
+    - AddElement(SUJ_Hothothot_FRONT;1)
+  - ID: Tu_Preferes_5
+    label: "Faire la bagarre et m\xE9priser les gueux"
+    actions:
+    - AddElement(SUJ_Knight_FRONT;1)
+  - ID: Tu_Preferes_6
+    label: Stalker de parfaits inconnus dans la rue
+    actions:
+    - AddElement(SUJ_Killer_FRONT;1)
+  - ID: Tu_Preferes_8
+    label: Tailler des buissons
+    actions:
+    - AddElement(DEC_Shapes_FRONT;1)
+  - ID: Tu_Preferes_10
+    label: "Faire de la m\xE9ditation pendant 4 heures"
+    actions:
+    - AddElement(DEC_Nature_Temple_FRONT;1)
+    - AddElement(SUJ_Stylish_Guy_Stars_FRONT;1)
+  - ID: Tu_Preferes_11
+    label: "Monter un meuble avec la notice en Su\xE9dois"
+    actions:
+    - AddElement(DEC_Table_FRONT;1)
+  - ID: Tu_Preferes_12
+    label: Jouer au pirate en Somalie
+    actions:
+    - AddElement(DEC_Sea_Side_Rocks_FRONT;1)
+  - ID: Tu_Preferes_13
+    label: "Une soir\xE9e strasse paillette et cocaine"
+    actions:
+    - AddElement(SUJ_Fae_FRONT;1)
+  - ID: Tu_Preferes_14
+    label: "Visiter une maison hant\xE9e"
+    actions:
+    - AddElement(DEC_Gore_Room_FRONT;1)
+  - ID: Tu_Preferes_15
+    label: "Restez chez vous \xE0 r\xEAvasser"
+    actions:
+    - AddElement(SUJ_Stylish_Guy_Stars_FRONT;1)

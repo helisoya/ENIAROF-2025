@@ -20,13 +20,18 @@ MonoBehaviour:
   - ID: Couv_Couleur_Violet
     label: 'Les lilas '
     actions:
+    - AddPoolScore(Fin_Couleurs_Masc;1)
+    - AddPoolScore(Fin_Couleurs_Fem;1)
     - AddElement(BG_Purple_FRONT;1)
   - ID: Couv_Couleur_Or
     label: "Les chrysanth\xE8mes "
     actions:
-    - AddElement(MAT_Holo_FRONT;1)
+    - AddPoolScore(Fin_Couleurs_Masc;1)
+    - AddPoolScore(Fin_Couleurs_Fem;1)
     - AddElement(BG_Gold_FRONT;1)
   - ID: Couv_Couleur_Rose
     label: 'La rose rose '
     actions:
+    - AddPoolScore(Fin_Couleurs_Masc;1)
+    - AddPoolScore(Fin_Couleurs_Fem;1)
     - AddElement(BG_Pink_FRONT;1)

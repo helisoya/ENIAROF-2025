@@ -1,0 +1,72 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 715c0086bf2e5364583fa3a3164a8e66, type: 3}
+  m_Name: Date
+  m_EditorClassIdentifier: 
+  ID: Date
+  isFirstQuestion: 0
+  label: 'Le meilleur coin pour un date :'
+  requirements: []
+  anwsers:
+  - ID: Date_1
+    label: "Une ruelle mal \xE9clair\xE9e"
+    actions:
+    - AddPoolScore(Fem_Fin_Negatif;1)
+    - AddPoolScore(Masc_Fin_Negatif;1)
+    - AddPoolScore(Fin_1_Negatif;1)
+    - "AddPoolScore(Fin_2_N\xE9gatif;1)"
+    - AddElement(DEC_Alley_FRONT;1)
+    - AddElement(DEC_Horror_City_FRONT;1)
+  - ID: Date_2
+    label: "Une for\xEAt flippante"
+    actions:
+    - AddPoolScore(Fem_Fin_Negatif;1)
+    - AddPoolScore(Masc_Fin_Negatif;1)
+    - AddPoolScore(Fin_1_Negatif;1)
+    - "AddPoolScore(Fin_2_N\xE9gatif;1)"
+    - AddElement(DEC_Creepy_Forest_FRONT;1)
+  - ID: Date_3
+    label: "Le labo de science apr\xE8s les cours"
+    actions:
+    - AddElement(DEC_Sci_Lab_FRONT;1)
+  - ID: Date_4
+    label: "Une for\xEAt enchant\xE9e"
+    actions:
+    - AddPoolScore(Fem_Fin_Positif;1)
+    - AddPoolScore(Masc_Fin_Positif;1)
+    - AddPoolScore(Fin_1_Positif;1)
+    - AddPoolScore(Fin_2_Positif;1)
+    - AddElement(DEC_Love_Forest_FRONT;1)
+  - ID: Date_5
+    label: Venise, c'est si romantique !
+    actions:
+    - AddPoolScore(Fem_Fin_Positif;1)
+    - AddPoolScore(Masc_Fin_Positif;1)
+    - AddPoolScore(Fin_1_Positif;1)
+    - AddPoolScore(Fin_2_Positif;1)
+    - AddElement(DEC_Venice_FRONT;1)
+  - ID: Date_6
+    label: Un bord de mer un peu sauvage...
+    actions:
+    - AddElement(DEC_Sea_Side_Rocks_FRONT;1)
+  - ID: Date_7
+    label: "En centre ville d\xE9labr\xE9"
+    actions:
+    - AddElement(DEC_Horror_City_FRONT;1)
+  - ID: Date_8
+    label: En haut d'un gratte-ciel
+    actions:
+    - AddElement(DEC_Skyscrapper_FRONT;1)
+  - ID: Date_9
+    label: "Dans une plaine d\xE9vast\xE9e"
+    actions:
+    - AddElement(DEC_Post_Apo_FRONT;1)

@@ -39,6 +39,7 @@ MonoBehaviour:
     - "AddPoolScore(Horreur_Fem_D\xE9but_Objets;1)"
     - "AddPoolScore(Amour_Masc_D\xE9but_Objets;1)"
     - "AddPoolScore(Amour_Fem_D\xE9but_Objets;1)"
+    - AddElement(DEC_Table_FRONT;1)
   - ID: Titre_Sujet_Heros
     label: sauver la veuve et l'orphelin.
     actions:

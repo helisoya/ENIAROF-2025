@@ -19,34 +19,49 @@ MonoBehaviour:
   anwsers:
   - ID: Angouniarof_1
     label: L'attraction avec les coeurs <3
-    actions: []
+    actions:
+    - AddElement(DEC_Love_Forest_FRONT;1)
+    - AddElement(SUJ_Cherub_FRONT;1)
   - ID: Angouniarof_2
     label: L'attraction punk
-    actions: []
+    actions:
+    - AddElement(SUJ_Reptile_FRONT;1)
   - ID: Angouniarof_3
     label: "L'attraction ol\xE9-ol\xE9"
-    actions: []
+    actions:
+    - AddElement(SUJ_Hothothot_FRONT;1)
   - ID: Angouniarof_4
     label: L'attraction qui fonctionne pas
-    actions: []
+    actions:
+    - AddElement(SUJ_Deads_FRONT;1)
   - ID: Angouniarof_5
     label: "L'attraction des ballons l\xE0"
-    actions: []
+    actions:
+    - AddElement(DEC_Gore_Room_FRONT;1)
   - ID: Angouniarof_6
     label: La moto j'aime les motos
-    actions: []
+    actions:
+    - AddElement(DEC_Alley_FRONT;1)
+    - AddElement(SUJ_Reptile_FRONT;1)
   - ID: Angouniarof_7
     label: La guitare j'aime la guitare
-    actions: []
+    actions:
+    - AddElement(DEC_Venice_FRONT;1)
   - ID: Angouniarof_8
     label: L'attraction bizarre
-    actions: []
+    actions:
+    - AddElement(DEC_Creepy_Forest_FRONT;1)
   - ID: Angouniarof_9
     label: "L'attraction \xE9trange"
-    actions: []
+    actions:
+    - AddElement(DEC_Creepy_Forest_FRONT;1)
+    - AddElement(DEC_Post_Apo_FRONT;1)
   - ID: Angouniarof_10
     label: L'attraction dangereuse
-    actions: []
+    actions:
+    - AddElement(SUJ_Monster_FRONT;1)
+    - AddElement(DEC_Gore_Room_FRONT;1)
   - ID: Angouniarof_11
     label: "L'attraction d'\xE0-c\xF4t\xE9"
-    actions: []
+    actions:
+    - AddElement(SUJ_Animals_Kiss_FRONT;1)

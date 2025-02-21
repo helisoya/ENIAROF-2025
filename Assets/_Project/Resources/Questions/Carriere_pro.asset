@@ -25,11 +25,15 @@ MonoBehaviour:
     actions:
     - "AddPoolScore(Fantasy_Masc_D\xE9but_Heros;1)"
     - "AddPoolScore(Fantasy_Fem_D\xE9but_Heros;1)"
+    - AddElement(SUJ_Reptile_Skel_FRONT;1)
+    - AddElement(SUJ_Future_Warrior_FRONT;1)
+    - AddElement(SUJ_Knight_FRONT;1)
   - ID: Carriere_3
     label: Un.e pirate de l'espace
     actions:
     - "AddPoolScore(SF_Masc_D\xE9but_Heros;1)"
     - "AddPoolScore(SF_Fem_D\xE9but_Heros;1)"
+    - AddElement(SUJ_Reptile_FRONT;1)
   - ID: Carriere_4
     label: Un.e monstre sous le lit
     actions:
@@ -37,3 +41,4 @@ MonoBehaviour:
     - "AddPoolScore(Horreur_Masc_D\xE9but_Ennemis;1)"
     - "AddPoolScore(Horreur_Fem_D\xE9but_Heros;1)"
     - "AddPoolScore(Horreur_Fem_D\xE9but_Ennemis;1)"
+    - AddElement(SET_creatures;1)

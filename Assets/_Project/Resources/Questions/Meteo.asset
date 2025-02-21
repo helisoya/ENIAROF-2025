@@ -22,7 +22,6 @@ MonoBehaviour:
     actions:
     - "AddPoolScore(Amour_Masc_D\xE9but_Lieux;1)"
     - "AddPoolScore(Amour_Fem_D\xE9but_Lieux;1)"
-    - AddElement(MAT_Golden_FRONT;1)
     - AddElement(BG_Yellow_FRONT;1)
   - ID: Meteo_2
     label: Des nuages gris et de la pluie...

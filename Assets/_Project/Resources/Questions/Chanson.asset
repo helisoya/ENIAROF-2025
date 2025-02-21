@@ -25,16 +25,15 @@ MonoBehaviour:
     label: <i>Killer Queen</i> de Queen
     actions:
     - AddElement(SUJ_Killer_FRONT;1)
-    - AddElement(MAT_Holo_FRONT;1)
   - ID: Chanson_3
     label: <i>Dead Inside</i> de Muse
     actions:
     - AddElement(SUJ_Deads_FRONT;1)
-    - AddElement(DEC_Cemetary_FRONT;1)
   - ID: Chanson_4
     label: <i>Monster</i> de Imagine Dragons
     actions:
     - AddElement(SUJ_Monster_FRONT;1)
+    - AddElement(SUJ_Green_Monster_FRONT;1)
   - ID: Chanson_5
     label: <i>Ghost</i> de Justin Bieber
     actions:
@@ -51,16 +50,15 @@ MonoBehaviour:
     label: <i>Bibbidy Bobbidy Boop</i> dans Cendrillon
     actions:
     - AddElement(SUJ_Fae_FRONT;1)
-    - AddElement(SUJ_People_Kiss_FRONT;1)
     - AddElement(DEC_Castle_FRONT;1)
     - AddElement(DEC_Fantasy_Forest_FRONT;1)
-    - AddElement(MAT_Holo_FRONT;1)
+    - AddElement(MAT_Golden_FRONT;1)
+    - AddElement(BG_Gold_FRONT;1)
   - ID: Chanson_8
     label: <i>Spooky, Scary Skeletons</i> de Andrew Gold
     actions:
     - AddElement(SUJ_Reptile_Skel_FRONT;1)
     - AddElement(DEC_Cemetary_FRONT;1)
-    - AddElement(MAT_Golden_FRONT;1)
   - ID: Chanson_9
     label: <i>Kiss from a Rose</i> de Seal
     actions:
@@ -85,4 +83,3 @@ MonoBehaviour:
     label: <i>The Unicorn Invasion of Dundee</i> de Gloryhammer
     actions:
     - AddElement(SUJ_Unicorn_FRONT;1)
-    - AddElement(MAT_Holo_FRONT;1)
