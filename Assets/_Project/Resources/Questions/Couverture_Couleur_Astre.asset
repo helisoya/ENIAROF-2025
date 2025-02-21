@@ -18,10 +18,15 @@ MonoBehaviour:
   requirements: []
   anwsers:
   - ID: Couv_Couleur_Blanche
-    label: Lune
+    label: La Lune
     actions:
     - AddElement(BG_White_FRONT;1)
   - ID: Couv_Couleur_Bleu
     label: "La Terre bien s\xFBr <3"
     actions:
     - AddElement(BG_Blue_FRONT;1)
+  - ID: Couve_Couleur_Soleil
+    label: Le Soleil !
+    actions:
+    - AddElement(BG_Gold_FRONT;1)
+    - AddElement(MAT_Golden_FRONT;1)

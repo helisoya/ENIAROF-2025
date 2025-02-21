@@ -17,6 +17,9 @@ Crampte	Couverture	Avez-vous les cramptés ?	Crampte_1, Crampte_2, Crampte_3
 Pizza	Couverture	Quelle pizza êtes-vous ?	Pizza_1, Pizza_2, Pizza_3, Pizza_4		
 Carriere_pro	Couverture	Votre carrière professionnelle de rêve :	Carriere_1, Carriere_2, Carriere_3, Carriere_4		
 Saucisson	Couverture	Quelle est l'occasion la plus appropriée pour sortir un saucisson ?	Saucisson_1, Saucisson_2, Saucisson_3, Saucisson_4, Saucisson_5		
+Date	Couverture	Le meilleur coin pour un date :	Date_1, Date_2, Date_3, Date_4, Date_5, Date_6, Date_7, Date_8, Date_9		
+Tu_Preferes	Couverture	Honnêtement, vous préférez :	Tu_Preferes_1, Tu_Preferes_2, Tu_Preferes_3, Tu_Preferes_4, Tu_Preferes_5, Tu_Preferes_6, Tu_Preferes_8, Tu_Preferes_10, Tu_Preferes_11, Tu_Preferes_12, Tu_Preferes_13, Tu_Preferes_14, Tu_Preferes_15		
 Titre_Adjectif	Titre	En vrai de vrai, vos parents sont fiers de vous ?	Titre_Adjectif_Positif, Titre_Adjectif_Negatif		
 Titre_Sujet	Titre	Aujourd'hui, vous avez envie de...	Titre_Sujet_Lieux, Titre_Sujet_Objets, Titre_Sujet_Heros, Titre_Sujet_Ennemis		
-Couverture_Couleur_Astre	Titre	Quel est votre astre préféré ?	Couv_Couleur_Blanche, Couv_Couleur_Bleu		
+Couverture_Couleur_Astre	Titre	Quel est votre astre préféré ?	Couv_Couleur_Blanche, Couv_Couleur_Bleu, Couve_Couleur_Soleil		
+Monstre_Lit	Titre	Quel monstre y a-t-il sous votre lit ?	Monstre_Lit_1, Monstre_Lit_2, Monstre_Lit_3, Monstre_Lit_4, Monstre_Lit_5		

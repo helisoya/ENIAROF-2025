@@ -55,7 +55,6 @@ MonoBehaviour:
     - "AddPoolScore(Amour_Fem_D\xE9but_Ennemis;1)"
     - "AddPoolScore(Amour_Fem_D\xE9but_Lieux;1)"
     - AddElement(SUJ_People_Kiss_FRONT;1)
-    - AddElement(SUJ_Animals_Kiss_FRONT;1)
   - ID: Genre_Nouvelle_Fantasy
     label: Des portails vers des mondes merveilleux s'ouvrent dans les armoires !
     actions:

@@ -29,7 +29,6 @@ MonoBehaviour:
     - "AddPoolScore(SF_Fem_D\xE9but_Heros;1)"
     - "AddPoolScore(SF_Masc_D\xE9but_Heros;1)"
     - AddElement(SET_SF;1)
-    - AddElement(MAT_Holo_FRONT;1)
   - ID: Plat_3
     label: Un steak bien bien saignant avec un verre de chianti
     actions:

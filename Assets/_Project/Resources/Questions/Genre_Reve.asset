@@ -51,10 +51,9 @@ MonoBehaviour:
     - "AddPoolScore(Amour_Masc_D\xE9but_Heros;1)"
     - "AddPoolScore(Amour_Masc_D\xE9but_Ennemis;1)"
     - "AddPoolScore(Amour_Fem_D\xE9but_Objets;1)"
-    - "AddPoolScore(Amour_Fem_D\xE9but_Heros;1)"
     - "AddPoolScore(Amour_Fem_D\xE9but_Ennemis;1)"
     - "AddPoolScore(Amour_Fem_D\xE9but_Lieux;1)"
-    - AddElement(SUJ_Roses_FRONT;1)
+    - "AddPoolScore(Amour_Fem_D\xE9but_Heros;1)"
     - AddElement(SUJ_People_Kiss_FRONT;1)
     - AddElement(SUJ_Hothothot_FRONT;1)
   - ID: Genre_Reve_Fantasy
