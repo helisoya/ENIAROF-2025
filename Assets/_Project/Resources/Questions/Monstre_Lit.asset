@@ -22,7 +22,7 @@ MonoBehaviour:
     actions:
     - AddElement(SUJ_Reptile_Skel_FRONT;1)
   - ID: Monstre_Lit_2
-    label: Un extrateresster
+    label: SNAMETR l'extrateresster
     actions:
     - AddElement(SUJ_Alien_FRONT;1)
   - ID: Monstre_Lit_3
@@ -38,3 +38,21 @@ MonoBehaviour:
     label: "Un l\xE9zard pirate"
     actions:
     - AddElement(SUJ_Reptile_FRONT;1)
+  - ID: Monstre_Lit_6
+    label: Darmanin
+    actions:
+    - "AddPoolScore(Fin_2_N\xE9gatif;1)"
+    - AddPoolScore(Fin_1_Negatif;1)
+    - "AddPoolScore(Fantasy_Masc_D\xE9but_Objets;1)"
+    - AddElement(SET_horreur;1)
+    - AddElement(BG_Gold_FRONT;1)
+  - ID: Monstre_Lit_7
+    label: Le capitalisme
+    actions:
+    - "AddPoolScore(Fin_2_N\xE9gatif;1)"
+    - AddPoolScore(Fin_1_Negatif;1)
+    - "AddPoolScore(Fantasy_Masc_D\xE9but_Objets;1)"
+    - AddElement(DEC_Urban_Night_FRONT;1)
+    - AddElement(DEC_Horror_City_FRONT;1)
+    - AddElement(SET_batiments;1)
+    - AddElement(DEC_Skyscrapper_FRONT;1)

@@ -10,30 +10,30 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 715c0086bf2e5364583fa3a3164a8e66, type: 3}
-  m_Name: Couverture_Couleur
+  m_Name: Fruit
   m_EditorClassIdentifier: 
-  ID: Couverture_Couleur
+  ID: Fruit
   isFirstQuestion: 0
   label: "Quel est votre fruit pr\xE9f\xE9r\xE9 ?"
   requirements: []
   anwsers:
-  - ID: Couv_Couleur_Noir
+  - ID: Fruit_1
     label: Myrtille
     actions:
     - AddElement(BG_Black_FRONT;1)
-  - ID: Couv_Couleur_Marron
+  - ID: Fruit_2
     label: Noix de coco
     actions:
     - AddElement(BG_Brown_FRONT;1)
-  - ID: Couv_Couleur_Jaune
+  - ID: Fruit_3
     label: Citron
     actions:
     - AddElement(BG_Yellow_FRONT;1)
-  - ID: Couv_Couleur_Orange
+  - ID: Fruit_4
     label: "Cl\xE9mentine"
     actions:
     - AddElement(BG_Orange_FRONT;1)
-  - ID: Couv_Couleur_Rouge
+  - ID: Fruit_5
     label: Fraise
     actions:
     - AddElement(BG_Red_FRONT;1)

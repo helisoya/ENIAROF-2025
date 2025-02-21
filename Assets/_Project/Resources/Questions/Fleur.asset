@@ -10,28 +10,41 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 715c0086bf2e5364583fa3a3164a8e66, type: 3}
-  m_Name: Couverture_Couleur_Fleur
+  m_Name: Fleur
   m_EditorClassIdentifier: 
-  ID: Couverture_Couleur_Fleur
+  ID: Fleur
   isFirstQuestion: 0
-  label: "Auel type de fleur pr\xE9f\xE9rez-vous ?"
+  label: La fleur pour vous faire chavirer
   requirements: []
   anwsers:
-  - ID: Couv_Couleur_Violet
-    label: 'Les lilas '
+  - ID: Fleur_2
+    label: Des lilas en pagaille
     actions:
     - AddPoolScore(Fin_Couleurs_Masc;1)
     - AddPoolScore(Fin_Couleurs_Fem;1)
     - AddElement(BG_Purple_FRONT;1)
-  - ID: Couv_Couleur_Or
-    label: "Les chrysanth\xE8mes "
+  - ID: Fleur_3
+    label: "Un bouquet de chrysanth\xE8mes"
     actions:
     - AddPoolScore(Fin_Couleurs_Masc;1)
     - AddPoolScore(Fin_Couleurs_Fem;1)
     - AddElement(BG_Gold_FRONT;1)
-  - ID: Couv_Couleur_Rose
-    label: 'La rose rose '
+  - ID: Fleur_1
+    label: Une belle rose toute rose
     actions:
     - AddPoolScore(Fin_Couleurs_Masc;1)
     - AddPoolScore(Fin_Couleurs_Fem;1)
     - AddElement(BG_Pink_FRONT;1)
+    - AddElement(SET_amour;1)
+  - ID: Fleur_4
+    label: "Une p\xE2querette, un peu, beaucoup, \xE0 la folie..."
+    actions:
+    - AddPoolScore(Fin_1_Positif;1)
+    - AddPoolScore(Fin_2_Positif;1)
+    - AddPoolScore(Fin_2_Neutre;1)
+    - AddElement(BG_White_FRONT;1)
+    - AddElement(BG_Yellow_FRONT;1)
+  - ID: Fleur_5
+    label: Des tulipes multicolores
+    actions:
+    - AddElement(MAT_Holo_FRONT;1)

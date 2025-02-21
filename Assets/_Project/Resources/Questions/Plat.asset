@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ID: Plat
   isFirstQuestion: 0
-  label: "Votre plat pr\xE9f\xE9r\xE9 :"
+  label: 'Votre dernier repas :'
   requirements: []
   anwsers:
   - ID: Plat_1
