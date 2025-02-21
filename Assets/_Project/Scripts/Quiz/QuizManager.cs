@@ -57,6 +57,12 @@ public class QuizManager : MonoBehaviour
         foreach (Step step in steps) maxProgress += step.stepsAmount;
 
         QuizGUI.instance.TransitionTo(0);
+
+
+        for (int i = 1; i < Display.displays.Length; i++)
+        {
+            Display.displays[i].Activate();
+        }
     }
 
     /// <summary>
