@@ -28,12 +28,25 @@ public class MusicPlayer : MonoBehaviour
         FMODEvents bonjour = FMODEvents.instance;
         myMusicInstance = RuntimeManager.CreateInstance(bonjour.Gameplay_Music);
         myMusicInstance.start();
-
+        CongratulationsInstance = RuntimeManager.CreateInstance(bonjour.BookCompleted_SFX);
     }
 
     private void Update()
     {
         //myMusicInstance.setParameterByName("Health", 10);
+    }
+
+    public void SetMusicProgression(string parameterName, float parameterValue)
+    {
+        myMusicInstance.setParameterByName(parameterName, parameterValue);
+    }
+    public void CongratulationsSFXStart()
+    {
+        CongratulationsInstance.start();
+    }
+    public void CongratulationsSFXStop()
+    {
+        CongratulationsInstance.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
     }
 
     public void OutofMenu()

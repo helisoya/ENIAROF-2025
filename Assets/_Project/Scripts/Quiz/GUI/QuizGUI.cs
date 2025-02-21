@@ -1,5 +1,7 @@
 using System.Collections;
+using Febucci.UI;
 using TMPro;
+using UnityEditor.MPE;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -11,7 +13,7 @@ public class QuizGUI : MonoBehaviour
 
     [Header("QCM")]
     [SerializeField] private GameObject qcmRoot;
-    [SerializeField] private TextMeshProUGUI questionLabelText;
+    [SerializeField] private TypewriterByCharacter questionLabelText;
     [SerializeField] private AnwserGUI[] anwsers;
     [SerializeField] private Image progressFill;
 
@@ -20,7 +22,6 @@ public class QuizGUI : MonoBehaviour
 
     [Header("End")]
     [SerializeField] private GameObject endRoot;
-    [SerializeField] private GameObject endBook;
 
     [Header("Transition")]
     [SerializeField] private Animator transitionAnimator;
@@ -48,14 +49,13 @@ public class QuizGUI : MonoBehaviour
 
     IEnumerator Routine_To(int menu)
     {
-        ShowTransition();
+        if (menu != 2) ShowTransition(0);
 
         yield return new WaitForSeconds(0.5f);
 
         menuRoot.SetActive(menu == 0);
         qcmRoot.SetActive(menu == 1);
         endRoot.SetActive(menu == 2);
-        endBook.SetActive(menu == 2);
 
         yield return new WaitForSeconds(0.5f);
 
@@ -68,7 +68,8 @@ public class QuizGUI : MonoBehaviour
     /// <param name="fillAmount">The fill amount of the GUI</param>
     public void SetProgressFill(float fillAmount)
     {
-        progressFill.fillAmount = fillAmount;
+        progressFill.fillAmount = fillAmount; //fillAmount entre 0 et 1
+        MusicPlayer.instance.SetMusicProgression("Progression", fillAmount);
     }
 
 
@@ -79,7 +80,8 @@ public class QuizGUI : MonoBehaviour
     /// <param name="anwsers">The awnser to display</param>
     public void SetQuestion(Question question, Anwser[] questionAnwsers)
     {
-        questionLabelText.text = question.label;
+        //questionLabelText.text = question.label;
+        questionLabelText.ShowText(question.label);
 
         for (int i = 0; i < questionAnwsers.Length && i < anwsers.Length; i++)
         {
@@ -93,11 +95,15 @@ public class QuizGUI : MonoBehaviour
     /// <param name="buttonIdx">The button's index</param>
     public void StartAnimationForButton(int buttonIdx)
     {
-        for (int i = 0; i < anwsers.Length; i++)
+        /*for (int i = 0; i < anwsers.Length; i++)
         {
             if (i == buttonIdx) anwsers[i].SetAnimationTrigger("Interract");
-            else anwsers[i].SetHidden(true);
-        }
+            //else anwsers[i].SetHidden(true);
+            else anwsers[i].SetAnimationTrigger("Hide");
+        }*/
+        anwsers[buttonIdx].SetAnimationTrigger("Interract");
+        //else anwsers[i].SetHidden(true);
+        anwsers[Mathf.Abs(buttonIdx - 1)].SetAnimationTrigger("Hide");
     }
 
     /// <summary>
@@ -118,15 +124,25 @@ public class QuizGUI : MonoBehaviour
     /// <param name="label">The label to display</param>
     public void SetQuestionLabel(string label)
     {
-        questionLabelText.text = label;
+        //questionLabelText.text = label;
+        questionLabelText.ShowText(label);
+
     }
 
     /// <summary>
     /// Starts the transition
     /// </summary>
-    public void ShowTransition()
+    public void ShowTransition(int index)
     {
-        transitionAnimator.SetTrigger("Transition");
+        if (index == 0)
+        {
+            transitionAnimator.SetTrigger("TransitionLeft");
+            AudioManager.instance.PlayOneShot(FMODEvents.instance.Transition_LR_SFX, this.transform.position);
+        }
+        else
+        {
+            transitionAnimator.SetTrigger("TransitionRight");
+            AudioManager.instance.PlayOneShot(FMODEvents.instance.Transition_RL_SFX, this.transform.position);
+        }
     }
-
 }

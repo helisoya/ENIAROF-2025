@@ -15,11 +15,6 @@ public class QuizManager : MonoBehaviour
     [Header("Steps")]
     [SerializeField] private Step[] steps;
 
-    [Header("End Book")]
-    [SerializeField] private MeshRenderer endBookMeshRenderer;
-    [SerializeField] private TextMeshPro endBookTitle;
-    [SerializeField] private TextMeshPro endBookSyno;
-
     private int currentStep;
     private List<string> questionsDone;
     private List<string> anwsersSelected;
@@ -33,6 +28,7 @@ public class QuizManager : MonoBehaviour
     private Dictionary<string, CoverElement> elements;
     private Dictionary<string, int> titlePoolsWeights;
     private Dictionary<string, int> elementsWeights;
+    [SerializeField] private BookManager bookManager;
 
     private int status; // 0 Main Menu, 1 QCM, 2 End
 
@@ -121,17 +117,8 @@ public class QuizManager : MonoBehaviour
             GenerateTitle();
             GenerateCoverElements();
 
+            MusicPlayer.instance.CongratulationsSFXStart();
             Book book = BookManager.instance.GameFinished();
-
-            endBookMeshRenderer.materials[2].mainTexture = book.bookData.spriteBack.texture;
-            endBookMeshRenderer.materials[1].mainTexture = book.bookData.spriteCouverture.texture;
-
-
-            endBookMeshRenderer.materials[2].SetFloat("_IsHolographic", book.meshRenderer.materials[2].GetFloat("_IsHolographic"));
-            endBookMeshRenderer.materials[2].SetFloat("_IsGolden", book.meshRenderer.materials[2].GetFloat("_IsGolden"));
-
-            endBookMeshRenderer.materials[1].SetFloat("_IsHolographic", book.meshRenderer.materials[1].GetFloat("_IsHolographic"));
-            endBookMeshRenderer.materials[1].SetFloat("_IsGolden", book.meshRenderer.materials[1].GetFloat("_IsGolden"));
 
             status = 2;
             QuizGUI.instance.TransitionTo(2);
@@ -140,6 +127,7 @@ public class QuizManager : MonoBehaviour
         {
             print("New Step : " + currentStep);
             PoolNewQuestion();
+
         }
 
     }
@@ -299,10 +287,10 @@ public class QuizManager : MonoBehaviour
     IEnumerator Routine_SelectionAnimation(int idxAnwser)
     {
         QuizGUI.instance.StartAnimationForButton(idxAnwser);
+        
 
         yield return new WaitForSeconds(1f);
-
-        QuizGUI.instance.ShowTransition();
+        QuizGUI.instance.ShowTransition(idxAnwser);
 
         yield return new WaitForSeconds(0.5f);
 
@@ -319,14 +307,24 @@ public class QuizManager : MonoBehaviour
             if (status == 0)
             {
                 NewGame();
+                //Play Sound1 (lance une partie)
+                AudioManager.instance.PlayOneShot(FMODEvents.instance.ButtonGameStart_SFX, this.transform.position);
             }
             else if (status == 1 && currentQuestion != null)
             {
-                SelectAnwser(0);
+                SelectAnwser(0); //Play Sound (bouton 1)
+                AudioManager.instance.PlayOneShot(FMODEvents.instance.ButtonClickLeft_SFX, this.transform.position);
             }
             else if (status == 2)
             {
-                NewGame();
+                QuizGUI.instance.TransitionTo(0);
+                bookManager.books[bookManager.nextBook].StopAllCoroutines();
+                bookManager.books[bookManager.nextBook].ResetPosition(bookManager.books[bookManager.nextBook].duration, true);
+                AudioManager.instance.PlayOneShot(FMODEvents.instance.ButtonGameFinish_SFX, this.transform.position);
+                MusicPlayer.instance.CongratulationsSFXStop();
+                status = 0;
+
+                //Play Sound (livre à la fin, appuyer pour relancer une partie)
             }
         }
     }
@@ -337,15 +335,22 @@ public class QuizManager : MonoBehaviour
         {
             if (status == 0)
             {
-                NewGame();
+                NewGame(); 
+                AudioManager.instance.PlayOneShot(FMODEvents.instance.ButtonGameStart_SFX, this.transform.position);
             }
             else if (status == 1 && currentQuestion != null)
             {
                 SelectAnwser(1);
+                AudioManager.instance.PlayOneShot(FMODEvents.instance.ButtonClickRight_SFX, this.transform.position);
             }
             else if (status == 2)
             {
-                NewGame();
+                QuizGUI.instance.TransitionTo(0);
+                bookManager.books[bookManager.nextBook].StopAllCoroutines();
+                bookManager.books[bookManager.nextBook].ResetPosition(bookManager.books[bookManager.nextBook].duration, true);
+                AudioManager.instance.PlayOneShot(FMODEvents.instance.ButtonGameFinish_SFX, this.transform.position);
+                MusicPlayer.instance.CongratulationsSFXStop();
+                status = 0;
             }
         }
     }
@@ -382,7 +387,6 @@ public class QuizManager : MonoBehaviour
         }
 
         print("Selected title : " + selectedStart + " " + selectedEnd);
-        endBookTitle.text = selectedStart + " " + selectedEnd;
         BookManager.instance.SetTitle(selectedStart + " " + selectedEnd);
     }
 
