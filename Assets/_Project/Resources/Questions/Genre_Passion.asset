@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Genre_Passion
   m_EditorClassIdentifier: 
   ID: Genre_Passion
-  isFirstQuestion: 1
+  isFirstQuestion: 0
   label: 'Votre plus grande passion dans la vie c''est :'
   requirements: []
   anwsers:
@@ -28,6 +28,9 @@ MonoBehaviour:
     - "AddPoolScore(SF_Fem_D\xE9but_Objets;1)"
     - "AddPoolScore(SF_Fem_D\xE9but_Heros;1)"
     - "AddPoolScore(SF_Fem_D\xE9but_Ennemis;1)"
+    - AddElement(MAT_Holo_FRONT;1)
+    - AddElement(DEC_Stars_FRONT;1)
+    - AddElement(SUJ_Stylish_Guy_Stars_FRONT;1)
   - ID: Genre_Passion_Horreur
     label: "Suivre des gens au hasard jusqu'\xE0 chez eux, la nuit"
     actions:
@@ -39,6 +42,7 @@ MonoBehaviour:
     - "AddPoolScore(Horreur_Fem_D\xE9but_Objets;1)"
     - "AddPoolScore(Horreur_Fem_D\xE9but_Heros;1)"
     - "AddPoolScore(Horreur_Fem_D\xE9but_Ennemis;1)"
+    - AddElement(DEC_Urban_Night_FRONT;1)
   - ID: Genre_Passion_Love
     label: Mettre en couple vos ami-es
     actions:
@@ -50,6 +54,8 @@ MonoBehaviour:
     - "AddPoolScore(Amour_Fem_D\xE9but_Heros;1)"
     - "AddPoolScore(Amour_Fem_D\xE9but_Ennemis;1)"
     - "AddPoolScore(Amour_Fem_D\xE9but_Lieux;1)"
+    - AddElement(SUJ_People_Kiss_FRONT;1)
+    - AddElement(SUJ_Roses_FRONT;1)
   - ID: Genre_Passion_Fantasy
     label: Le cosplay
     actions:
@@ -61,3 +67,6 @@ MonoBehaviour:
     - "AddPoolScore(Fantasy_Fem_D\xE9but_Objets;1)"
     - "AddPoolScore(Fantasy_Fem_D\xE9but_Heros;1)"
     - "AddPoolScore(Fantasy_Fem_D\xE9but_Ennemis;1)"
+    - AddElement(SUJ_Future_Warrior_FRONT;1)
+    - AddElement(SUJ_Knight_FRONT;1)
+    - AddElement(SUJ_Killer_FRONT;1)

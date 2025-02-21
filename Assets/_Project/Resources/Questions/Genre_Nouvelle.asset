@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Genre_Nouvelle
   m_EditorClassIdentifier: 
   ID: Genre_Nouvelle
-  isFirstQuestion: 1
+  isFirstQuestion: 0
   label: 'Quelle nouvelle vous ferait le plus plaisir :'
   requirements: []
   anwsers:
@@ -28,6 +28,9 @@ MonoBehaviour:
     - "AddPoolScore(SF_Fem_D\xE9but_Objets;1)"
     - "AddPoolScore(SF_Fem_D\xE9but_Heros;1)"
     - "AddPoolScore(SF_Fem_D\xE9but_Ennemis;1)"
+    - AddElement(SUJ_Future_Warrior_FRONT;1)
+    - AddElement(SUJ_Alien_FRONT;1)
+    - AddElement(DEC_Stars_FRONT;1)
   - ID: Genre_Nouvelle_Horreur
     label: "Le meurtre est d\xE9sormais l\xE9gal pendant une soir\xE9e !"
     actions:
@@ -39,6 +42,7 @@ MonoBehaviour:
     - "AddPoolScore(Horreur_Fem_D\xE9but_Objets;1)"
     - "AddPoolScore(Horreur_Fem_D\xE9but_Heros;1)"
     - "AddPoolScore(Horreur_Fem_D\xE9but_Ennemis;1)"
+    - AddElement(DEC_Gore_Room_FRONT;1)
   - ID: Genre_Nouvelle_Love
     label: Michou et Elsa se remettent ensemble !
     actions:
@@ -50,6 +54,8 @@ MonoBehaviour:
     - "AddPoolScore(Amour_Fem_D\xE9but_Heros;1)"
     - "AddPoolScore(Amour_Fem_D\xE9but_Ennemis;1)"
     - "AddPoolScore(Amour_Fem_D\xE9but_Lieux;1)"
+    - AddElement(SUJ_People_Kiss_FRONT;1)
+    - AddElement(SUJ_Animals_Kiss_FRONT;1)
   - ID: Genre_Nouvelle_Fantasy
     label: Des portails vers des mondes merveilleux s'ouvrent dans les armoires !
     actions:
@@ -61,3 +67,4 @@ MonoBehaviour:
     - "AddPoolScore(Fantasy_Fem_D\xE9but_Objets;1)"
     - "AddPoolScore(Fantasy_Fem_D\xE9but_Heros;1)"
     - "AddPoolScore(Fantasy_Fem_D\xE9but_Ennemis;1)"
+    - AddElement(DEC_Fantasy_Forest_FRONT;1)

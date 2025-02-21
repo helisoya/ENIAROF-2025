@@ -13,19 +13,20 @@ MonoBehaviour:
   m_Name: Couverture_Couleur_Fleur
   m_EditorClassIdentifier: 
   ID: Couverture_Couleur_Fleur
-  isFirstQuestion: 1
-  label: T'AIME QUEL TYPE DE FLEUR ????
+  isFirstQuestion: 0
+  label: "Auel type de fleur pr\xE9f\xE9rez-vous ?"
   requirements: []
   anwsers:
   - ID: Couv_Couleur_Violet
-    label: LES LILAS ^^
+    label: 'Les lilas '
     actions:
-    - AddElement(DEC_Alley_FRONT;1)
+    - AddElement(BG_Purple_FRONT;1)
   - ID: Couv_Couleur_Or
-    label: LES CHRYSANTHEMES MIAAAMMM
+    label: "Les chrysanth\xE8mes "
     actions:
-    - AddElement(DEC_Alley_FRONT;1)
+    - AddElement(MAT_Holo_FRONT;1)
+    - AddElement(BG_Gold_FRONT;1)
   - ID: Couv_Couleur_Rose
-    label: LA ROSE ROSE #love
+    label: 'La rose rose '
     actions:
-    - AddElement(DEC_Alley_FRONT;1)
+    - AddElement(BG_Pink_FRONT;1)

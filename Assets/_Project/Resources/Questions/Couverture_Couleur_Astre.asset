@@ -13,15 +13,15 @@ MonoBehaviour:
   m_Name: Couverture_Couleur_Astre
   m_EditorClassIdentifier: 
   ID: Couverture_Couleur_Astre
-  isFirstQuestion: 1
+  isFirstQuestion: 0
   label: "Quel est votre astre pr\xE9f\xE9r\xE9 ?"
   requirements: []
   anwsers:
   - ID: Couv_Couleur_Blanche
     label: Lune
     actions:
-    - AddElement(DEC_Alley_FRONT;1)
+    - AddElement(BG_White_FRONT;1)
   - ID: Couv_Couleur_Bleu
     label: "La Terre bien s\xFBr <3"
     actions:
-    - AddElement(DEC_Alley_FRONT;1)
+    - AddElement(BG_Blue_FRONT;1)

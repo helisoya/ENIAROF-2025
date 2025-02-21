@@ -1,0 +1,88 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 715c0086bf2e5364583fa3a3164a8e66, type: 3}
+  m_Name: Chanson
+  m_EditorClassIdentifier: 
+  ID: Chanson
+  isFirstQuestion: 0
+  label: "Quel est votre chanson pr\xE9f\xE9r\xE9e ?"
+  requirements: []
+  anwsers:
+  - ID: Chanson_1
+    label: <i>Zombie</i> des Cranberries
+    actions:
+    - AddElement(SUJ_Zombie_FRONT;1)
+  - ID: Chanson_2
+    label: <i>Killer Queen</i> de Queen
+    actions:
+    - AddElement(SUJ_Killer_FRONT;1)
+    - AddElement(MAT_Holo_FRONT;1)
+  - ID: Chanson_3
+    label: <i>Dead Inside</i> de Muse
+    actions:
+    - AddElement(SUJ_Deads_FRONT;1)
+    - AddElement(DEC_Cemetary_FRONT;1)
+  - ID: Chanson_4
+    label: <i>Monster</i> de Imagine Dragons
+    actions:
+    - AddElement(SUJ_Monster_FRONT;1)
+  - ID: Chanson_5
+    label: <i>Ghost</i> de Justin Bieber
+    actions:
+    - AddElement(SUJ_Ghost_FRONT;1)
+    - AddElement(DEC_Cemetary_FRONT;1)
+  - ID: Chanson_6
+    label: <i>Dead Robot Zombie Cop from Outer Space</i> de Ultra Vomit
+    actions:
+    - AddElement(SUJ_Deads_FRONT;1)
+    - AddElement(SUJ_Zombie_FRONT;1)
+    - AddElement(SUJ_Ghost_FRONT;1)
+    - AddElement(DEC_Stars_FRONT;1)
+  - ID: Chanson_7
+    label: <i>Bibbidy Bobbidy Boop</i> dans Cendrillon
+    actions:
+    - AddElement(SUJ_Fae_FRONT;1)
+    - AddElement(SUJ_People_Kiss_FRONT;1)
+    - AddElement(DEC_Castle_FRONT;1)
+    - AddElement(DEC_Fantasy_Forest_FRONT;1)
+    - AddElement(MAT_Holo_FRONT;1)
+  - ID: Chanson_8
+    label: <i>Spooky, Scary Skeletons</i> de Andrew Gold
+    actions:
+    - AddElement(SUJ_Reptile_Skel_FRONT;1)
+    - AddElement(DEC_Cemetary_FRONT;1)
+    - AddElement(MAT_Golden_FRONT;1)
+  - ID: Chanson_9
+    label: <i>Kiss from a Rose</i> de Seal
+    actions:
+    - AddElement(SUJ_Hothothot_FRONT;1)
+    - AddElement(SUJ_People_Kiss_FRONT;1)
+    - AddElement(SUJ_Animals_Kiss_FRONT;1)
+    - AddElement(SET_amour;1)
+  - ID: Chanson_10
+    label: <i>Thriller<i> de Michael Jackson
+    actions:
+    - AddElement(DEC_Cemetary_FRONT;1)
+    - AddElement(SUJ_Zombie_FRONT;1)
+  - ID: Chanson_11
+    label: <i>Empire State of Mind</i> d'Alicia Keys
+    actions:
+    - AddElement(DEC_Urban_Night_FRONT;1)
+  - ID: Chanson_12
+    label: <i>L'alien</i> de Jul
+    actions:
+    - AddElement(SUJ_Alien_FRONT;1)
+  - ID: Chanson_13
+    label: <i>The Unicorn Invasion of Dundee</i> de Gloryhammer
+    actions:
+    - AddElement(SUJ_Unicorn_FRONT;1)
+    - AddElement(MAT_Holo_FRONT;1)

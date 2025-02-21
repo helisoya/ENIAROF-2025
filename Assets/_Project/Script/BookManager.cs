@@ -123,6 +123,8 @@ public class BookManager : MonoBehaviour
         // ADD THINGS HERE
         //books[nextBook].bookAutho.text = syno;
         books[nextBook].bookData.author = author;
+        books[nextBook].bookAuthor.text = author;
+        books[nextBook].UITextAuthor.text = "\" " + author + " \"";
     }
 
     public void AddToCouverture(SpriteData _spriteData)
@@ -135,6 +137,7 @@ public class BookManager : MonoBehaviour
 
             float color = _spriteData.sprite.texture.GetPixel(_spriteData.sprite.texture.width / 2, _spriteData.sprite.texture.height / 2).grayscale;
             books[nextBook].bookName.color = color < 0.5f ? Color.white : Color.black;
+            books[nextBook].bookAuthor.color = color < 0.5f ? Color.white : Color.black;
         }
         //books[nextBook].spritesCouverture.OrderBy(x => x.level).ToList();
         //books[nextBook].spriteMerger.Merge(books[nextBook].meshRenderer, books[nextBook].spritesCouverture, true);

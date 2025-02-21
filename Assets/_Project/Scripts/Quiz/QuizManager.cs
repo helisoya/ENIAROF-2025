@@ -124,6 +124,7 @@ public class QuizManager : MonoBehaviour
 
             GenerateTitle();
             GenerateCoverElements();
+            GenerateAuthor();
 
             MusicPlayer.instance.CongratulationsSFXStart();
             Book book = BookManager.instance.GameFinished();
@@ -402,6 +403,22 @@ public class QuizManager : MonoBehaviour
     }
 
     /// <summary>
+    /// Generates the author
+    /// </summary>
+    void GenerateAuthor()
+    {
+
+        List<string> lines = FileManager.ReadTextAsset(Resources.Load<TextAsset>("CSV/names"));
+
+        string nom = lines[Random.Range(0, lines.Count)].Split('\t')[1];
+        string prenom = lines[Random.Range(0, lines.Count)].Split('\t')[0];
+
+        BookManager.instance.SetAuthor(prenom + " " + nom);
+
+        print("Selected Author : " + prenom + " " + nom);
+    }
+
+    /// <summary>
     /// Generates the cover elements
     /// </summary>
     public void GenerateCoverElements()
@@ -417,7 +434,7 @@ public class QuizManager : MonoBehaviour
             key = new SearchElementKey
             {
                 placement = CoverElement.CoverElementPlacement.FRONT,
-                type = CoverElement.CoverElementType.SCENERY
+                type = CoverElement.CoverElementType.SUBJECT
             };
 
             value = new SearchElementValue
@@ -432,7 +449,7 @@ public class QuizManager : MonoBehaviour
             key = new SearchElementKey
             {
                 placement = CoverElement.CoverElementPlacement.FRONT,
-                type = CoverElement.CoverElementType.SCENERY
+                type = CoverElement.CoverElementType.SUBJECT
             };
 
             value = new SearchElementValue
@@ -537,7 +554,7 @@ public class QuizManager : MonoBehaviour
     /// <param name="element">The element to add</param>
     private void AddElement(CoverElement element)
     {
-
+        print("Adding : " + element.ID + " " + element.type + " " + element.placement);
         if (element.type == CoverElement.CoverElementType.TYPOGRAPHY)
         {
             TMP_FontAsset font = Resources.Load<TMP_FontAsset>("Fonts/" + element.ID);
@@ -553,7 +570,7 @@ public class QuizManager : MonoBehaviour
             bool holo = element.ID.Contains("Holo");
             // Change material
             if (element.placement != CoverElement.CoverElementPlacement.FRONT) BookManager.instance.SetBackMaterial(holo, golden);
-            if (element.placement != CoverElement.CoverElementPlacement.BACK) BookManager.instance.SetBackMaterial(holo, golden);
+            if (element.placement != CoverElement.CoverElementPlacement.BACK) BookManager.instance.SetFrontMaterial(holo, golden);
         }
         else
         {

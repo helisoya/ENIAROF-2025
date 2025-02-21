@@ -15,7 +15,13 @@ MonoBehaviour:
   ID: Couverture
   stepsAmount: 3
   pool:
+  - {fileID: 11400000, guid: b726e839b394e124e88d02155b688559, type: 2}
   - {fileID: 11400000, guid: 0943da4880660474fb8e5580c62c11e1, type: 2}
-  - {fileID: 11400000, guid: 9500dabbcfbad6b49a083bd3581c1f5e, type: 2}
   - {fileID: 11400000, guid: e823f41229e95a947b18cdcdd71e2ce0, type: 2}
   - {fileID: 11400000, guid: 776e0ecc934170c45b5a28b75457df03, type: 2}
+  - {fileID: 11400000, guid: 8c1655226ffae344d824e2cc1710b33a, type: 2}
+  - {fileID: 11400000, guid: 34a1b694fb2dd9e40af3d7fa80b6dd3c, type: 2}
+  - {fileID: 11400000, guid: d7f32e6b7fc059345ad5f88e3fd9dfc4, type: 2}
+  - {fileID: 11400000, guid: e96e5f1a22d59c743bfc66670d35369e, type: 2}
+  - {fileID: 11400000, guid: 47427cf648e03d34f93861d36b984109, type: 2}
+  - {fileID: 11400000, guid: f9a1532534cb721498ed71bc7adc5f73, type: 2}

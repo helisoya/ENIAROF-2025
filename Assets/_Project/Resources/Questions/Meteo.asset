@@ -1,0 +1,44 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 715c0086bf2e5364583fa3a3164a8e66, type: 3}
+  m_Name: Meteo
+  m_EditorClassIdentifier: 
+  ID: Meteo
+  isFirstQuestion: 0
+  label: "La m\xE9t\xE9o qui vous donne le sourire :"
+  requirements: []
+  anwsers:
+  - ID: Meteo_1
+    label: Un grand soleil et pas de nuages !
+    actions:
+    - "AddPoolScore(Amour_Masc_D\xE9but_Lieux;1)"
+    - "AddPoolScore(Amour_Fem_D\xE9but_Lieux;1)"
+    - AddElement(MAT_Golden_FRONT;1)
+    - AddElement(BG_Yellow_FRONT;1)
+  - ID: Meteo_2
+    label: Des nuages gris et de la pluie...
+    actions:
+    - "AddPoolScore(Horreur_Fem_D\xE9but_Lieux;1)"
+    - "AddPoolScore(Amour_Masc_D\xE9but_Lieux;1)"
+    - AddElement(DEC_Nature_Rain_FRONT;1)
+    - AddElement(DEC_Nature_Temple_FRONT;1)
+  - ID: Meteo_3
+    label: Du tonnerre ! Beaucoup de tonnerre !
+    actions:
+    - "AddPoolScore(Horreur_Masc_D\xE9but_Lieux;1)"
+    - "AddPoolScore(Horreur_Fem_D\xE9but_Lieux;1)"
+    - AddElement(DEC_Nature_Rain_FRONT;1)
+  - ID: Meteo_4
+    label: Nuageux, avec une petite brise.
+    actions:
+    - "AddPoolScore(Fantasy_Masc_D\xE9but_Lieux;1)"
+    - AddElement(DEC_Castle_FRONT;1)

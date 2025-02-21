@@ -121,20 +121,20 @@ public class Utils : MonoBehaviour
 
             Anwser anwser = new Anwser();
             anwser.ID = splitedLine[0];
-            anwser.label = splitedLine[4];
+            anwser.label = splitedLine[3];
             anwser.actions = new List<string>();
 
-            if (!string.IsNullOrEmpty(splitedLine[6]) && !string.IsNullOrWhiteSpace(splitedLine[6]))
+            if (!string.IsNullOrEmpty(splitedLine[5]) && !string.IsNullOrWhiteSpace(splitedLine[5]))
             {
-                splitedInner = splitedLine[6].Split(", ");
+                splitedInner = splitedLine[5].Split(", ");
                 for (int j = 0; j < splitedInner.Length; j++)
                 {
                     anwser.actions.Add("AddPoolScore(" + splitedInner[j] + ";1)");
                 }
             }
-            if (!string.IsNullOrEmpty(splitedLine[7]) && !string.IsNullOrWhiteSpace(splitedLine[7]))
+            if (!string.IsNullOrEmpty(splitedLine[6]) && !string.IsNullOrWhiteSpace(splitedLine[6]))
             {
-                splitedInner = splitedLine[7].Split(", ");
+                splitedInner = splitedLine[6].Split(", ");
                 for (int j = 0; j < splitedInner.Length; j++)
                 {
                     anwser.actions.Add("AddElement(" + splitedInner[j] + ";1)");

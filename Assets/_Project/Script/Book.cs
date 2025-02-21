@@ -38,6 +38,7 @@ public class Book : MonoBehaviour
     [HideInInspector] public GameObject bookGameObject;
     [SerializeField] private BookManager bookManager;
     [HideInInspector] public TextMeshPro bookName;
+    [HideInInspector] public TextMeshPro bookAuthor;
     [HideInInspector] public TextMeshPro bookSyno;
     public bool shown;
     [HideInInspector] public BookData bookData;
@@ -49,6 +50,7 @@ public class Book : MonoBehaviour
     [SerializeField] private RawImage darkImage;
     private DepthOfField depthOfField;
     public TextMeshProUGUI UITextTitle;
+    public TextMeshProUGUI UITextAuthor;
     public TextMeshProUGUI UITextSyn;
 
     private Outline outline;
@@ -75,6 +77,7 @@ public class Book : MonoBehaviour
         //bookGameObject.SetActive(shown);
         meshRenderer.enabled = shown;
         bookName.enabled = shown;
+        bookAuthor.enabled = shown;
         bookSyno.enabled = shown;
 
         meshRenderer.materials[1].mainTextureScale = new Vector2(-1, 1);
@@ -146,6 +149,7 @@ public class Book : MonoBehaviour
                 AudioManager.instance.PlayOneShot(FMODEvents.instance.BookStored_SFX, this.transform.position);
             }
             UITextTitle.text = "\" " + bookData.title + " \"";
+            UITextAuthor.text = "\" " + bookData.author + " \"";
             UITextSyn.text = bookData.synopsis;
             animator.Play("MouseExit");
             AudioManager.instance.PlayOneShot(FMODEvents.instance.BookPick_SFX, this.transform.position);
@@ -214,6 +218,7 @@ public class Book : MonoBehaviour
             colorDesc.a = Mathf.Lerp(descStart, descEnd, easedT);
             UITextTitle.color = colorDesc;
             UITextSyn.color = colorDesc;
+            UITextAuthor.color = colorDesc;
 
             time += Time.deltaTime;
             yield return null;
@@ -290,6 +295,7 @@ public class Book : MonoBehaviour
         meshRenderer.enabled = true;
         bookName.enabled = true;
         bookSyno.enabled = true;
+        bookAuthor.enabled = true;
 
         //FileManager.SaveJSON(FileManager.savPath + "/book.json", bookData);
     }

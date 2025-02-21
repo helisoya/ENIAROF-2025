@@ -1,4 +1,4 @@
-Préfixe + Nom (ID)	Type d'élément	Emplacement	Genre associé	Ensemble d'éléments	Description
+Préfixe + Nom (ID)	Type d'élément	Emplacement	Genre associé	Ensemble d'éléments (si type = SET)	Description
 DEC_Skyscrapper_FRONT	décor	Couverture	Science-Fiction		gratte ciel futuristes de nuit
 DEC_Sci_Lab_FRONT	décor	Couverture	Science-Fiction		laboratoire scientifique
 DEC_Shapes_FRONT	décor	Couverture	Science-Fiction		formes géométriques abstraites 
@@ -28,7 +28,7 @@ SUJ_Cherub_FRONT	sujet	Couverture	Fantasy		anges genre chérubins ailés
 SUJ_Knight_FRONT	sujet	Couverture	Fantasy		chevalier
 SUJ_Unicorn_FRONT	sujet	Couverture	Fantasy		licorne
 DEC_Cemetary_FRONT	décor	Couverture	Horreur		cimetière
-DEC_Urban_FRONT	décor	Couverture	Horreur		espace urbain de nuit
+DEC_Urban_Night_FRONT	décor	Couverture	Horreur		espace urbain de nuit
 DEC_Creepy_Forest_FRONT	décor	Couverture	Horreur		forêt creepy : arbres verts avec des ecailles 
 DEC_Gore_Room_FRONT	décor	Couverture	Horreur		salon absurde avec membres du corps humain suspendus dans des sacs plastiques et carrelage craquelé. 
 DEC_Horror_City_FRONT	décor	Couverture	Horreur		ville : railles de trains tordues, maisons tordue et cassés
@@ -42,7 +42,21 @@ BG_Brown_FRONT	couleur de background	Les 2			marron
 BG_Red_FRONT	couleur de background	Les 2			rouge
 BG_Orange_FRONT	couleur de background	Les 2			orange
 BG_Yellow_FRONT	couleur de background	Les 2			jaune pétant
+BG_White_FRONT	couleur de background	Les 2			Blanc
+BG_Blue_FRONT	couleur de background	Les 2			Bleu
+BG_Pink_FRONT	couleur de background	Les 2			Rose
+BG_Purple_FRONT	couleur de background	Les 2			Violet
+BG_Gold_FRONT	couleur de background	Les 2			Doré
 MAT_Holo_FRONT	matériel	Couverture			effet holographique
 MAT_Golden_FRONT	matériel	Couverture			effet doré
-SET_persos	set			SUJ_Future_Warrior_FRONT, SUJ_Reptile_Skel_FRONT, SUJ_Stylish_Guy_Stars_FRONT, SUJ_Alien_FRONT, SUJ_Reptile_FRONT, SUJ_People_Kiss_FRONT, SUJ_Hothothot_FRONT, SUJ_Cherub_FRONT, SUJ_Knight_FRONT, SUJ_Unicorn_FRONT, SUJ_Zombie_FRONT, SUJ_Killer_FRONT, SUJ_Deads_FRONT, SUJ_Monster_FRONT, SUJ_Ghost_FRONT	
-SET_batiments	set			DEC_Skyscrapper_FRONT, DEC_Sci_Lab_FRONT, DEC_Post_Apo_FRONT, DEC_Alley_FRONT, DEC_Venice_FRONT, DEC_Nature_Temple_FRONT, DEC_Urban_FRONT, DEC_Castle_FRONT, DEC_Horror_City_FRONT	
+SET_persos	set			SUJ_Future_Warrior_FRONT, SUJ_Reptile_Skel_FRONT, SUJ_Stylish_Guy_Stars_FRONT, SUJ_Alien_FRONT, SUJ_Reptile_FRONT, SUJ_People_Kiss_FRONT, SUJ_Hothothot_FRONT, SUJ_Cherub_FRONT, SUJ_Knight_FRONT, SUJ_Unicorn_FRONT, SUJ_Zombie_FRONT, SUJ_Killer_FRONT, SUJ_Deads_FRONT, SUJ_Monster_FRONT, SUJ_Ghost_FRONT	Tous les personnages
+SET_batiments	set			DEC_Skyscrapper_FRONT, DEC_Sci_Lab_FRONT, DEC_Post_Apo_FRONT, DEC_Alley_FRONT, DEC_Venice_FRONT, DEC_Nature_Temple_FRONT, DEC_Urban_Night_FRONT, DEC_Castle_FRONT, DEC_Horror_City_FRONT	Tous les bâtiments
+SET_paysages	set			DEC_Skyscrapper_FRONT, DEC_Post_Apo_FRONT, DEC_Alley_FRONT, DEC_Venice_FRONT, DEC_Love_Forest_FRONT, DEC_Nature_Rain_FRONT, DEC_Fantasy_Forest_FRONT, DEC_Urban_Night_FRONT, DEC_Creepy_Forest_FRONT, DEC_Horror_City_FRONT	Tous les paysages
+SET_creatures	set			SUJ_Reptile_Skel_FRONT, SUJ_Alien_FRONT, SUJ_Reptile_FRONT, SUJ_Green_Monster_FRONT, SUJ_Fae_FRONT, SUJ_Unicorn_FRONT, SUJ_Monster_FRONT, SUJ_Ghost_FRONT	Toutes les créatures
+SET_objets	set			DEC_Shapes_FRONT, DEC_Table_FRONT	Tous les objets
+SET_ailes	set			SUJ_Fae_FRONT, SUJ_Cherub_FRONT	Tout ce qui est ailé
+SET_nature	set			DEC_Stars_FRONT, DEC_Sea_Side_Rocks_FRONT, DEC_Love_Forest_FRONT, DEC_Nature_Rain_FRONT, DEC_Nature_Temple_FRONT, DEC_Creepy_Forest_FRONT	Tout ce qui est nature
+SET_SF	set			DEC_Skyscrapper_FRONT, DEC_Sci_Lab_FRONT, DEC_Shapes_FRONT, DEC_Stars_FRONT, DEC_Post_Apo_FRONT, SUJ_Reptile_Skel_FRONT, SUJ_Future_Warrior_FRONT, SUJ_Stylish_Guy_Stars_FRONT, SUJ_Alien_FRONT, SUJ_Reptile_FRONT	Tout ce qui est SF
+SET_amour	set			DEC_Sea_Side_Rocks_FRONT, DEC_Alley_FRONT, DEC_Venice_FRONT, DEC_Love_Forest_FRONT, DEC_Table_FRONT, SUJ_Roses_FRONT, SUJ_People_Kiss_FRONT, SUJ_Animals_Kiss_FRONT, SUJ_Hothothot_FRONT	Tout ce qui est amour
+SET_fantasy	set			DEC_Nature_Rain_FRONT, DEC_Nature_Temple_FRONT, DEC_Fantasy_Forest_FRONT, DEC_Castle_FRONT, SUJ_Green_Monster_FRONT, SUJ_Fae_FRONT, SUJ_Cherub_FRONT, SUJ_Knight_FRONT, SUJ_Unicorn_FRONT	Tout ce qui est fantasy
+SET_horreur	set			DEC_Cemetary_FRONT, DEC_Urban_Night_FRONT, DEC_Creepy_Forest_FRONT, DEC_Gore_Room_FRONT, DEC_Horror_City_FRONT, SUJ_Zombie_FRONT, SUJ_Deads_FRONT, SUJ_Killer_FRONT, SUJ_Monster_FRONT, SUJ_Ghost_FRONT	Tout ce qui est horreur

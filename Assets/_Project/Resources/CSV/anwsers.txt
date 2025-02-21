@@ -1,33 +1,102 @@
-Nom réponse (Id)	Question	Corps Question	Étape	Corps de la réponse (100 caractères max)	Améliore le(s) genre(s)	Améliore les pools	Place les éléments
-Genre_Reve_SF	Genre_Reve	Le matin, vous vous rappelez de votre rêve :	Genre	Vous étiez en train d'explorer une planète inconnue luxuriante	Science-Fiction	SF_Masc_Début_Lieux, SF_Masc_Début_Objets, SF_Masc_Début_Heros, SF_Masc_Début_Ennemis, SF_Fem_Début_Lieux, SF_Fem_Début_Objets, SF_Fem_Début_Heros, SF_Fem_Début_Ennemis	
-Genre_Reve_Horreur	Genre_Reve	Le matin, vous vous rappelez de votre rêve :	Genre	Vous étiez pourchassé-e par une créature horrible	Horreur	Horreur_Masc_Début_Lieux, Horreur_Masc_Début_Objets, Horreur_Masc_Début_Heros, Horreur_Masc_Début_Ennemis, Horreur_Fem_Début_Lieux, Horreur_Fem_Début_Objets, Horreur_Fem_Début_Heros, Horreur_Fem_Début_Ennemis	
-Genre_Reve_Love	Genre_Reve	Le matin, vous vous rappelez de votre rêve :	Genre	Vous viviez la plus belle passion amoureuse de votre vie	Amour	Amour_Masc_Début_Lieux, Amour_Masc_Début_Objets, Amour_Masc_Début_Heros, Amour_Masc_Début_Ennemis, Amour_Fem_Début_Objets, Amour_Fem_Début_Heros, Amour_Fem_Début_Ennemis, Amour_Fem_Début_Lieux	
-Genre_Reve_Fantasy	Genre_Reve	Le matin, vous vous rappelez de votre rêve :	Genre	Vous parveniez à maîtriser la magie comme personne	Fantasy	Fantasy_Masc_Début_Lieux, Fantasy_Masc_Début_Objets, Fantasy_Masc_Début_Heros, Fantasy_Masc_Début_Ennemis, Fantasy_Fem_Début_Lieux, Fantasy_Fem_Début_Objets, Fantasy_Fem_Début_Heros, Fantasy_Fem_Début_Ennemis	
-Genre_Passion_SF	Genre_Passion	Votre plus grande passion dans la vie c'est :	Genre	Admirer les étoiles	Science-Fiction	SF_Masc_Début_Lieux, SF_Masc_Début_Objets, SF_Masc_Début_Heros, SF_Masc_Début_Ennemis, SF_Fem_Début_Lieux, SF_Fem_Début_Objets, SF_Fem_Début_Heros, SF_Fem_Début_Ennemis	
-Genre_Passion_Horreur	Genre_Passion	Votre plus grande passion dans la vie c'est :	Genre	Suivre des gens au hasard jusqu'à chez eux, la nuit	Horreur	Horreur_Masc_Début_Lieux, Horreur_Masc_Début_Objets, Horreur_Masc_Début_Heros, Horreur_Masc_Début_Ennemis, Horreur_Fem_Début_Lieux, Horreur_Fem_Début_Objets, Horreur_Fem_Début_Heros, Horreur_Fem_Début_Ennemis	
-Genre_Passion_Love	Genre_Passion	Votre plus grande passion dans la vie c'est :	Genre	Mettre en couple vos ami-es	Amour	Amour_Masc_Début_Lieux, Amour_Masc_Début_Objets, Amour_Masc_Début_Heros, Amour_Masc_Début_Ennemis, Amour_Fem_Début_Objets, Amour_Fem_Début_Heros, Amour_Fem_Début_Ennemis, Amour_Fem_Début_Lieux	
-Genre_Passion_Fantasy	Genre_Passion	Votre plus grande passion dans la vie c'est :	Genre	Le cosplay	Fantasy	Fantasy_Masc_Début_Lieux, Fantasy_Masc_Début_Objets, Fantasy_Masc_Début_Heros, Fantasy_Masc_Début_Ennemis, Fantasy_Fem_Début_Lieux, Fantasy_Fem_Début_Objets, Fantasy_Fem_Début_Heros, Fantasy_Fem_Début_Ennemis	
-Genre_Nouvelle_SF	Genre_Nouvelle	Quelle nouvelle vous ferait le plus plaisir :	Genre	Lidl propose lundi prochain un sabre laser à 39,90€ !	Science-Fiction	SF_Masc_Début_Lieux, SF_Masc_Début_Objets, SF_Masc_Début_Heros, SF_Masc_Début_Ennemis, SF_Fem_Début_Lieux, SF_Fem_Début_Objets, SF_Fem_Début_Heros, SF_Fem_Début_Ennemis	
-Genre_Nouvelle_Horreur	Genre_Nouvelle	Quelle nouvelle vous ferait le plus plaisir :	Genre	Le meurtre est désormais légal pendant une soirée !	Horreur	Horreur_Masc_Début_Lieux, Horreur_Masc_Début_Objets, Horreur_Masc_Début_Heros, Horreur_Masc_Début_Ennemis, Horreur_Fem_Début_Lieux, Horreur_Fem_Début_Objets, Horreur_Fem_Début_Heros, Horreur_Fem_Début_Ennemis	
-Genre_Nouvelle_Love	Genre_Nouvelle	Quelle nouvelle vous ferait le plus plaisir :	Genre	Michou et Elsa se remettent ensemble !	Amour	Amour_Masc_Début_Lieux, Amour_Masc_Début_Objets, Amour_Masc_Début_Heros, Amour_Masc_Début_Ennemis, Amour_Fem_Début_Objets, Amour_Fem_Début_Heros, Amour_Fem_Début_Ennemis, Amour_Fem_Début_Lieux	
-Genre_Nouvelle_Fantasy	Genre_Nouvelle	Quelle nouvelle vous ferait le plus plaisir :	Genre	Des portails vers des mondes merveilleux s'ouvrent dans les armoires !	Fantasy	Fantasy_Masc_Début_Lieux, Fantasy_Masc_Début_Objets, Fantasy_Masc_Début_Heros, Fantasy_Masc_Début_Ennemis, Fantasy_Fem_Début_Lieux, Fantasy_Fem_Début_Objets, Fantasy_Fem_Début_Heros, Fantasy_Fem_Début_Ennemis	
-Couv_Couleur_Noir	Couverture_Couleur	Quel est votre fruit préféré ?	Couverture	Myrtille			noir
-Couv_Couleur_Marron	Couverture_Couleur	Quel est votre fruit préféré ?	Couverture	Noix de coco			marron
-Couv_Couleur_Jaune	Couverture_Couleur	Quel est votre fruit préféré ?	Couverture	Citron			jaune pétant
-Couv_Couleur_Orange	Couverture_Couleur	Quel est votre fruit préféré ?	Couverture	Clémentine			orange
-Couv_Couleur_Rouge	Couverture_Couleur	Quel est votre fruit préféré ?	Couverture	Fraise			rouge
-Couv_Couleur_Blanche	Couverture_Couleur_Astre	Quel est votre astre préféré ?	Couverture	Lune			
-Couv_Couleur_Bleu	Couverture_Couleur_Astre	Quel est votre astre préféré ?	Couverture	La Terre bien sûr <3			
-Couv_Couleur_Rose	Couverture_Couleur_Fleur	T'AIME QUEL TYPE DE FLEUR ????	Couverture	LA ROSE ROSE #love	Amour		
-Couv_Couleur_Violet	Couverture_Couleur_Fleur	T'AIME QUEL TYPE DE FLEUR ????	Couverture	LES LILAS ^^			
-Couv_Couleur_Or	Couverture_Couleur_Fleur	T'AIME QUEL TYPE DE FLEUR ????	Couverture	LES CHRYSANTHEMES MIAAAMMM	Horreur		
-Titre_Sujet_Lieux	Titre_Sujet	Aujourd'hui, vous avez envie de...	Titre	découvrir un nouvel endroit, voyager !		Fantasy_Masc_Début_Lieux, SF_Masc_Début_Lieux, Fantasy_Fem_Début_Lieux, SF_Fem_Début_Lieux, Horreur_Masc_Début_Lieux, Horreur_Fem_Début_Lieux, Amour_Masc_Début_Lieux, Amour_Fem_Début_Lieux	
-Titre_Sujet_Objets	Titre_Sujet	Aujourd'hui, vous avez envie de...	Titre	monter un meuble Ikea.		Fantasy_Masc_Début_Objets, Fantasy_Fem_Début_Objets, SF_Masc_Début_Objets, SF_Fem_Début_Objets, Horreur_Masc_Début_Objets, Horreur_Fem_Début_Objets, Amour_Masc_Début_Objets, Amour_Fem_Début_Objets	
-Titre_Sujet_Heros	Titre_Sujet	Aujourd'hui, vous avez envie de...	Titre	sauver la veuve et l'orphelin.		Fantasy_Masc_Début_Heros, Fantasy_Fem_Début_Heros, SF_Masc_Début_Heros, SF_Fem_Début_Heros, Horreur_Masc_Début_Heros, Horreur_Fem_Début_Heros, Amour_Masc_Début_Heros, Amour_Fem_Début_Heros	
-Titre_Sujet_Ennemis	Titre_Sujet	Aujourd'hui, vous avez envie de...	Titre	générer du chaos #malveillancemäx		Fantasy_Masc_Début_Ennemis, Fantasy_Fem_Début_Ennemis, SF_Masc_Début_Ennemis, SF_Fem_Début_Ennemis, Horreur_Masc_Début_Ennemis, Horreur_Fem_Début_Ennemis, Amour_Masc_Début_Ennemis, Amour_Fem_Début_Ennemis	
-Titre_Adjectif_Positif	Titre_Adjectif	En vrai de vrai, vos parents sont fiers de vous ?	Titre	En vrai ouais y'a de quoi j'suis un.e crack		Masc_Fin_Positif, Fem_Fin_Positif	
-Titre_Adjectif_Negatif	Titre_Adjectif	En vrai de vrai, vos parents sont fiers de vous ?	Titre	non ouiiinnnnnn		Fem_Fin_Negatif, Masc_Fin_Negatif	
-Couv_Habiter_GratteCiel	Couv_Habiter	Dans quel endroit préféreriez-vous habiter ?	Couverture	Dans une ville cyberpunk	Science-Fiction		gratte ciel futuristes de nuit
-Couv_Habiter_Chateau	Couv_Habiter	Dans quel endroit préféreriez-vous habiter ?	Couverture	Dans un château moyennâgeux	Fantasy		campagne et chateau
-Couv_Habiter_Urbain	Couv_Habiter	Dans quel endroit préféreriez-vous habiter ?	Couverture	En grande ville			espace urbain de nuit
-Couv_Habiter_Cimetiere	Couv_Habiter	Dans quel endroit préféreriez-vous habiter ?	Couverture	Dans une vieille abbaye	Horreur		cimetière
+Nom réponse (Id)	Question	Corps Question	Corps de la réponse (100 caractères max)	Améliore le(s) genre(s)	Améliore le score des titres	Améliore le score des éléments de la couv
+Genre_Reve_SF	Genre_Reve	Le matin, vous vous rappelez de votre rêve :	Vous étiez en train d'explorer une planète inconnue luxuriante	Science-Fiction	SF_Masc_Début_Lieux, SF_Masc_Début_Objets, SF_Masc_Début_Heros, SF_Masc_Début_Ennemis, SF_Fem_Début_Lieux, SF_Fem_Début_Objets, SF_Fem_Début_Heros, SF_Fem_Début_Ennemis	DEC_Fantasy_Forest_FRONT
+Genre_Reve_Horreur	Genre_Reve	Le matin, vous vous rappelez de votre rêve :	Vous étiez pourchassé-e par une créature horrible	Horreur	Horreur_Masc_Début_Lieux, Horreur_Masc_Début_Objets, Horreur_Masc_Début_Heros, Horreur_Masc_Début_Ennemis, Horreur_Fem_Début_Lieux, Horreur_Fem_Début_Objets, Horreur_Fem_Début_Heros, Horreur_Fem_Début_Ennemis	SUJ_Zombie_FRONT, SUJ_Monster_FRONT, SUJ_Ghost_FRONT
+Genre_Reve_Love	Genre_Reve	Le matin, vous vous rappelez de votre rêve :	Vous viviez la plus belle passion amoureuse de votre vie	Amour	Amour_Masc_Début_Lieux, Amour_Masc_Début_Objets, Amour_Masc_Début_Heros, Amour_Masc_Début_Ennemis, Amour_Fem_Début_Objets, Amour_Fem_Début_Heros, Amour_Fem_Début_Ennemis, Amour_Fem_Début_Lieux	SUJ_Roses_FRONT, SUJ_People_Kiss_FRONT, SUJ_Hothothot_FRONT
+Genre_Reve_Fantasy	Genre_Reve	Le matin, vous vous rappelez de votre rêve :	Vous parveniez à maîtriser la magie comme personne	Fantasy	Fantasy_Masc_Début_Lieux, Fantasy_Masc_Début_Objets, Fantasy_Masc_Début_Heros, Fantasy_Masc_Début_Ennemis, Fantasy_Fem_Début_Lieux, Fantasy_Fem_Début_Objets, Fantasy_Fem_Début_Heros, Fantasy_Fem_Début_Ennemis	SUJ_Fae_FRONT, MAT_Holo_FRONT
+Genre_Passion_SF	Genre_Passion	Votre plus grande passion dans la vie c'est :	Admirer les étoiles	Science-Fiction	SF_Masc_Début_Lieux, SF_Masc_Début_Objets, SF_Masc_Début_Heros, SF_Masc_Début_Ennemis, SF_Fem_Début_Lieux, SF_Fem_Début_Objets, SF_Fem_Début_Heros, SF_Fem_Début_Ennemis	MAT_Holo_FRONT, DEC_Stars_FRONT, SUJ_Stylish_Guy_Stars_FRONT
+Genre_Passion_Horreur	Genre_Passion	Votre plus grande passion dans la vie c'est :	Suivre des gens au hasard jusqu'à chez eux, la nuit	Horreur	Horreur_Masc_Début_Lieux, Horreur_Masc_Début_Objets, Horreur_Masc_Début_Heros, Horreur_Masc_Début_Ennemis, Horreur_Fem_Début_Lieux, Horreur_Fem_Début_Objets, Horreur_Fem_Début_Heros, Horreur_Fem_Début_Ennemis	DEC_Urban_Night_FRONT
+Genre_Passion_Love	Genre_Passion	Votre plus grande passion dans la vie c'est :	Mettre en couple vos ami-es	Amour	Amour_Masc_Début_Lieux, Amour_Masc_Début_Objets, Amour_Masc_Début_Heros, Amour_Masc_Début_Ennemis, Amour_Fem_Début_Objets, Amour_Fem_Début_Heros, Amour_Fem_Début_Ennemis, Amour_Fem_Début_Lieux	SUJ_People_Kiss_FRONT, SUJ_Roses_FRONT
+Genre_Passion_Fantasy	Genre_Passion	Votre plus grande passion dans la vie c'est :	Le cosplay	Fantasy	Fantasy_Masc_Début_Lieux, Fantasy_Masc_Début_Objets, Fantasy_Masc_Début_Heros, Fantasy_Masc_Début_Ennemis, Fantasy_Fem_Début_Lieux, Fantasy_Fem_Début_Objets, Fantasy_Fem_Début_Heros, Fantasy_Fem_Début_Ennemis	SUJ_Future_Warrior_FRONT, SUJ_Knight_FRONT, SUJ_Killer_FRONT
+Genre_Nouvelle_SF	Genre_Nouvelle	Quelle nouvelle vous ferait le plus plaisir :	Lidl propose lundi prochain un sabre laser à 39,90€ !	Science-Fiction	SF_Masc_Début_Lieux, SF_Masc_Début_Objets, SF_Masc_Début_Heros, SF_Masc_Début_Ennemis, SF_Fem_Début_Lieux, SF_Fem_Début_Objets, SF_Fem_Début_Heros, SF_Fem_Début_Ennemis	SUJ_Future_Warrior_FRONT, SUJ_Alien_FRONT, DEC_Stars_FRONT
+Genre_Nouvelle_Horreur	Genre_Nouvelle	Quelle nouvelle vous ferait le plus plaisir :	Le meurtre est désormais légal pendant une soirée !	Horreur	Horreur_Masc_Début_Lieux, Horreur_Masc_Début_Objets, Horreur_Masc_Début_Heros, Horreur_Masc_Début_Ennemis, Horreur_Fem_Début_Lieux, Horreur_Fem_Début_Objets, Horreur_Fem_Début_Heros, Horreur_Fem_Début_Ennemis	DEC_Gore_Room_FRONT
+Genre_Nouvelle_Love	Genre_Nouvelle	Quelle nouvelle vous ferait le plus plaisir :	Michou et Elsa se remettent ensemble !	Amour	Amour_Masc_Début_Lieux, Amour_Masc_Début_Objets, Amour_Masc_Début_Heros, Amour_Masc_Début_Ennemis, Amour_Fem_Début_Objets, Amour_Fem_Début_Heros, Amour_Fem_Début_Ennemis, Amour_Fem_Début_Lieux	SUJ_People_Kiss_FRONT, SUJ_Animals_Kiss_FRONT
+Genre_Nouvelle_Fantasy	Genre_Nouvelle	Quelle nouvelle vous ferait le plus plaisir :	Des portails vers des mondes merveilleux s'ouvrent dans les armoires !	Fantasy	Fantasy_Masc_Début_Lieux, Fantasy_Masc_Début_Objets, Fantasy_Masc_Début_Heros, Fantasy_Masc_Début_Ennemis, Fantasy_Fem_Début_Lieux, Fantasy_Fem_Début_Objets, Fantasy_Fem_Début_Heros, Fantasy_Fem_Début_Ennemis	DEC_Fantasy_Forest_FRONT
+Fromage_1	Fromage	Si vous étiez un fromage :	Le fromage à tartiner, bien propre	Science-Fiction		SET_SF
+Fromage_2	Fromage	Si vous étiez un fromage :	Le camembert fermier, puissant et dégoulinant	Horreur		SET_fantasy
+Fromage_3	Fromage	Si vous étiez un fromage :	La tome de licorne, rosé et à paillettes	Fantasy		MAT_Holo_FRONT, SUJ_Unicorn_FRONT, SET_fantasy
+Fromage_4	Fromage	Si vous étiez un fromage :	Le caprice des dieux, caprice à deux :)	Amour		SUJ_Cherub_FRONT, SET_amour
+Plat_1	Plat	Votre plat préféré :	Le rôti de Manticore aux champignons, si savoureux !	Fantasy	Fantasy_Masc_Début_Ennemis, Fantasy_Fem_Début_Ennemis	SET_fantasy
+Plat_2	Plat	Votre plat préféré :	Des pillules extra parfaites pour la santé, quel gain de temps !	Science-Fiction	SF_Fem_Début_Heros, SF_Masc_Début_Heros	SET_SF, MAT_Holo_FRONT
+Plat_3	Plat	Votre plat préféré :	Un steak bien bien saignant avec un verre de chianti	Horreur	Fantasy_Masc_Début_Objets, Fantasy_Fem_Début_Objets	SET_horreur
+Plat_4	Plat	Votre plat préféré :	Un plat de spaghettis à partager à deux	Amour	Amour_Masc_Début_Heros, Amour_Fem_Début_Heros	SUJ_Animals_Kiss_FRONT, SUJ_People_Kiss_FRONT, SET_amour
+Meteo_1	Meteo	La météo qui vous donne le sourire :	Un grand soleil et pas de nuages !	Amour	Amour_Masc_Début_Lieux, Amour_Fem_Début_Lieux	MAT_Golden_FRONT, BG_Yellow_FRONT
+Meteo_2	Meteo	La météo qui vous donne le sourire :	Des nuages gris et de la pluie...	Science-Fiction	Horreur_Fem_Début_Lieux, Amour_Masc_Début_Lieux	DEC_Nature_Rain_FRONT, DEC_Nature_Temple_FRONT
+Meteo_3	Meteo	La météo qui vous donne le sourire :	Du tonnerre ! Beaucoup de tonnerre !	Horreur	Horreur_Masc_Début_Lieux, Horreur_Fem_Début_Lieux	DEC_Nature_Rain_FRONT
+Meteo_4	Meteo	La météo qui vous donne le sourire :	Nuageux, avec une petite brise.	Fantasy	Fantasy_Masc_Début_Lieux	DEC_Castle_FRONT
+Chocolatine_1	Chocolatine	Préférez-vous les pains au chocolat ou les chocolatines ?	Les pains au chocolat, le reste devrait être puni		Masc_Fin_Negatif, Fem_Fin_Negatif	SET_horreur
+Chocolatine_2	Chocolatine	Préférez-vous les pains au chocolat ou les chocolatines ?	Les chocolatines, c'est logique !		Masc_Fin_Positif, Fem_Fin_Positif	SET_fantasy
+Chocolatine_3	Chocolatine	Préférez-vous les pains au chocolat ou les chocolatines ?	Les chocolatines au chocolat, bien sûr		Fin_2_Neutre	DEC_Shapes_FRONT
+Chocolatine_4	Chocolatine	Préférez-vous les pains au chocolat ou les chocolatines ?	Les pains aux chocolatines, ça ne fait aucun doute		Fin_2_Neutre	DEC_Shapes_FRONT
+Chocolatine_5	Chocolatine	Préférez-vous les pains au chocolat ou les chocolatines ?	Les chocolatines au pain, quoi d'autre ?		Fin_2_Neutre	DEC_Shapes_FRONT
+Chocolatine_6	Chocolatine	Préférez-vous les pains au chocolat ou les chocolatines ?	Les pains au pain, en fait	Horreur	Masc_Fin_Negatif, Fem_Fin_Negatif, Fin_1_Negatif, Fin_2_Négatif	SET_horreur
+Chanson_1	Chanson	Quel est votre chanson préférée ?	<i>Zombie</i> des Cranberries	Horreur		SUJ_Zombie_FRONT
+Chanson_2	Chanson	Quel est votre chanson préférée ?	<i>Killer Queen</i> de Queen	Fantasy, Amour		SUJ_Killer_FRONT, MAT_Holo_FRONT
+Chanson_3	Chanson	Quel est votre chanson préférée ?	<i>Dead Inside</i> de Muse	Horreur		SUJ_Deads_FRONT, DEC_Cemetary_FRONT
+Chanson_4	Chanson	Quel est votre chanson préférée ?	<i>Monster</i> de Imagine Dragons	Fantasy		SUJ_Monster_FRONT
+Chanson_5	Chanson	Quel est votre chanson préférée ?	<i>Ghost</i> de Justin Bieber	Amour		SUJ_Ghost_FRONT, DEC_Cemetary_FRONT
+Chanson_6	Chanson	Quel est votre chanson préférée ?	<i>Dead Robot Zombie Cop from Outer Space</i> de Ultra Vomit	Science-Fiction, Horreur		SUJ_Deads_FRONT, SUJ_Zombie_FRONT, SUJ_Ghost_FRONT, DEC_Stars_FRONT
+Chanson_7	Chanson	Quel est votre chanson préférée ?	<i>Bibbidy Bobbidy Boop</i> dans Cendrillon	Fantasy, Amour		SUJ_Fae_FRONT, SUJ_People_Kiss_FRONT, DEC_Castle_FRONT, DEC_Fantasy_Forest_FRONT, MAT_Holo_FRONT
+Chanson_8	Chanson	Quel est votre chanson préférée ?	<i>Spooky, Scary Skeletons</i> de Andrew Gold	Horreur		SUJ_Reptile_Skel_FRONT, DEC_Cemetary_FRONT, MAT_Golden_FRONT
+Chanson_9	Chanson	Quel est votre chanson préférée ?	<i>Kiss from a Rose</i> de Seal	Amour		SUJ_Hothothot_FRONT, SUJ_People_Kiss_FRONT, SUJ_Animals_Kiss_FRONT, SET_amour
+Chanson_10	Chanson	Quel est votre chanson préférée ?	<i>Thriller<i> de Michael Jackson	Horreur		DEC_Cemetary_FRONT, SUJ_Zombie_FRONT
+Chanson_11	Chanson	Quel est votre chanson préférée ?	<i>Empire State of Mind</i> d'Alicia Keys	Amour		DEC_Urban_Night_FRONT
+Chanson_12	Chanson	Quel est votre chanson préférée ?	<i>L'alien</i> de Jul	Horreur		SUJ_Alien_FRONT
+Chanson_13	Chanson	Quel est votre chanson préférée ?	<i>The Unicorn Invasion of Dundee</i> de Gloryhammer	Science-Fiction, Fantasy		SUJ_Unicorn_FRONT, MAT_Holo_FRONT
+Gel_Douche_1	Gel_Douche	Votre gel douche de tous les jours :	Mandarine	Fantasy		BG_Orange_FRONT
+Gel_Douche_2	Gel_Douche	Votre gel douche de tous les jours :	Coquelicots	Amour		BG_Red_FRONT
+Gel_Douche_3	Gel_Douche	Votre gel douche de tous les jours :	Musk	Horreur		BG_Black_FRONT
+Gel_Douche_4	Gel_Douche	Votre gel douche de tous les jours :	Camomille	Amour		BG_Yellow_FRONT
+Gel_Douche_5	Gel_Douche	Votre gel douche de tous les jours :	Chocolat	Amour		BG_Brown_FRONT
+Gel_Douche_6	Gel_Douche	Votre gel douche de tous les jours :	Celui qui fait 15 en 1	Science-Fiction		BG_Black_FRONT
+Couv_Couleur_Noir	Couverture_Couleur	Quel est votre fruit préféré ?	Myrtille			BG_Black_FRONT
+Couv_Couleur_Marron	Couverture_Couleur	Quel est votre fruit préféré ?	Noix de coco			BG_Brown_FRONT
+Couv_Couleur_Jaune	Couverture_Couleur	Quel est votre fruit préféré ?	Citron			BG_Yellow_FRONT
+Couv_Couleur_Orange	Couverture_Couleur	Quel est votre fruit préféré ?	Clémentine			BG_Orange_FRONT
+Couv_Couleur_Rouge	Couverture_Couleur	Quel est votre fruit préféré ?	Fraise			BG_Red_FRONT
+Couv_Couleur_Blanche	Couverture_Couleur_Astre	Quel est votre astre préféré ?	Lune			BG_White_FRONT
+Couv_Couleur_Bleu	Couverture_Couleur_Astre	Quel est votre astre préféré ?	La Terre bien sûr <3			BG_Blue_FRONT
+Couv_Couleur_Rose	Couverture_Couleur_Fleur	Auel type de fleur préférez-vous ?	La rose rose 	Amour		BG_Pink_FRONT
+Couv_Couleur_Violet	Couverture_Couleur_Fleur	Auel type de fleur préférez-vous ?	Les lilas 	Fantasy		BG_Purple_FRONT
+Couv_Couleur_Or	Couverture_Couleur_Fleur	Auel type de fleur préférez-vous ?	Les chrysanthèmes 	Horreur		MAT_Holo_FRONT, BG_Gold_FRONT
+Titre_Sujet_Lieux	Titre_Sujet	Aujourd'hui, vous avez envie de...	découvrir un nouvel endroit, voyager !		Fantasy_Masc_Début_Lieux, SF_Masc_Début_Lieux, Fantasy_Fem_Début_Lieux, SF_Fem_Début_Lieux, Horreur_Masc_Début_Lieux, Horreur_Fem_Début_Lieux, Amour_Masc_Début_Lieux, Amour_Fem_Début_Lieux	
+Titre_Sujet_Objets	Titre_Sujet	Aujourd'hui, vous avez envie de...	monter un meuble Ikea.		Fantasy_Masc_Début_Objets, Fantasy_Fem_Début_Objets, SF_Masc_Début_Objets, SF_Fem_Début_Objets, Horreur_Masc_Début_Objets, Horreur_Fem_Début_Objets, Amour_Masc_Début_Objets, Amour_Fem_Début_Objets	
+Titre_Sujet_Heros	Titre_Sujet	Aujourd'hui, vous avez envie de...	sauver la veuve et l'orphelin.		Fantasy_Masc_Début_Heros, Fantasy_Fem_Début_Heros, SF_Masc_Début_Heros, SF_Fem_Début_Heros, Horreur_Masc_Début_Heros, Horreur_Fem_Début_Heros, Amour_Masc_Début_Heros, Amour_Fem_Début_Heros	
+Titre_Sujet_Ennemis	Titre_Sujet	Aujourd'hui, vous avez envie de...	générer du chaos #malveillancemäx		Fantasy_Masc_Début_Ennemis, Fantasy_Fem_Début_Ennemis, SF_Masc_Début_Ennemis, SF_Fem_Début_Ennemis, Horreur_Masc_Début_Ennemis, Horreur_Fem_Début_Ennemis, Amour_Masc_Début_Ennemis, Amour_Fem_Début_Ennemis	
+Titre_Adjectif_Positif	Titre_Adjectif	En vrai de vrai, vos parents sont fiers de vous ?	En vrai ouais y'a de quoi j'suis un.e crack		Masc_Fin_Positif, Fem_Fin_Positif	
+Titre_Adjectif_Negatif	Titre_Adjectif	En vrai de vrai, vos parents sont fiers de vous ?	non ouiiinnnnnn		Fem_Fin_Negatif, Masc_Fin_Negatif	
+Couv_Habiter_GratteCiel	Couv_Habiter	Dans quel endroit préféreriez-vous habiter ?	Dans une ville cyberpunk	Science-Fiction		DEC_Skyscrapper_FRONT
+Couv_Habiter_Chateau	Couv_Habiter	Dans quel endroit préféreriez-vous habiter ?	Dans un château moyennâgeux	Fantasy		DEC_Castle_FRONT
+Couv_Habiter_Urbain	Couv_Habiter	Dans quel endroit préféreriez-vous habiter ?	En grande ville			DEC_Urban_Night_FRONT
+Couv_Habiter_Cimetiere	Couv_Habiter	Dans quel endroit préféreriez-vous habiter ?	Dans une vieille abbaye	Horreur		DEC_Cemetary_FRONT
+Droitier_Gaucher_1	Droitier_Gaucher	Droitier ou gaucher ?	Droitier			
+Droitier_Gaucher_2	Droitier_Gaucher	Droitier ou gaucher ?	Gaucher			
+Droitier_Gaucher_3	Droitier_Gaucher	Droitier ou gaucher ?	Ambidextre			
+Droitier_Gaucher_4	Droitier_Gaucher	Droitier ou gaucher ?	Pas de bras pas de chocolat			
+Crampte_1	Crampte	Avez-vous les cramptés ?	Apagnan			
+Crampte_2	Crampte	Avez-vous les cramptés ?	Quoicoubeh			
+Crampte_3	Crampte	Avez-vous les cramptés ?	Quoicouc'est			
+Saucisson_1	Saucisson	Quelle est l'occasion la plus appropriée pour sortir un saucisson ?	À un enterrement			
+Saucisson_2	Saucisson	Quelle est l'occasion la plus appropriée pour sortir un saucisson ?	À un entretien d'embauche			
+Saucisson_3	Saucisson	Quelle est l'occasion la plus appropriée pour sortir un saucisson ?	En plongée sous-marine			
+Saucisson_4	Saucisson	Quelle est l'occasion la plus appropriée pour sortir un saucisson ?	Dans le métro			
+Saucisson_5	Saucisson	Quelle est l'occasion la plus appropriée pour sortir un saucisson ?	Chez l'avocat			
+Pizza_1	Pizza	Quelle pizza êtes-vous ?	Pizza ananas			
+Pizza_2	Pizza	Quelle pizza êtes-vous ?	Pizza quatre chaussures			
+Pizza_3	Pizza	Quelle pizza êtes-vous ?	Pizza au poisson mort			
+Pizza_4	Pizza	Quelle pizza êtes-vous ?	Pizza burger			
+Carriere_1	Carriere_pro	Votre carrière professionnelle de rêve :	Ninja	Fantasy		
+Carriere_2	Carriere_pro	Votre carrière professionnelle de rêve :	Un.e chevalier.ère	Fantasy	Fantasy_Masc_Début_Heros, Fantasy_Fem_Début_Heros	
+Carriere_3	Carriere_pro	Votre carrière professionnelle de rêve :	Un.e pirate de l'espace	Science-Fiction	SF_Masc_Début_Heros, SF_Fem_Début_Heros	
+Carriere_4	Carriere_pro	Votre carrière professionnelle de rêve :	Un.e monstre sous le lit	Horreur	Horreur_Masc_Début_Heros, Horreur_Masc_Début_Ennemis, Horreur_Fem_Début_Heros, Horreur_Fem_Début_Ennemis	
+Angouniarof_1	Angouniarof	Quelle attraction Angouniarof êtes-vous ?	L'attraction avec les coeurs <3			
+Angouniarof_2	Angouniarof	Quelle attraction Angouniarof êtes-vous ?	L'attraction punk			
+Angouniarof_3	Angouniarof	Quelle attraction Angouniarof êtes-vous ?	L'attraction olé-olé			
+Angouniarof_4	Angouniarof	Quelle attraction Angouniarof êtes-vous ?	L'attraction qui fonctionne pas			
+Angouniarof_5	Angouniarof	Quelle attraction Angouniarof êtes-vous ?	L'attraction des ballons là			
+Angouniarof_6	Angouniarof	Quelle attraction Angouniarof êtes-vous ?	La moto j'aime les motos			
+Angouniarof_7	Angouniarof	Quelle attraction Angouniarof êtes-vous ?	La guitare j'aime la guitare			
+Angouniarof_8	Angouniarof	Quelle attraction Angouniarof êtes-vous ?	L'attraction bizarre			
+Angouniarof_9	Angouniarof	Quelle attraction Angouniarof êtes-vous ?	L'attraction étrange			
+Angouniarof_10	Angouniarof	Quelle attraction Angouniarof êtes-vous ?	L'attraction dangereuse			
+Angouniarof_11	Angouniarof	Quelle attraction Angouniarof êtes-vous ?	L'attraction d'à-côté			
+Tu_Preferes_1	Tu_Preferes	Vous préférez :	Payer un billet d'entrée avec un jet de dé			DEC_Post_Apo_FRONT						

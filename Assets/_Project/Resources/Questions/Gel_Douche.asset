@@ -1,0 +1,43 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 715c0086bf2e5364583fa3a3164a8e66, type: 3}
+  m_Name: Gel_Douche
+  m_EditorClassIdentifier: 
+  ID: Gel_Douche
+  isFirstQuestion: 0
+  label: 'Votre gel douche de tous les jours :'
+  requirements: []
+  anwsers:
+  - ID: Gel_Douche_1
+    label: Mandarine
+    actions:
+    - AddElement(BG_Orange_FRONT;1)
+  - ID: Gel_Douche_2
+    label: Coquelicots
+    actions:
+    - AddElement(BG_Red_FRONT;1)
+  - ID: Gel_Douche_3
+    label: Musk
+    actions:
+    - AddElement(BG_Black_FRONT;1)
+  - ID: Gel_Douche_4
+    label: Camomille
+    actions:
+    - AddElement(BG_Yellow_FRONT;1)
+  - ID: Gel_Douche_5
+    label: Chocolat
+    actions:
+    - AddElement(BG_Brown_FRONT;1)
+  - ID: Gel_Douche_6
+    label: Celui qui fait 15 en 1
+    actions:
+    - AddElement(BG_Black_FRONT;1)

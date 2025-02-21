@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0e2140d8a37cc6545bbc96e9d54e50bb, type: 3}
+  m_Name: SET_paysages
+  m_EditorClassIdentifier: 
+  ID: SET_paysages
+  type: 8
+  placement: 1
+  linkedElements:
+  - DEC_Skyscrapper_FRONT
+  - DEC_Post_Apo_FRONT
+  - DEC_Alley_FRONT
+  - DEC_Venice_FRONT
+  - DEC_Love_Forest_FRONT
+  - DEC_Nature_Rain_FRONT
+  - DEC_Fantasy_Forest_FRONT
+  - DEC_Urban_Night_FRONT
+  - DEC_Creepy_Forest_FRONT
+  - DEC_Horror_City_FRONT

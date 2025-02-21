@@ -1,0 +1,54 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 715c0086bf2e5364583fa3a3164a8e66, type: 3}
+  m_Name: Chocolatine
+  m_EditorClassIdentifier: 
+  ID: Chocolatine
+  isFirstQuestion: 0
+  label: "Pr\xE9f\xE9rez-vous les pains au chocolat ou les chocolatines ?"
+  requirements: []
+  anwsers:
+  - ID: Chocolatine_1
+    label: "Les pains au chocolat, le reste devrait \xEAtre puni"
+    actions:
+    - AddPoolScore(Masc_Fin_Negatif;1)
+    - AddPoolScore(Fem_Fin_Negatif;1)
+    - AddElement(SET_horreur;1)
+  - ID: Chocolatine_2
+    label: Les chocolatines, c'est logique !
+    actions:
+    - AddPoolScore(Masc_Fin_Positif;1)
+    - AddPoolScore(Fem_Fin_Positif;1)
+    - AddElement(SET_fantasy;1)
+  - ID: Chocolatine_3
+    label: "Les chocolatines au chocolat, bien s\xFBr"
+    actions:
+    - AddPoolScore(Fin_2_Neutre;1)
+    - AddElement(DEC_Shapes_FRONT;1)
+  - ID: Chocolatine_4
+    label: "Les pains aux chocolatines, \xE7a ne fait aucun doute"
+    actions:
+    - AddPoolScore(Fin_2_Neutre;1)
+    - AddElement(DEC_Shapes_FRONT;1)
+  - ID: Chocolatine_5
+    label: Les chocolatines au pain, quoi d'autre ?
+    actions:
+    - AddPoolScore(Fin_2_Neutre;1)
+    - AddElement(DEC_Shapes_FRONT;1)
+  - ID: Chocolatine_6
+    label: Les pains au pain, en fait
+    actions:
+    - AddPoolScore(Masc_Fin_Negatif;1)
+    - AddPoolScore(Fem_Fin_Negatif;1)
+    - AddPoolScore(Fin_1_Negatif;1)
+    - "AddPoolScore(Fin_2_N\xE9gatif;1)"
+    - AddElement(SET_horreur;1)

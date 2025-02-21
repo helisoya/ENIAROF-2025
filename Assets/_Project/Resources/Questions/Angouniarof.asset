@@ -1,0 +1,52 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 715c0086bf2e5364583fa3a3164a8e66, type: 3}
+  m_Name: Angouniarof
+  m_EditorClassIdentifier: 
+  ID: Angouniarof
+  isFirstQuestion: 0
+  label: "Quelle attraction Angouniarof \xEAtes-vous ?"
+  requirements: []
+  anwsers:
+  - ID: Angouniarof_1
+    label: L'attraction avec les coeurs <3
+    actions: []
+  - ID: Angouniarof_2
+    label: L'attraction punk
+    actions: []
+  - ID: Angouniarof_3
+    label: "L'attraction ol\xE9-ol\xE9"
+    actions: []
+  - ID: Angouniarof_4
+    label: L'attraction qui fonctionne pas
+    actions: []
+  - ID: Angouniarof_5
+    label: "L'attraction des ballons l\xE0"
+    actions: []
+  - ID: Angouniarof_6
+    label: La moto j'aime les motos
+    actions: []
+  - ID: Angouniarof_7
+    label: La guitare j'aime la guitare
+    actions: []
+  - ID: Angouniarof_8
+    label: L'attraction bizarre
+    actions: []
+  - ID: Angouniarof_9
+    label: "L'attraction \xE9trange"
+    actions: []
+  - ID: Angouniarof_10
+    label: L'attraction dangereuse
+    actions: []
+  - ID: Angouniarof_11
+    label: "L'attraction d'\xE0-c\xF4t\xE9"
+    actions: []
