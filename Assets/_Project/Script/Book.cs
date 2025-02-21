@@ -76,7 +76,7 @@ public class Book : MonoBehaviour
         meshRenderer.enabled = shown;
         bookName.enabled = shown;
         bookSyno.enabled = shown;
-        
+
         meshRenderer.materials[1].mainTextureScale = new Vector2(-1, 1);
         meshRenderer.materials[2].mainTextureScale = new Vector2(-1, 1);
     }
@@ -172,14 +172,14 @@ public class Book : MonoBehaviour
     {
         startPosition = gameObject.transform.position;
         startRotation = gameObject.transform.rotation;
-        StartCoroutine(MoveObject(bookGameObject.transform.position,bookManager.beforeEditTransform.position, bookGameObject.transform.rotation, bookManager.beforeEditTransform.rotation, true, duration, false));
+        StartCoroutine(MoveObject(bookGameObject.transform.position, bookManager.beforeEditTransform.position, bookGameObject.transform.rotation, bookManager.beforeEditTransform.rotation, true, duration, false));
         // do not play sound !
     }
-    
+
     public void SetPositionEditing()
     {
         RotateBook();
-        StartCoroutine(MoveObject(bookGameObject.transform.position,bookManager.editTransform.position, bookGameObject.transform.rotation, bookManager.editTransform.rotation, true, duration * 2f, false));
+        StartCoroutine(MoveObject(bookGameObject.transform.position, bookManager.editTransform.position, bookGameObject.transform.rotation, bookManager.editTransform.rotation, true, duration * 2f, false));
         // do not play sound !
     }
 
@@ -189,7 +189,7 @@ public class Book : MonoBehaviour
         float time = 0;
         isMoving = true;
         float aStart = darkImage.color.a;
-        float aEnd = reset ? 0.0f : 200 / 255f;    
+        float aEnd = reset ? 0.0f : 200 / 255f;
         float dofStart = darkImage.color.a;
         float dofEnd = reset ? 2.50f : 0.70f;
         float descStart = darkImage.color.a;
@@ -326,7 +326,7 @@ public class Book : MonoBehaviour
     {
         animator.SetBool("isRotating", true);
     }
-    
+
     public void StopRotateBook()
     {
         animator.SetBool("isRotating", false);

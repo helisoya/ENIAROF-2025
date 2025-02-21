@@ -54,7 +54,7 @@ public class QuizManager : MonoBehaviour
 
         currentAnwsers = new Anwser[2];
 
-        foreach (Step step in steps) maxProgress += step.stepsAmount;
+        foreach (Step step in steps) maxProgress += step.pool.Count;
 
         QuizGUI.instance.TransitionTo(0);
 
@@ -148,28 +148,30 @@ public class QuizManager : MonoBehaviour
     {
         Step step = steps[currentStep];
 
-        if (stepProgress == step.stepsAmount) { NextStep(); return; }
+        //if (stepProgress == step.stepsAmount) { NextStep(); return; }
 
         List<Question> subPool = new List<Question>();
         foreach (Question question in step.pool)
         {
             if (questionsDone.Contains(question.ID)) continue;
+            subPool.Add(question);
 
             /*
             if ((question.isFirstQuestion && stepProgress == 0) ||
                 (!question.isFirstQuestion && stepProgress != 0 && RequirementsFulfilled(question)))
-            */
+            
 
             if (RequirementsFulfilled(question))
             {
                 subPool.Add(question);
             }
+            */
         }
 
         if (subPool.Count == 0)
         {
-            globalProgress += step.stepsAmount - stepProgress;
-            QuizGUI.instance.SetProgressFill((float)globalProgress / maxProgress);
+            //globalProgress += step.pool.Count - stepProgress;
+            //QuizGUI.instance.SetProgressFill((float)globalProgress / maxProgress);
 
             NextStep();
         }

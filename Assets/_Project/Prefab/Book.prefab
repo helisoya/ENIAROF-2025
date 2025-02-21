@@ -128,14 +128,8 @@ MonoBehaviour:
     fontAuthor: {fileID: 0}
     fontSynopsis: {fileID: 0}
   meshRenderer: {fileID: 2701931452546325411}
-  spritesCouverture:
-  - sprite: {fileID: 21300000, guid: 206de68d032f05e4c94f61ced91a34a2, type: 3}
-    level: 0
-  spritesBack:
-  - sprite: {fileID: 21300000, guid: 1b197a1e1c820f9438cf2c27d2578768, type: 3}
-    level: 0
-  - sprite: {fileID: 21300000, guid: 3b4e457cf1ed57b41b0fe0b02e0cc827, type: 3}
-    level: 1
+  spritesCouverture: []
+  spritesBack: []
   spriteMerger: {fileID: 0}
   postProcess: {fileID: 0}
   darkImage: {fileID: 0}
