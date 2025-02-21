@@ -218,6 +218,8 @@ public class Book : MonoBehaviour
             time += Time.deltaTime;
             yield return null;
         }
+        bookGameObject.transform.position = endPos;
+        bookGameObject.transform.rotation = endRot;
         rangee = _rangee;
         isMoving = false;
         transform.position = endPos;

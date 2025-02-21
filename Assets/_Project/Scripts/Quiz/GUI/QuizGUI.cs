@@ -49,7 +49,7 @@ public class QuizGUI : MonoBehaviour
 
     IEnumerator Routine_To(int menu)
     {
-        ShowTransition(0);
+        if (menu != 2) ShowTransition(0);
 
         yield return new WaitForSeconds(0.5f);
 
@@ -95,12 +95,15 @@ public class QuizGUI : MonoBehaviour
     /// <param name="buttonIdx">The button's index</param>
     public void StartAnimationForButton(int buttonIdx)
     {
-        for (int i = 0; i < anwsers.Length; i++)
+        /*for (int i = 0; i < anwsers.Length; i++)
         {
             if (i == buttonIdx) anwsers[i].SetAnimationTrigger("Interract");
             //else anwsers[i].SetHidden(true);
             else anwsers[i].SetAnimationTrigger("Hide");
-        }
+        }*/
+        anwsers[buttonIdx].SetAnimationTrigger("Interract");
+        //else anwsers[i].SetHidden(true);
+        anwsers[Mathf.Abs(buttonIdx - 1)].SetAnimationTrigger("Hide");
     }
 
     /// <summary>
@@ -141,7 +144,5 @@ public class QuizGUI : MonoBehaviour
             transitionAnimator.SetTrigger("TransitionRight");
             AudioManager.instance.PlayOneShot(FMODEvents.instance.Transition_RL_SFX, this.transform.position);
         }
-
     }
-
 }

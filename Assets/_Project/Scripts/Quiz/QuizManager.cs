@@ -281,9 +281,9 @@ public class QuizManager : MonoBehaviour
     IEnumerator Routine_SelectionAnimation(int idxAnwser)
     {
         QuizGUI.instance.StartAnimationForButton(idxAnwser);
+        
 
         yield return new WaitForSeconds(1f);
-
         QuizGUI.instance.ShowTransition(idxAnwser);
 
         yield return new WaitForSeconds(0.5f);
