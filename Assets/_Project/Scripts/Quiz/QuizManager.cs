@@ -76,6 +76,8 @@ public class QuizManager : MonoBehaviour
         BoostRandomTitles();
 
         status = 1;
+        amountOne = 0;
+        amountOne = 0;
         currentStep = -1;
         globalProgress = 0;
         questionsDone.Clear();
@@ -407,6 +409,38 @@ public class QuizManager : MonoBehaviour
         SearchElementValue value;
         int scoreForElment;
 
+        if (amountOne == 0)
+        {
+            key = new SearchElementKey
+            {
+                placement = CoverElement.CoverElementPlacement.FRONT,
+                type = CoverElement.CoverElementType.SCENERY
+            };
+
+            value = new SearchElementValue
+            {
+                value = elements["DEC_Bardella_FRONT"],
+                score = 10000
+            };
+            search.Add(key, value);
+        }
+        else if (amountTwo == 0)
+        {
+            key = new SearchElementKey
+            {
+                placement = CoverElement.CoverElementPlacement.FRONT,
+                type = CoverElement.CoverElementType.SCENERY
+            };
+
+            value = new SearchElementValue
+            {
+                value = elements["DEC_Poutou_FRONT"],
+                score = 10000
+            };
+            search.Add(key, value);
+        }
+
+
         foreach (string element in elementsWeights.Keys)
         {
             coverElement = elements[element];
@@ -504,6 +538,8 @@ public class QuizManager : MonoBehaviour
         if (element.type == CoverElement.CoverElementType.TYPOGRAPHY)
         {
             TMP_FontAsset font = Resources.Load<TMP_FontAsset>("Fonts/" + element.ID);
+            if (!font) return;
+
             BookManager.instance.SetFontAuthor(font);
             BookManager.instance.SetFontSyno(font);
             BookManager.instance.SetFontTitle(font);
@@ -519,6 +555,8 @@ public class QuizManager : MonoBehaviour
         else
         {
             Sprite sprite = Resources.Load<Sprite>("Sprites/Elements/" + element.ID);
+            if (!sprite) return;
+
             int layer = 0;
             if (element.type == CoverElement.CoverElementType.BACKGROUNDCOLOR) layer = 0;
             else if (element.type == CoverElement.CoverElementType.ENLUMINURE) layer = 3;
