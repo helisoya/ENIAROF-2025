@@ -8,9 +8,12 @@ public class MusicPlayer : MonoBehaviour
     public static MusicPlayer instance; // Singleton instance
 
     private EventInstance myMusicInstance;
+    private EventInstance CongratulationsInstance;
 
     private void Awake()
     {
+        // Parent is already dontdestroyonload
+
         // Ensure this is the only instance
         if (instance == null)
         {

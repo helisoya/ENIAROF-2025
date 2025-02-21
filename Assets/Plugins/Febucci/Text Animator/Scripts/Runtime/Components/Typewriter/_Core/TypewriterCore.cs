@@ -58,7 +58,7 @@ namespace Febucci.UI.Core
                     return _textAnimator;
 
 #if UNITY_2019_2_OR_NEWER
-                if(!TryGetComponent(out _textAnimator))
+                if (!TryGetComponent(out _textAnimator))
                 {
                     Debug.LogError($"TextAnimator: Text Animator component is null on GameObject {gameObject.name}. Please add a component that inherits from TAnimCore");
                 }
@@ -99,12 +99,12 @@ namespace Febucci.UI.Core
             /// Linear left to right (or right to left based on the text's direction) 
             /// </summary>
             SameAsTypewriter = 0,
-            
+
             /// <summary>
             /// Opposite direction of the typewriter
             /// </summary>
             Inverted = 1,
-            
+
             /// <summary>
             /// Hides letters randomly from start to finish
             /// </summary>
@@ -124,7 +124,7 @@ namespace Febucci.UI.Core
         /// </remarks>
         [Tooltip("True if you want to wait for every single character appearance to finish before triggering 'onTextShowed'. Default to false, as effects are usually fast enough and make the letters visible, and users are able to read them instantly.")]
         public bool triggerShowedAfterEffectsEnd = false;
-        
+
         /// <summary>
         /// <c>true</c> if you want to wait for every single character to animate before invoking <see cref="onTextDisappeared"/>.
         /// Otherwise, you might have that event invoked even if the very last character(s) are animating.
@@ -134,7 +134,7 @@ namespace Febucci.UI.Core
         /// </remarks>
         [Tooltip("True if you want to wait for every single character disappearance to finish before triggering 'onTextDisappeared'. Default to false, as effects are usually fast enough")]
         public bool triggerDisappearedAfterEffectsEnd = false;
-        
+
         #endregion
 
         #region Events
@@ -167,8 +167,8 @@ namespace Febucci.UI.Core
         /// It is only invoked when the typewriter is enabled.
         /// </remarks>
         public CharacterEvent onCharacterVisible = new CharacterEvent();
-        
-        
+
+
         /// <summary>
         /// Called once an event has been shown by the typewriter.<br/>
         /// See the <a href="https://www.febucci.com/text-animator-unity/docs/triggering-events-while-typing/">Events Manual</a> for more info.
@@ -209,7 +209,7 @@ namespace Febucci.UI.Core
                 StartShowingText(true);
         }
 
-        
+
         /// <summary>
         /// Skips the typewriter animation (if it's currently showing).<br/>
         /// In case the text is revealing, it will show all the letters immediately.<br/>
@@ -226,7 +226,7 @@ namespace Febucci.UI.Core
                 if (visibleCharactersInPage > 0 && visibleCharactersInPage != TextAnimator.CharactersCount)
                 {
                     int firstCharacter = TextAnimator.GetFirstCharacterIndexInsidePage();
-                    if(firstCharacter<0) firstCharacter = 0;
+                    if (firstCharacter < 0) firstCharacter = 0;
                     int lastCharacter = firstCharacter + visibleCharactersInPage;
                     for (int i = firstCharacter; i < lastCharacter; i++)
                     {
@@ -239,37 +239,37 @@ namespace Febucci.UI.Core
                 }
 
             }
-            
+
             if (isShowingText)
             {
                 StopAllCoroutines();
                 isShowingText = false;
 
                 SetVisibilityWithOverflow(true);
-                
+
                 if (triggerEventsOnSkip)
                 {
                     TriggerEventsUntil(int.MaxValue);
                 }
-                
+
                 onTextShowed?.Invoke();
             }
-            
-            if(isHidingText)
+
+            if (isHidingText)
             {
                 StopAllCoroutines();
                 isHidingText = false;
                 onTextDisappeared?.Invoke();
-                
+
                 SetVisibilityWithOverflow(false);
 
                 // No events on disappearance
-                
+
                 onTextDisappeared?.Invoke();
             }
         }
 
-        
+
         #region Typewriter
 
         #region Appearing
@@ -285,8 +285,8 @@ namespace Febucci.UI.Core
         /// <param name="restart"><code>false</code> if you want the typewriter to resume where it has left. <code>true</code> if the typewriter should restart from character 0</param>
         public void StartShowingText(bool restart = false)
         {
-            if(TextAnimator.CharactersCount==0) return;
-            
+            if (TextAnimator.CharactersCount == 0) return;
+
             if (!useTypeWriter)
             {
                 Debug.LogWarning("TextAnimator: couldn't start coroutine because 'useTypewriter' is disabled");
@@ -327,10 +327,10 @@ namespace Febucci.UI.Core
         IEnumerator ShowTextRoutine()
         {
             isShowingText = true;
-            
+
             // --- INITIALIZATION ---
             TypingInfo typingInfo = new TypingInfo();
-            
+
             // --- CALLBACKS ---
             onTypewriterStart?.Invoke();
 
@@ -339,29 +339,29 @@ namespace Febucci.UI.Core
 
             // --- SHOWS TEXT LETTERS ---
             int visibleCharsInPage = TextAnimator.GetRenderedCharactersCountInsidePage();
-            if(visibleCharsInPage<=0) visibleCharsInPage = TextAnimator.CharactersCount;
+            if (visibleCharsInPage <= 0) visibleCharsInPage = TextAnimator.CharactersCount;
 
             int firstCharacter = TextAnimator.GetFirstCharacterIndexInsidePage();
-            if(firstCharacter<0) firstCharacter = 0;
+            if (firstCharacter < 0) firstCharacter = 0;
             int lastCharacter = firstCharacter + visibleCharsInPage;
-            
-            for(int i=firstCharacter;i<TextAnimator.CharactersCount && i < lastCharacter; i++)
+
+            for (int i = firstCharacter; i < TextAnimator.CharactersCount && i < lastCharacter; i++)
             {
                 // -- actions --
                 if (actionsEnabled)
                 {
                     int maxIndex = i + 1;
-                    for (int a = latestActionTriggered; a < TextAnimator.Actions.Length && TextAnimator.Actions[a].index<maxIndex; a++)
+                    for (int a = latestActionTriggered; a < TextAnimator.Actions.Length && TextAnimator.Actions[a].index < maxIndex; a++)
                     {
                         var actionMarker = TextAnimator.Actions[a];
                         TriggerEventsBeforeAction(maxIndex, actionMarker);
                         yield return nestedActionRoutine = StartCoroutine(TextAnimator.DatabaseActions[actionMarker.name]?.DoAction(actionMarker, this, typingInfo));
-                        latestActionTriggered = a+1;
+                        latestActionTriggered = a + 1;
                     }
                 }
-                
+
                 // -- events --
-                TriggerEventsUntil(i+1);
+                TriggerEventsUntil(i + 1);
 
                 if (TextAnimator.Characters[i].isVisible) continue;
 
@@ -404,12 +404,12 @@ namespace Febucci.UI.Core
             // --- FINALIZATION ---
             if (actionsEnabled)
             {
-                for (int a = latestActionTriggered; a < TextAnimator.Actions.Length && TextAnimator.Actions[a].index<int.MaxValue; a++)
+                for (int a = latestActionTriggered; a < TextAnimator.Actions.Length && TextAnimator.Actions[a].index < int.MaxValue; a++)
                 {
                     var actionMarker = TextAnimator.Actions[a];
                     TriggerEventsBeforeAction(int.MaxValue, actionMarker);
                     yield return nestedActionRoutine = StartCoroutine(TextAnimator.DatabaseActions[actionMarker.name]?.DoAction(actionMarker, this, typingInfo));
-                    latestActionTriggered = a+1;
+                    latestActionTriggered = a + 1;
                 }
             }
             TriggerEventsUntil(int.MaxValue);
@@ -419,7 +419,7 @@ namespace Febucci.UI.Core
                 while (!_textAnimator.allLettersShown)
                     yield return null;
             }
-            
+
             // --- CALLBACKS ---
             isShowingText = false;
             onTextShowed?.Invoke();
@@ -434,11 +434,11 @@ namespace Febucci.UI.Core
             if (!Application.isPlaying) //prevents from firing in edit mode from the context menu
                 return;
 #endif
-            if(!isShowingText) return;
+            if (!isShowingText) return;
             isShowingText = false;
-            
-            if(showRoutine!=null) StopCoroutine(showRoutine);
-            if(nestedActionRoutine!=null) StopCoroutine(nestedActionRoutine);
+
+            if (showRoutine != null) StopCoroutine(showRoutine);
+            if (nestedActionRoutine != null) StopCoroutine(nestedActionRoutine);
         }
 
         #endregion
@@ -449,7 +449,7 @@ namespace Febucci.UI.Core
         /// True if the typewriter is currently disappearing the text
         /// </summary>
         public bool isHidingText { get; private set; }
-        
+
         /// <summary>
         /// Starts disappearing the text dynamically
         /// </summary>
@@ -462,7 +462,7 @@ namespace Febucci.UI.Core
                 return;
             }
 
-            if(isHidingText) return;
+            if (isHidingText) return;
             hideRoutine = StartCoroutine(HideTextRoutine());
         }
 
@@ -474,11 +474,11 @@ namespace Febucci.UI.Core
         [ContextMenu("Stop Disappearing Text")]
         public void StopDisappearingText()
         {
-            if(!isHidingText) return;
+            if (!isHidingText) return;
             isHidingText = false;
-            
-            if(hideRoutine!=null)StopCoroutine(hideRoutine);
-            if(nestedHideRoutine!=null)StopCoroutine(nestedHideRoutine);
+
+            if (hideRoutine != null) StopCoroutine(hideRoutine);
+            if (nestedHideRoutine != null) StopCoroutine(nestedHideRoutine);
         }
 
         /// <summary>
@@ -487,7 +487,7 @@ namespace Febucci.UI.Core
         /// <param name="charIndex">Current character that should decide how much time to wait. Check <see cref="TAnimCore.Characters"/> to view its info</param>
         /// <returns>time to wait before disappearing the next character</returns>
         protected virtual float GetWaitDisappearanceTimeOf(int charIndex) => GetWaitAppearanceTimeOf(charIndex);
-        
+
         static int[] ShuffleArray(int[] array)
         {
             var rng = new System.Random();
@@ -504,19 +504,19 @@ namespace Febucci.UI.Core
         IEnumerator HideTextRoutine()
         {
             isHidingText = true;
-            
+
             // --- INITIALIZATION ---
             TypingInfo typingInfo = new TypingInfo();
-            
-            
+
+
             int visibleCharsInPage = TextAnimator.GetRenderedCharactersCountInsidePage();
-            if(visibleCharsInPage<=0) visibleCharsInPage = TextAnimator.CharactersCount;
+            if (visibleCharsInPage <= 0) visibleCharsInPage = TextAnimator.CharactersCount;
 
             int firstCharacter = TextAnimator.GetFirstCharacterIndexInsidePage();
-            if(firstCharacter<0) firstCharacter = 0;
+            if (firstCharacter < 0) firstCharacter = 0;
             int lastCharacter = firstCharacter + visibleCharsInPage;
 
-            
+
             // Chooses the order in which the letters will disappear
             int[] indexes = new int[TextAnimator.CharactersCount];
             switch (disappearanceOrientation)
@@ -528,7 +528,7 @@ namespace Febucci.UI.Core
                 case DisappearanceOrientation.Inverted:
                     for (int i = firstCharacter; i < TextAnimator.CharactersCount && i < lastCharacter; i++) indexes[i] = visibleCharsInPage - i - 1;
                     break;
-                
+
                 case DisappearanceOrientation.Random:
                     for (int i = firstCharacter; i < TextAnimator.CharactersCount && i < lastCharacter; i++) indexes[i] = i;
                     indexes = ShuffleArray(indexes);
@@ -536,17 +536,17 @@ namespace Febucci.UI.Core
             }
 
             // --- CALLBACKS ---
-            
+
             // --- HIDES TEXT ---
-            
+
             for (int i = 0; i < indexes.Length; i++)
             {
                 int indexToHide = indexes[i];
-                if(!TextAnimator.Characters[indexToHide].isVisible) continue;
-                
+                if (!TextAnimator.Characters[indexToHide].isVisible) continue;
+
                 TextAnimator.SetVisibilityChar(indexToHide, false);
                 float timeToWait = GetWaitDisappearanceTimeOf(indexToHide);
-                
+
                 // -- WAITS TIME -- (identical to ShowTextRoutine, in order to skip frames correctly)
                 if (_textAnimator.IsTypewriterEnabledAtIndex(i))
                 {
@@ -576,13 +576,13 @@ namespace Febucci.UI.Core
                     }
                 }
             }
-            
+
             if (triggerDisappearedAfterEffectsEnd)
             {
                 while (_textAnimator.anyLetterVisible)
                     yield return null;
             }
-            
+
             // --- CALLBACKS ---
             isHidingText = false;
             onTextDisappeared?.Invoke();
@@ -609,11 +609,11 @@ namespace Febucci.UI.Core
 
         #endregion
 
-        
+
         #region Utilties
-        
+
         float internalSpeed = 1;
-        
+
         #region Actions and Events
 
         int latestActionTriggered = 0;
@@ -621,18 +621,18 @@ namespace Febucci.UI.Core
 
         void TriggerEventsBeforeAction(int maxIndex, ActionMarker action)
         {
-            for (int i = latestEventTriggered; i < TextAnimator.Events.Length && TextAnimator.Events[i].index<maxIndex && TextAnimator.Events[i].internalOrder < action.internalOrder; i++)
+            for (int i = latestEventTriggered; i < TextAnimator.Events.Length && TextAnimator.Events[i].index < maxIndex && TextAnimator.Events[i].internalOrder < action.internalOrder; i++)
             {
                 onMessage?.Invoke(TextAnimator.Events[i]);
-                latestEventTriggered = i+1;
+                latestEventTriggered = i + 1;
             }
         }
         void TriggerEventsUntil(int maxIndex)
         {
-            for (int i = latestEventTriggered; i < TextAnimator.Events.Length && TextAnimator.Events[i].index<maxIndex; i++)
+            for (int i = latestEventTriggered; i < TextAnimator.Events.Length && TextAnimator.Events[i].index < maxIndex; i++)
             {
                 onMessage?.Invoke(TextAnimator.Events[i]);
-                latestEventTriggered = i+1;
+                latestEventTriggered = i + 1;
             }
         }
 
@@ -654,8 +654,8 @@ namespace Febucci.UI.Core
         #endregion
 
         #endregion
-        
-        
+
+
         /// <summary>
         /// Unity's default MonoBehavior 'OnEnable' callback.
         /// </summary>
@@ -683,7 +683,7 @@ namespace Febucci.UI.Core
         {
             // for backwards compatibility
         }
-        
+
         #region Obsolete
 
         [System.Obsolete("Please set the speed through 'SetTypewriterSpeed' method instead")]
@@ -699,14 +699,14 @@ namespace Febucci.UI.Core
             get => throw new System.NotImplementedException();
             set
             {
-                if(value) SkipTypewriter();
+                if (value) SkipTypewriter();
             }
         }
 
         [System.Obsolete("Please use 'isShowingText' instead")]
         protected bool isBaseInsideRoutine => isShowingText;
-        
-        
+
+
         [System.Obsolete("Please use 'TextAnimator' instead")]
         public TAnimCore textAnimator => TextAnimator;
 

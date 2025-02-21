@@ -111,7 +111,7 @@ public class QuizManager : MonoBehaviour
 
         if (currentStep == steps.Length)
         {
-            QuizGUI.instance.SetButtonHidden(true);
+            QuizGUI.instance.SetButtonHidden(false);
             QuizGUI.instance.SetQuestionLabel("");
 
             GenerateTitle();
@@ -227,7 +227,6 @@ public class QuizManager : MonoBehaviour
 
         stepProgress++;
         globalProgress++;
-        QuizGUI.instance.SetProgressFill((float)globalProgress / maxProgress);
 
         questionsDone.Add(currentQuestion.ID);
         anwsersSelected.Add(currentAnwsers[idxAnwser].ID);
@@ -287,13 +286,15 @@ public class QuizManager : MonoBehaviour
     IEnumerator Routine_SelectionAnimation(int idxAnwser)
     {
         QuizGUI.instance.StartAnimationForButton(idxAnwser);
-        
+
 
         yield return new WaitForSeconds(1f);
         QuizGUI.instance.ShowTransition(idxAnwser);
 
         yield return new WaitForSeconds(0.5f);
 
+
+        QuizGUI.instance.SetProgressFill((float)globalProgress / maxProgress);
         QuizGUI.instance.SetButtonHidden(false);
         QuizGUI.instance.SetQuestionLabel("");
 
@@ -317,13 +318,12 @@ public class QuizManager : MonoBehaviour
             }
             else if (status == 2)
             {
+                status = 0;
                 QuizGUI.instance.TransitionTo(0);
                 bookManager.books[bookManager.nextBook].StopAllCoroutines();
                 bookManager.books[bookManager.nextBook].ResetPosition(bookManager.books[bookManager.nextBook].duration, true);
                 AudioManager.instance.PlayOneShot(FMODEvents.instance.ButtonGameFinish_SFX, this.transform.position);
                 MusicPlayer.instance.CongratulationsSFXStop();
-                status = 0;
-
                 //Play Sound (livre à la fin, appuyer pour relancer une partie)
             }
         }
@@ -335,7 +335,7 @@ public class QuizManager : MonoBehaviour
         {
             if (status == 0)
             {
-                NewGame(); 
+                NewGame();
                 AudioManager.instance.PlayOneShot(FMODEvents.instance.ButtonGameStart_SFX, this.transform.position);
             }
             else if (status == 1 && currentQuestion != null)
@@ -345,12 +345,12 @@ public class QuizManager : MonoBehaviour
             }
             else if (status == 2)
             {
+                status = 0;
                 QuizGUI.instance.TransitionTo(0);
                 bookManager.books[bookManager.nextBook].StopAllCoroutines();
                 bookManager.books[bookManager.nextBook].ResetPosition(bookManager.books[bookManager.nextBook].duration, true);
                 AudioManager.instance.PlayOneShot(FMODEvents.instance.ButtonGameFinish_SFX, this.transform.position);
                 MusicPlayer.instance.CongratulationsSFXStop();
-                status = 0;
             }
         }
     }
