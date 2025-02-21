@@ -127,6 +127,7 @@ public class QuizManager : MonoBehaviour
 
             MusicPlayer.instance.CongratulationsSFXStart();
             Book book = BookManager.instance.GameFinished();
+            QuizGUI.instance.SetProgressFill(1f);
 
             status = 2;
             QuizGUI.instance.TransitionTo(2);
