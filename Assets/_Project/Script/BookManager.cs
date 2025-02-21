@@ -124,7 +124,7 @@ public class BookManager : MonoBehaviour
         //books[nextBook].bookAutho.text = syno;
         books[nextBook].bookData.author = author;
         books[nextBook].bookAuthor.text = author;
-        books[nextBook].UITextAuthor.text = "\" " + author + " \"";
+        books[nextBook].UITextAuthor.text = author;
     }
 
     public void AddToCouverture(SpriteData _spriteData)
@@ -133,7 +133,7 @@ public class BookManager : MonoBehaviour
         if (_spriteData.level == 0)
         {
             books[nextBook].bookData.spriteSide = _spriteData.sprite;
-            books[nextBook].meshRenderer.materials[0].mainTexture = _spriteData.sprite.texture;
+            books[nextBook].meshRenderer.materials[3].mainTexture = _spriteData.sprite.texture;
 
             float color = _spriteData.sprite.texture.GetPixel(_spriteData.sprite.texture.width / 2, _spriteData.sprite.texture.height / 2).grayscale;
             books[nextBook].bookName.color = color < 0.5f ? Color.white : Color.black;
@@ -173,6 +173,12 @@ public class BookManager : MonoBehaviour
     {
         books[nextBook].meshRenderer.materials[2].SetFloat("_IsHolographic", holographic ? 1 : 0);
         books[nextBook].meshRenderer.materials[2].SetFloat("_IsGolden", golden ? 1 : 0);
+
+        books[nextBook].meshRenderer.materials[3].SetFloat("_IsHolographic", holographic ? 1 : 0);
+        books[nextBook].meshRenderer.materials[3].SetFloat("_IsGolden", golden ? 1 : 0);
+
+        books[nextBook].meshRenderer.materials[1].SetFloat("_IsHolographic", holographic ? 1 : 0);
+        books[nextBook].meshRenderer.materials[1].SetFloat("_IsGolden", golden ? 1 : 0);
     }
 
     public void SetFontAuthor(TMP_FontAsset font)
