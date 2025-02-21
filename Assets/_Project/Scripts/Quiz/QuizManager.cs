@@ -439,7 +439,7 @@ public class QuizManager : MonoBehaviour
 
             value = new SearchElementValue
             {
-                value = elements["DEC_Bardella_FRONT"],
+                value = elements["SUJ_Bardella_FRONT"],
                 score = 10000
             };
             search.Add(key, value);
@@ -454,7 +454,7 @@ public class QuizManager : MonoBehaviour
 
             value = new SearchElementValue
             {
-                value = elements["DEC_Poutou_FRONT"],
+                value = elements["SUJ_Poutou_FRONT"],
                 score = 10000
             };
             search.Add(key, value);
