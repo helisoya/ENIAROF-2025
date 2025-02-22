@@ -5,7 +5,7 @@ public class MultiDisplaySetup : MonoBehaviour
     void Start()
     {
         // active ecran dispo
-        for (int i = Display.displays.Length - 1; i >=0; i--)
+        for (int i = 0; i < Display.displays.Length; i++)
         {
             Display.displays[i].Activate();
         }

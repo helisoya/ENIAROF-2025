@@ -57,9 +57,10 @@ public class Book : MonoBehaviour
 
     [HideInInspector] public GameObject bookGameObject;
     [SerializeField] private BookManager bookManager;
-    [HideInInspector] public TextMeshPro bookName;
-    [HideInInspector] public TextMeshPro bookAuthor;
-    [HideInInspector] public TextMeshPro bookSyno;
+    public TextMeshPro bookName;
+    public TextMeshPro bookNameSide;
+    public TextMeshPro bookAuthor;
+    public TextMeshPro bookSyno;
     public bool shown;
     [HideInInspector] public BookData bookData;
     public MeshRenderer meshRenderer;
@@ -102,6 +103,7 @@ public class Book : MonoBehaviour
         //bookGameObject.SetActive(shown);
         meshRenderer.enabled = shown;
         bookName.enabled = shown;
+        bookNameSide.enabled = shown;
         bookAuthor.enabled = shown;
         bookSyno.enabled = shown;
 
@@ -280,6 +282,10 @@ public class Book : MonoBehaviour
             if (spriteData.level == 0)
             {
                 _meshRenderer.materials[3].mainTexture = spriteTexture;
+                float color = spriteData.GetSprite().texture.GetPixel(spriteData.GetSprite().texture.width / 2, spriteData.GetSprite().texture.height / 2).grayscale;
+                bookName.color = color < 0.5f ? Color.white : Color.black;
+                bookNameSide.color = color < 0.5f ? Color.white : Color.black;
+                bookAuthor.color = color < 0.5f ? Color.white : Color.black;
             }
             Color[] spritePixels = spriteTexture.GetPixels();
 
@@ -329,6 +335,7 @@ public class Book : MonoBehaviour
         Merge(meshRenderer, bookData.spriteBack, false);
 
         bookName.text = bookData.title;
+        bookNameSide.text = bookData.title;
         bookAuthor.text = bookData.author;
         
         bool holo = bookData.holo == "true";
@@ -343,9 +350,17 @@ public class Book : MonoBehaviour
         meshRenderer.materials[1].SetFloat("_IsHolographic", holo ? 1 : 0);
         meshRenderer.materials[1].SetFloat("_IsGolden", golden ? 1 : 0);
 
+        if (holo)
+        {
+            bookName.color = Color.black;
+            bookNameSide.color = Color.black;
+            bookAuthor.color =Color.black;
+        }
+
         //bookGameObject.SetActive(true);
         meshRenderer.enabled = true;
         bookName.enabled = true;
+        bookNameSide.enabled = true;
         bookSyno.enabled = true;
         bookAuthor.enabled = true;
 

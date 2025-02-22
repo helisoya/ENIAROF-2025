@@ -189,6 +189,7 @@ public class BookManager : MonoBehaviour
     public void SetTitle(string title)
     {
         books[nextBook].bookName.text = title;
+        books[nextBook].bookNameSide.text = title;
         books[nextBook].bookData.title = title;
         books[nextBook].UITextTitle.text = "\" " + title + " \"";
     }
@@ -219,6 +220,7 @@ public class BookManager : MonoBehaviour
 
             float color = _spriteData.GetSprite().texture.GetPixel(_spriteData.GetSprite().texture.width / 2, _spriteData.GetSprite().texture.height / 2).grayscale;
             books[nextBook].bookName.color = color < 0.5f ? Color.white : Color.black;
+            books[nextBook].bookNameSide.color = color < 0.5f ? Color.white : Color.black;
             books[nextBook].bookAuthor.color = color < 0.5f ? Color.white : Color.black;
         }
         //books[nextBook].spritesCouverture.OrderBy(x => x.level).ToList();
@@ -235,6 +237,7 @@ public class BookManager : MonoBehaviour
     public void SetFontTitle(TMP_FontAsset font)
     {
         books[nextBook].bookName.font = font;
+        books[nextBook].bookNameSide.font = font;
         books[nextBook].bookData.fontTitle = font;
 
     }
