@@ -589,9 +589,11 @@ public class QuizManager : MonoBehaviour
         }
         else
         {
-            Sprite sprite = Resources.Load<Sprite>("Sprites/Elements/" + element.ID);
-            if (!sprite) return;
-
+            //Sprite sprite = Resources.Load<Sprite>("Sprites/Elements/" + element.ID);
+            if (!Resources.Load<Sprite>("Sprites/Elements/" + element.ID))
+            {
+                return;
+            }
             int layer = 0;
             if (element.type == CoverElement.CoverElementType.BACKGROUNDCOLOR) layer = 0;
             else if (element.type == CoverElement.CoverElementType.ENLUMINURE) layer = 3;
@@ -601,8 +603,7 @@ public class QuizManager : MonoBehaviour
             SpriteData data = new()
             {
                 level = layer,
-                sprite = sprite
-
+                sprite = "Sprites/Elements/" + element.ID
             };
 
             if (!(element.placement == CoverElement.CoverElementPlacement.BACK)) BookManager.instance.AddToCouverture(data);

@@ -53,12 +53,12 @@ public class SpriteMerger : MonoBehaviour
                 newTexture.SetPixel(x, y, new Color(1, 1, 1, 0));
         
         for (int i = 0; i < spriteList.Count; i++)
-            for(int x = 0; x < spriteList[i].sprite.texture.width; x++)
-                for (int y = 0; y < spriteList[i].sprite.texture.height; y++)
+            for(int x = 0; x < spriteList[i].GetSprite().texture.width; x++)
+                for (int y = 0; y < spriteList[i].GetSprite().texture.height; y++)
                 {
-                    var color = spriteList[i].sprite.texture.GetPixel(x, y).a == 0 ? 
+                    var color = spriteList[i].GetSprite().texture.GetPixel(x, y).a == 0 ? 
                         newTexture.GetPixel(x, y) : 
-                        spriteList[i].sprite.texture.GetPixel(x, y);
+                        spriteList[i].GetSprite().texture.GetPixel(x, y);
                     newTexture.SetPixel(x, y, color);
                 }
         newTexture.Apply();

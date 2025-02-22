@@ -1,13 +1,45 @@
+using System;
+using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem.Controls;
 
+[System.Serializable]
+public class BookList
+{
+    public List<BookDataWrapper> books;
+
+    public BookList(List<BookDataWrapper> books)
+    {
+        this.books = books;
+    }
+}
+
+[System.Serializable]
+public class BookDataWrapper
+{
+    public Book.BookData data;
+    public bool shown;
+
+    public BookDataWrapper(Book.BookData data, bool shown)
+    {
+        this.data = data;
+        this.shown = shown;
+    }
+}
+
 public class BookManager : MonoBehaviour
 {
     public static BookManager instance;
 
-    void Awake() { instance = this; }
+    void Awake()
+    {
+        instance = this;
+        savePath = Path.Combine(Application.persistentDataPath, "books.json");
+        LoadBooks();
+    }
 
     public Transform inspectTransform;
     public Transform beforeEditTransform;
@@ -19,6 +51,7 @@ public class BookManager : MonoBehaviour
     public bool movingInspected;
     private bool startMouseOnInspected;
     public Book[] books = new Book[96];
+    private string savePath;
 
     private int caseTooMuch;
     [HideInInspector] public int nextBook;
@@ -27,16 +60,6 @@ public class BookManager : MonoBehaviour
     {
         caseTooMuch = 0;
         nextBook = -1;
-
-        LoadBooks(); // should load bookData in each book
-
-        for (int i = 0; i < books.Length; i++)
-        {
-            if (books[i].shown)
-            {
-                books[i].ShowBook();
-            }
-        }
     }
     private void Update()
     {
@@ -52,6 +75,11 @@ public class BookManager : MonoBehaviour
                 pos.z = z;
                 bookInspecting.bookGameObject.transform.localPosition = pos;
             }
+        }
+
+        if (Input.GetKey(KeyCode.P))
+        {
+            EraseSave();
         }
 
         if (Input.GetMouseButtonDown(0) && bookSelected == bookInspecting) startMouseOnInspected = true;
@@ -75,10 +103,64 @@ public class BookManager : MonoBehaviour
         }
     }
 
-    // init Books from save
-    private void LoadBooks()
+    private void EraseSave()
     {
+        if (File.Exists(savePath)) File.Delete(savePath);
+    }
 
+    public void SaveBooks()
+    {
+        List<BookDataWrapper> booksToSave = new List<BookDataWrapper>();
+
+        foreach (var book in books)
+        {
+            if (book.shown)
+            {
+                booksToSave.Add(new BookDataWrapper(book.bookData, book.shown));
+            }
+        }
+        
+        BookList bookList = new BookList(booksToSave);
+        string json = JsonUtility.ToJson(bookList, true);
+
+        try
+        {
+            File.WriteAllText(savePath, json);
+            Debug.Log("Books saved successfully.");
+        }
+        catch (Exception e)
+        {
+            Debug.LogError("Error saving books: " + e.Message);
+        }
+    }
+    
+    public void LoadBooks()
+    {
+        if (!File.Exists(savePath)) return;
+        
+        try
+        {
+            string json = File.ReadAllText(savePath);
+            
+            BookList loadedBooks = JsonUtility.FromJson<BookList>(json);
+            
+            for (int i = 0; i < loadedBooks.books.Count; i++)
+            {
+                var bookWrapper = loadedBooks.books[i];
+                Book book = books[i];
+                book.bookData = bookWrapper.data;
+                book.shown = bookWrapper.shown;
+                book.ShowBook();
+                book.gameObject.SetActive(book.shown);
+            }
+
+            Debug.Log("Books loaded successfully.");
+        }
+        catch (Exception e)
+        {
+            Debug.LogError("Error loading books: " + e.Message);
+        }
+        
     }
 
     // init nextBook
@@ -129,13 +211,13 @@ public class BookManager : MonoBehaviour
 
     public void AddToCouverture(SpriteData _spriteData)
     {
-        books[nextBook].spritesCouverture.Add(_spriteData);
+        books[nextBook].bookData.spriteCouverture.Add(_spriteData);
         if (_spriteData.level == 0)
         {
             books[nextBook].bookData.spriteSide = _spriteData.sprite;
-            books[nextBook].meshRenderer.materials[3].mainTexture = _spriteData.sprite.texture;
+            //books[nextBook].meshRenderer.materials[3].mainTexture = _spriteData.GetSprite().texture;
 
-            float color = _spriteData.sprite.texture.GetPixel(_spriteData.sprite.texture.width / 2, _spriteData.sprite.texture.height / 2).grayscale;
+            float color = _spriteData.GetSprite().texture.GetPixel(_spriteData.GetSprite().texture.width / 2, _spriteData.GetSprite().texture.height / 2).grayscale;
             books[nextBook].bookName.color = color < 0.5f ? Color.white : Color.black;
             books[nextBook].bookAuthor.color = color < 0.5f ? Color.white : Color.black;
         }
@@ -145,7 +227,7 @@ public class BookManager : MonoBehaviour
 
     public void AddToBack(SpriteData _spriteData)
     {
-        books[nextBook].spritesBack.Add(_spriteData);
+        books[nextBook].bookData.spriteBack.Add(_spriteData);
         //books[nextBook].spritesBack.OrderBy(x => x.level).ToList();
         //books[nextBook].spriteMerger.Merge(books[nextBook].meshRenderer, books[nextBook].spritesBack, false);
     }
@@ -179,6 +261,9 @@ public class BookManager : MonoBehaviour
 
         books[nextBook].meshRenderer.materials[1].SetFloat("_IsHolographic", holographic ? 1 : 0);
         books[nextBook].meshRenderer.materials[1].SetFloat("_IsGolden", golden ? 1 : 0);
+
+        books[nextBook].bookData.holo = holographic ? "true" : "false";
+        books[nextBook].bookData.golden= golden? "true" : "false";
     }
 
     public void SetFontAuthor(TMP_FontAsset font)
@@ -196,12 +281,9 @@ public class BookManager : MonoBehaviour
         //current.ResetPosition(current.duration * 3f);
         current.SetPositionEditing();
         //nextBook = -1;
+        
+        SaveBooks();
 
         return current;
-    }
-
-    public void CreateBook(Book book)
-    {
-        books[nextBook] = book;
     }
 }

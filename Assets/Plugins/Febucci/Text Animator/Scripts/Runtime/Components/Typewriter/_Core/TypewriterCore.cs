@@ -314,7 +314,7 @@ namespace Febucci.UI.Core
 
             if (resetTypingSpeedAtStartup) internalSpeed = 1;
             isShowingText = true;
-            showRoutine = StartCoroutine(ShowTextRoutine());
+            if (isActiveAndEnabled) showRoutine = StartCoroutine(ShowTextRoutine());
         }
 
 

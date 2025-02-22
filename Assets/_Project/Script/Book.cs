@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,10 +13,20 @@ using UnityEngine.UI;
 [System.Serializable]
 public struct SpriteData
 {
-    [SerializeField] public Sprite sprite;
+    [SerializeField] public string sprite;
     [SerializeField] public int level;
+    public Sprite GetSprite()
+    {
+        return Resources.Load<Sprite>(sprite);
+    }
+
+    public void SetSprite(Sprite _sprite)
+    {
+        sprite = _sprite != null ? _sprite.name : "";
+    }
 }
 
+[System.Serializable]
 public class Book : MonoBehaviour
 {
     [System.Serializable]
@@ -24,12 +35,21 @@ public class Book : MonoBehaviour
         public string title;
         public string author;
         public string synopsis;
-        public Sprite spriteCouverture;
+        
+        public List<SpriteData> spriteCouverture;
+        public List<SpriteData> spriteBack;
+        public string spriteSide;
+        
+        /*public Sprite spriteCouverture;
         public Sprite spriteBack;
-        public Sprite spriteSide;
+        public Sprite spriteSide;*/
+        
         public TMP_FontAsset fontTitle;
         public TMP_FontAsset fontAuthor;
         public TMP_FontAsset fontSynopsis;
+
+        public string holo;
+        public string golden;
     }
 
     private bool movingBack = false;
@@ -43,8 +63,6 @@ public class Book : MonoBehaviour
     public bool shown;
     [HideInInspector] public BookData bookData;
     public MeshRenderer meshRenderer;
-    [HideInInspector] public List<SpriteData> spritesCouverture;
-    [HideInInspector] public List<SpriteData> spritesBack;
     [HideInInspector] public SpriteMerger spriteMerger;
     [SerializeField] private Volume postProcess;
     [SerializeField] private RawImage darkImage;
@@ -64,6 +82,13 @@ public class Book : MonoBehaviour
 
     private bool audioPlayed = false;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
+
+    private void Awake()
+    {
+        startPosition = gameObject.transform.position;
+        startRotation = gameObject.transform.rotation;
+    }
+
     void Start()
     {
         // Get Component
@@ -83,6 +108,8 @@ public class Book : MonoBehaviour
         meshRenderer.materials[1].mainTextureScale = new Vector2(-1, 1);
         meshRenderer.materials[2].mainTextureScale = new Vector2(-1, 1);
     }
+    
+    
 
     // Rotate Book (inspect)
     public void RotateBook(Vector3 rotation)
@@ -244,13 +271,22 @@ public class Book : MonoBehaviour
 
         foreach (var spriteData in spriteList)
         {
-            Texture2D spriteTexture = spriteData.sprite.texture;
+            //Texture2D spriteTexture = spriteData.sprite.texture;
+            Sprite sprite = spriteData.GetSprite();
+            
+            if (sprite == null) continue;
+            
+            Texture2D spriteTexture = sprite.texture;
+            if (spriteData.level == 0)
+            {
+                _meshRenderer.materials[3].mainTexture = spriteTexture;
+            }
             Color[] spritePixels = spriteTexture.GetPixels();
 
-            int startX = Mathf.RoundToInt(spriteData.sprite.rect.x);
-            int startY = Mathf.RoundToInt(spriteData.sprite.rect.y);
-            int width = Mathf.RoundToInt(spriteData.sprite.rect.width);
-            int height = Mathf.RoundToInt(spriteData.sprite.rect.height);
+            int startX = Mathf.RoundToInt(sprite.rect.x);
+            int startY = Mathf.RoundToInt(sprite.rect.y);
+            int width = Mathf.RoundToInt(sprite.rect.width);
+            int height = Mathf.RoundToInt(sprite.rect.height);
 
             for (int y = 0; y < height; y++)
             {
@@ -275,21 +311,37 @@ public class Book : MonoBehaviour
         if (couverture)
         {
             _meshRenderer.materials[2].mainTexture = finalSprite.texture;
-            bookData.spriteCouverture = finalSprite;
+            //bookData.spriteCouverture = finalSprite;
         }
         else
         {
             _meshRenderer.materials[1].mainTexture = finalSprite.texture;
-            bookData.spriteBack = finalSprite;
+            //bookData.spriteBack = finalSprite;
         }
     }
 
     public void ShowBook()
     {
-        spritesCouverture.Sort((a, b) => a.level.CompareTo(b.level));
-        spritesBack.Sort((a, b) => a.level.CompareTo(b.level));
-        Merge(meshRenderer, spritesCouverture, true);
-        Merge(meshRenderer, spritesBack, false);
+        bookData.spriteCouverture.Sort((a, b) => a.level.CompareTo(b.level));
+        bookData.spriteBack.Sort((a, b) => a.level.CompareTo(b.level));
+
+        Merge(meshRenderer, bookData.spriteCouverture, true);
+        Merge(meshRenderer, bookData.spriteBack, false);
+
+        bookName.text = bookData.title;
+        bookAuthor.text = bookData.author;
+        
+        bool holo = bookData.holo == "true";
+        bool golden = bookData.golden == "true";
+        
+        meshRenderer.materials[2].SetFloat("_IsHolographic", holo ? 1 : 0);
+        meshRenderer.materials[2].SetFloat("_IsGolden", golden ? 1 : 0);
+
+        meshRenderer.materials[3].SetFloat("_IsHolographic", holo ? 1 : 0);
+        meshRenderer.materials[3].SetFloat("_IsGolden", golden ? 1 : 0);
+
+        meshRenderer.materials[1].SetFloat("_IsHolographic", holo ? 1 : 0);
+        meshRenderer.materials[1].SetFloat("_IsGolden", golden ? 1 : 0);
 
         //bookGameObject.SetActive(true);
         meshRenderer.enabled = true;
