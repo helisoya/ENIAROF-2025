@@ -29,13 +29,13 @@ MonoBehaviour:
     label: Le Soleil !
     actions:
     - AddElement(BG_Gold_FRONT;1)
-    - AddElement(MAT_Golden_FRONT;1)
   - ID: Astre_4
     label: Jupiter car je suis le Macrongue
     actions:
     - AddPoolScore(Fin_1_Negatif;1)
     - "AddPoolScore(Fin_2_N\xE9gatif;1)"
     - AddElement(BG_Brown_FRONT;1)
+    - AddElement(MAT_Golden_FRONT;1)
   - ID: Astre_5
     label: TON 618, le plus gros trou noir
     actions:

@@ -79,7 +79,9 @@ MonoBehaviour:
     label: <i>L'alien</i> de Jul
     actions:
     - AddElement(SUJ_Alien_FRONT;1)
+    - AddElement(MAT_Holo_FRONT;1)
   - ID: Chanson_13
     label: <i>The Unicorn Invasion of Dundee</i> de Gloryhammer
     actions:
     - AddElement(SUJ_Unicorn_FRONT;1)
+    - AddElement(MAT_Holo_FRONT;1)

@@ -2,7 +2,7 @@ Nom réponse (Id)	Question	Corps Question	Corps de la réponse (100 caractères 
 Reve_1	Reve	Le matin, vous vous rappelez de votre rêve :	Vous étiez en train d'explorer une planète inconnue luxuriante	Science-Fiction	SF_Masc_Début_Lieux, SF_Masc_Début_Objets, SF_Masc_Début_Heros, SF_Masc_Début_Ennemis, SF_Fem_Début_Lieux, SF_Fem_Début_Objets, SF_Fem_Début_Heros, SF_Fem_Début_Ennemis	DEC_Fantasy_Forest_FRONT
 Reve_2	Reve	Le matin, vous vous rappelez de votre rêve :	Vous étiez pourchassé-e par une créature horrible	Horreur	Horreur_Masc_Début_Lieux, Horreur_Masc_Début_Objets, Horreur_Masc_Début_Heros, Horreur_Masc_Début_Ennemis, Horreur_Fem_Début_Lieux, Horreur_Fem_Début_Objets, Horreur_Fem_Début_Heros, Horreur_Fem_Début_Ennemis	SUJ_Zombie_FRONT, SUJ_Monster_FRONT, SUJ_Ghost_FRONT
 Reve_3	Reve	Le matin, vous vous rappelez de votre rêve :	Vous viviez la plus belle passion amoureuse de votre vie	Amour	Amour_Masc_Début_Lieux, Amour_Masc_Début_Objets, Amour_Masc_Début_Heros, Amour_Masc_Début_Ennemis, Amour_Fem_Début_Objets, Amour_Fem_Début_Ennemis, Amour_Fem_Début_Lieux, Amour_Fem_Début_Heros	SUJ_People_Kiss_FRONT, SUJ_Hothothot_FRONT
-Reve_4	Reve	Le matin, vous vous rappelez de votre rêve :	Vous parveniez à maîtriser la magie comme personne	Fantasy	Fantasy_Masc_Début_Lieux, Fantasy_Masc_Début_Objets, Fantasy_Masc_Début_Heros, Fantasy_Masc_Début_Ennemis, Fantasy_Fem_Début_Lieux, Fantasy_Fem_Début_Objets, Fantasy_Fem_Début_Heros, Fantasy_Fem_Début_Ennemis	SUJ_Fae_FRONT, MAT_Holo_FRONT
+Reve_4	Reve	Le matin, vous vous rappelez de votre rêve :	Vous parveniez à maîtriser la magie comme personne	Fantasy	Fantasy_Masc_Début_Lieux, Fantasy_Masc_Début_Objets, Fantasy_Masc_Début_Heros, Fantasy_Masc_Début_Ennemis, Fantasy_Fem_Début_Lieux, Fantasy_Fem_Début_Objets, Fantasy_Fem_Début_Heros, Fantasy_Fem_Début_Ennemis	SUJ_Fae_FRONT
 						
 Passion_1	Passion	Votre plus grande passion dans la vie c'est :	Admirer les étoiles	Science-Fiction	SF_Masc_Début_Lieux, SF_Masc_Début_Objets, SF_Masc_Début_Heros, SF_Masc_Début_Ennemis, SF_Fem_Début_Lieux, SF_Fem_Début_Objets, SF_Fem_Début_Heros, SF_Fem_Début_Ennemis	DEC_Stars_FRONT, SUJ_Stylish_Guy_Stars_FRONT
 Passion_2	Passion	Votre plus grande passion dans la vie c'est :	Suivre des gens au hasard jusqu'à chez eux, la nuit	Horreur	Horreur_Masc_Début_Lieux, Horreur_Masc_Début_Objets, Horreur_Masc_Début_Heros, Horreur_Masc_Début_Ennemis, Horreur_Fem_Début_Lieux, Horreur_Fem_Début_Objets, Horreur_Fem_Début_Heros, Horreur_Fem_Début_Ennemis	DEC_Urban_Night_FRONT
@@ -17,7 +17,7 @@ Nouvelle_5	Nouvelle	Il y a des nouvelles qui donnent le smile, comme par exemple
 						
 Fromage_1	Fromage	Si vous étiez un fromage :	Le fromage à tartiner, bien propre	Science-Fiction		SET_SF
 Fromage_2	Fromage	Si vous étiez un fromage :	Le camembert fermier, puissant et dégoulinant	Horreur		SET_fantasy
-Fromage_3	Fromage	Si vous étiez un fromage :	La tome de licorne, rosé et à paillettes	Fantasy		MAT_Holo_FRONT, SUJ_Unicorn_FRONT, SET_fantasy
+Fromage_3	Fromage	Si vous étiez un fromage :	La tome de licorne, rosé et à paillettes	Fantasy		SUJ_Unicorn_FRONT, SET_fantasy
 Fromage_4	Fromage	Si vous étiez un fromage :	Le caprice des dieux, caprice à deux :)	Amour		SUJ_Cherub_FRONT, SET_amour
 						
 Plat_1	Plat	Votre dernier repas :	Le rôti de Manticore aux champignons, si savoureux !	Fantasy	Fantasy_Masc_Début_Ennemis, Fantasy_Fem_Début_Ennemis	SET_fantasy
@@ -25,10 +25,10 @@ Plat_2	Plat	Votre dernier repas :	Des pillules extra parfaites pour la santé, q
 Plat_3	Plat	Votre dernier repas :	Un steak bien bien saignant avec un verre de chianti	Horreur	Fantasy_Masc_Début_Objets, Fantasy_Fem_Début_Objets	SET_horreur
 Plat_4	Plat	Votre dernier repas :	Un plat de spaghettis à partager à deux	Amour	Amour_Masc_Début_Heros, Amour_Fem_Début_Heros	SUJ_Animals_Kiss_FRONT, SUJ_People_Kiss_FRONT, SET_amour
 						
-Meteo_1	Meteo	La météo qui vous donne le sourire :	Un grand soleil et pas de nuages !	Amour	Amour_Masc_Début_Lieux, Amour_Fem_Début_Lieux	BG_Yellow_FRONT
-Meteo_2	Meteo	La météo qui vous donne le sourire :	Des nuages gris et de la pluie...	Science-Fiction	Horreur_Fem_Début_Lieux, Amour_Masc_Début_Lieux	DEC_Nature_Rain_FRONT, DEC_Nature_Temple_FRONT
-Meteo_3	Meteo	La météo qui vous donne le sourire :	Du tonnerre ! Beaucoup de tonnerre !	Horreur	Horreur_Masc_Début_Lieux, Horreur_Fem_Début_Lieux	DEC_Nature_Rain_FRONT
-Meteo_4	Meteo	La météo qui vous donne le sourire :	Nuageux, avec une petite brise.	Fantasy	Fantasy_Masc_Début_Lieux	DEC_Castle_FRONT
+Meteo_1	Meteo	La météo de rêve :	Un grand soleil et pas de nuages !	Amour	Amour_Masc_Début_Lieux, Amour_Fem_Début_Lieux	BG_Yellow_FRONT
+Meteo_2	Meteo	La météo de rêve :	Des nuages gris et de la pluie...	Science-Fiction	Horreur_Fem_Début_Lieux, Amour_Masc_Début_Lieux	DEC_Nature_Rain_FRONT, DEC_Nature_Temple_FRONT
+Meteo_3	Meteo	La météo de rêve :	Du tonnerre ! Beaucoup de tonnerre !	Horreur	Horreur_Masc_Début_Lieux, Horreur_Fem_Début_Lieux	DEC_Nature_Rain_FRONT
+Meteo_4	Meteo	La météo de rêve :	Nuageux, avec une petite brise.	Fantasy	Fantasy_Masc_Début_Lieux	DEC_Castle_FRONT
 						
 Chocolatine_1	Chocolatine	Préférez-vous les pains au chocolat ou les chocolatines ?	Les pains au chocolat, le reste devrait être puni		Masc_Fin_Negatif, Fem_Fin_Negatif	SET_horreur
 Chocolatine_2	Chocolatine	Préférez-vous les pains au chocolat ou les chocolatines ?	Les chocolatines, c'est logique !		Masc_Fin_Positif, Fem_Fin_Positif	SET_fantasy
@@ -48,8 +48,8 @@ Chanson_8	Chanson	Quel est votre chanson préférée ?	<i>Spooky, Scary Skeleton
 Chanson_9	Chanson	Quel est votre chanson préférée ?	<i>Kiss from a Rose</i> de Seal	Amour		SUJ_Hothothot_FRONT, SUJ_People_Kiss_FRONT, SUJ_Animals_Kiss_FRONT, SET_amour
 Chanson_10	Chanson	Quel est votre chanson préférée ?	<i>Thriller</i> de Michael Jackson	Horreur		DEC_Cemetary_FRONT, SUJ_Zombie_FRONT
 Chanson_11	Chanson	Quel est votre chanson préférée ?	<i>Empire State of Mind</i> d'Alicia Keys	Amour		DEC_Urban_Night_FRONT
-Chanson_12	Chanson	Quel est votre chanson préférée ?	<i>L'alien</i> de Jul	Horreur		SUJ_Alien_FRONT
-Chanson_13	Chanson	Quel est votre chanson préférée ?	<i>The Unicorn Invasion of Dundee</i> de Gloryhammer	Science-Fiction, Fantasy		SUJ_Unicorn_FRONT
+Chanson_12	Chanson	Quel est votre chanson préférée ?	<i>L'alien</i> de Jul	Horreur		SUJ_Alien_FRONT, MAT_Holo_FRONT
+Chanson_13	Chanson	Quel est votre chanson préférée ?	<i>The Unicorn Invasion of Dundee</i> de Gloryhammer	Science-Fiction, Fantasy		SUJ_Unicorn_FRONT, MAT_Holo_FRONT
 						
 Gel_Douche_1	Gel_Douche	Votre gel douche de tous les jours :	Mandarine	Fantasy		BG_Orange_FRONT
 Gel_Douche_2	Gel_Douche	Votre gel douche de tous les jours :	Coquelicots	Amour		BG_Red_FRONT
@@ -66,15 +66,15 @@ Fruit_5	Fruit	Quel est votre fruit préféré ?	Fraise			BG_Red_FRONT
 						
 Astre_1	Astre	Quel est votre astre préféré ?	La Lune, je suis un garou			BG_White_FRONT
 Astre_2	Astre	Quel est votre astre préféré ?	La Terre bien sûr <3			BG_Blue_FRONT
-Astre_3	Astre	Quel est votre astre préféré ?	Le Soleil !			BG_Gold_FRONT, MAT_Golden_FRONT
-Astre_4	Astre	Quel est votre astre préféré ?	Jupiter car je suis le Macrongue		Fin_1_Negatif, Fin_2_Négatif	BG_Brown_FRONT
+Astre_3	Astre	Quel est votre astre préféré ?	Le Soleil !			BG_Gold_FRONT
+Astre_4	Astre	Quel est votre astre préféré ?	Jupiter car je suis le Macrongue		Fin_1_Negatif, Fin_2_Négatif	BG_Brown_FRONT, MAT_Golden_FRONT
 Astre_5	Astre	Quel est votre astre préféré ?	TON 618, le plus gros trou noir		Fin_1_Negatif, Fin_2_Négatif	DEC_Stars_FRONT, DEC_Sci_Lab_FRONT, SET_SF, BG_Black_FRONT
 						
 Fleur_1	Fleur	La fleur pour vous faire chavirer	Une belle rose toute rose	Amour	Fin_Couleurs_Masc, Fin_Couleurs_Fem	BG_Pink_FRONT, SET_amour
 Fleur_2	Fleur	La fleur pour vous faire chavirer	Des lilas en pagaille	Fantasy	Fin_Couleurs_Masc, Fin_Couleurs_Fem	BG_Purple_FRONT
 Fleur_3	Fleur	La fleur pour vous faire chavirer	Un bouquet de chrysanthèmes	Horreur	Fin_Couleurs_Masc, Fin_Couleurs_Fem	BG_Gold_FRONT
 Fleur_4	Fleur	La fleur pour vous faire chavirer	Une pâquerette, un peu, beaucoup, à la folie...		Fin_1_Positif, Fin_2_Positif, Fin_2_Neutre	BG_White_FRONT, BG_Yellow_FRONT
-Fleur_5	Fleur	La fleur pour vous faire chavirer	Des tulipes multicolores			MAT_Holo_FRONT
+Fleur_5	Fleur	La fleur pour vous faire chavirer	Des tulipes multicolores			BG_Red_FRONT, BG_Blue_FRONT, BG_Yellow_FRONT, BG_Orange_FRONT, BG_Pink_FRONT
 						
 Titre_Sujet_Lieux	Titre_Sujet	Aujourd'hui, vous avez envie de...	Découvrir un nouvel endroit, voyager !		Fantasy_Masc_Début_Lieux, SF_Masc_Début_Lieux, Fantasy_Fem_Début_Lieux, SF_Fem_Début_Lieux, Horreur_Masc_Début_Lieux, Horreur_Fem_Début_Lieux, Amour_Masc_Début_Lieux, Amour_Fem_Début_Lieux	
 Titre_Sujet_Objets	Titre_Sujet	Aujourd'hui, vous avez envie de...	Monter un meuble Ikea		Fantasy_Masc_Début_Objets, Fantasy_Fem_Début_Objets, SF_Masc_Début_Objets, SF_Fem_Début_Objets, Horreur_Masc_Début_Objets, Horreur_Fem_Début_Objets, Amour_Masc_Début_Objets, Amour_Fem_Début_Objets	DEC_Table_FRONT
@@ -99,7 +99,7 @@ Crampte_1	Crampte	Avez-vous les cramptés ?	Apagnan
 Crampte_2	Crampte	Avez-vous les cramptés ?	Quoicoubeh			
 Crampte_3	Crampte	Avez-vous les cramptés ?	Quoicouc'est			
 Crampte_4	Crampte	Avez-vous les cramptés ?	Hein ?			
-Crampte_5	Crampte	Avez-vous les cramptés ?	Feur			
+Crampte_5	Crampte	Avez-vous les cramptés ?	Feur			MAT_Golden_FRONT
 						
 Saucisson_1	Saucisson	Quelle est l'occasion la plus appropriée pour sortir un saucisson ?	À un enterrement			DEC_Cemetary_FRONT
 Saucisson_2	Saucisson	Quelle est l'occasion la plus appropriée pour sortir un saucisson ?	À un entretien d'embauche			DEC_Table_FRONT, DEC_Skyscrapper_FRONT
@@ -160,5 +160,5 @@ Monstre_Lit_2	Monstre_Lit	Quel monstre y a-t-il sous votre lit ?	SNAMETR l'extra
 Monstre_Lit_3	Monstre_Lit	Quel monstre y a-t-il sous votre lit ?	Le prince charmant			SUJ_Cherub_FRONT, DEC_Love_Forest_FRONT
 Monstre_Lit_4	Monstre_Lit	Quel monstre y a-t-il sous votre lit ?	Une armure vivante			SUJ_Knight_FRONT
 Monstre_Lit_5	Monstre_Lit	Quel monstre y a-t-il sous votre lit ?	Un lézard pirate			SUJ_Reptile_FRONT
-Monstre_Lit_6	Monstre_Lit	Quel monstre y a-t-il sous votre lit ?	Darmanin		Fin_2_Négatif, Fin_1_Negatif, Fantasy_Masc_Début_Objets	SET_horreur, BG_Gold_FRONT
-Monstre_Lit_7	Monstre_Lit	Quel monstre y a-t-il sous votre lit ?	Le capitalisme		Fin_2_Négatif, Fin_1_Negatif, Fantasy_Masc_Début_Objets	DEC_Urban_Night_FRONT, DEC_Horror_City_FRONT, SET_batiments, DEC_Skyscrapper_FRONT
+Monstre_Lit_6	Monstre_Lit	Quel monstre y a-t-il sous votre lit ?	Darmanin		Fin_2_Négatif, Fin_1_Negatif, Fantasy_Masc_Début_Objets	SET_horreur, BG_Gold_FRONT, MAT_Golden_FRONT
+Monstre_Lit_7	Monstre_Lit	Quel monstre y a-t-il sous votre lit ?	Le capitalisme		Fin_2_Négatif, Fin_1_Negatif, Fantasy_Masc_Début_Objets	DEC_Urban_Night_FRONT, DEC_Horror_City_FRONT, SET_batiments, DEC_Skyscrapper_FRONT, MAT_Holo_FRONT

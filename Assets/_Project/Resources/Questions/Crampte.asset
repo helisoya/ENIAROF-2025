@@ -31,4 +31,5 @@ MonoBehaviour:
     actions: []
   - ID: Crampte_5
     label: Feur
-    actions: []
+    actions:
+    - AddElement(MAT_Golden_FRONT;1)

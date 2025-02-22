@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ID: Meteo
   isFirstQuestion: 0
-  label: "La m\xE9t\xE9o qui vous donne le sourire :"
+  label: "La m\xE9t\xE9o de r\xEAve :"
   requirements: []
   anwsers:
   - ID: Meteo_1
