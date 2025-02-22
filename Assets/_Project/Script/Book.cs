@@ -149,7 +149,7 @@ public class Book : MonoBehaviour
                 AudioManager.instance.PlayOneShot(FMODEvents.instance.BookStored_SFX, this.transform.position);
             }
             UITextTitle.text = "\" " + bookData.title + " \"";
-            UITextAuthor.text = "\" " + bookData.author + " \"";
+            UITextAuthor.text = bookData.author;
             UITextSyn.text = bookData.synopsis;
             animator.Play("MouseExit");
             AudioManager.instance.PlayOneShot(FMODEvents.instance.BookPick_SFX, this.transform.position);
