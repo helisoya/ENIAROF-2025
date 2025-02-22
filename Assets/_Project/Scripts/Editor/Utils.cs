@@ -121,6 +121,7 @@ public class Utils : MonoBehaviour
 
             Anwser anwser = new Anwser();
             anwser.ID = splitedLine[0];
+            if (string.IsNullOrEmpty(anwser.ID)) continue;
             anwser.label = splitedLine[3];
             anwser.actions = new List<string>();
 

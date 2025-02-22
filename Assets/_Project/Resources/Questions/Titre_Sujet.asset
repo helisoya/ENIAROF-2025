@@ -18,7 +18,7 @@ MonoBehaviour:
   requirements: []
   anwsers:
   - ID: Titre_Sujet_Lieux
-    label: "d\xE9couvrir un nouvel endroit, voyager !"
+    label: "D\xE9couvrir un nouvel endroit, voyager !"
     actions:
     - "AddPoolScore(Fantasy_Masc_D\xE9but_Lieux;1)"
     - "AddPoolScore(SF_Masc_D\xE9but_Lieux;1)"
@@ -29,7 +29,7 @@ MonoBehaviour:
     - "AddPoolScore(Amour_Masc_D\xE9but_Lieux;1)"
     - "AddPoolScore(Amour_Fem_D\xE9but_Lieux;1)"
   - ID: Titre_Sujet_Objets
-    label: monter un meuble Ikea.
+    label: Monter un meuble Ikea
     actions:
     - "AddPoolScore(Fantasy_Masc_D\xE9but_Objets;1)"
     - "AddPoolScore(Fantasy_Fem_D\xE9but_Objets;1)"
@@ -41,7 +41,7 @@ MonoBehaviour:
     - "AddPoolScore(Amour_Fem_D\xE9but_Objets;1)"
     - AddElement(DEC_Table_FRONT;1)
   - ID: Titre_Sujet_Heros
-    label: sauver la veuve et l'orphelin.
+    label: Sauver la veuve et l'orphelin
     actions:
     - "AddPoolScore(Fantasy_Masc_D\xE9but_Heros;1)"
     - "AddPoolScore(Fantasy_Fem_D\xE9but_Heros;1)"
@@ -52,7 +52,7 @@ MonoBehaviour:
     - "AddPoolScore(Amour_Masc_D\xE9but_Heros;1)"
     - "AddPoolScore(Amour_Fem_D\xE9but_Heros;1)"
   - ID: Titre_Sujet_Ennemis
-    label: "g\xE9n\xE9rer du chaos #malveillancem\xE4x"
+    label: "G\xE9n\xE9rer du chaos #malveillancem\xE4x"
     actions:
     - "AddPoolScore(Fantasy_Masc_D\xE9but_Ennemis;1)"
     - "AddPoolScore(Fantasy_Fem_D\xE9but_Ennemis;1)"

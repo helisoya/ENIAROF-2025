@@ -10,15 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 715c0086bf2e5364583fa3a3164a8e66, type: 3}
-  m_Name: Genre_Reve
+  m_Name: Nouvelle
   m_EditorClassIdentifier: 
-  ID: Genre_Reve
+  ID: Nouvelle
   isFirstQuestion: 0
-  label: "Le matin, vous vous rappelez de votre r\xEAve :"
+  label: 'Il y a des nouvelles qui donnent le smile, comme par exemple :'
   requirements: []
   anwsers:
-  - ID: Genre_Reve_SF
-    label: "Vous \xE9tiez en train d'explorer une plan\xE8te inconnue luxuriante"
+  - ID: Nouvelle_1
+    label: "Lidl propose lundi prochain un sabre laser \xE0 39,90\u20AC !"
     actions:
     - "AddPoolScore(SF_Masc_D\xE9but_Lieux;1)"
     - "AddPoolScore(SF_Masc_D\xE9but_Objets;1)"
@@ -28,9 +28,11 @@ MonoBehaviour:
     - "AddPoolScore(SF_Fem_D\xE9but_Objets;1)"
     - "AddPoolScore(SF_Fem_D\xE9but_Heros;1)"
     - "AddPoolScore(SF_Fem_D\xE9but_Ennemis;1)"
-    - AddElement(DEC_Fantasy_Forest_FRONT;1)
-  - ID: Genre_Reve_Horreur
-    label: "Vous \xE9tiez pourchass\xE9-e par une cr\xE9ature horrible"
+    - AddElement(SUJ_Future_Warrior_FRONT;1)
+    - AddElement(SUJ_Alien_FRONT;1)
+    - AddElement(DEC_Stars_FRONT;1)
+  - ID: Nouvelle_2
+    label: "Le meurtre est d\xE9sormais l\xE9gal pendant une soir\xE9e !"
     actions:
     - "AddPoolScore(Horreur_Masc_D\xE9but_Lieux;1)"
     - "AddPoolScore(Horreur_Masc_D\xE9but_Objets;1)"
@@ -40,24 +42,21 @@ MonoBehaviour:
     - "AddPoolScore(Horreur_Fem_D\xE9but_Objets;1)"
     - "AddPoolScore(Horreur_Fem_D\xE9but_Heros;1)"
     - "AddPoolScore(Horreur_Fem_D\xE9but_Ennemis;1)"
-    - AddElement(SUJ_Zombie_FRONT;1)
-    - AddElement(SUJ_Monster_FRONT;1)
-    - AddElement(SUJ_Ghost_FRONT;1)
-  - ID: Genre_Reve_Love
-    label: Vous viviez la plus belle passion amoureuse de votre vie
+    - AddElement(DEC_Gore_Room_FRONT;1)
+  - ID: Nouvelle_3
+    label: Michou et Elsa se remettent ensemble !
     actions:
     - "AddPoolScore(Amour_Masc_D\xE9but_Lieux;1)"
     - "AddPoolScore(Amour_Masc_D\xE9but_Objets;1)"
     - "AddPoolScore(Amour_Masc_D\xE9but_Heros;1)"
     - "AddPoolScore(Amour_Masc_D\xE9but_Ennemis;1)"
     - "AddPoolScore(Amour_Fem_D\xE9but_Objets;1)"
+    - "AddPoolScore(Amour_Fem_D\xE9but_Heros;1)"
     - "AddPoolScore(Amour_Fem_D\xE9but_Ennemis;1)"
     - "AddPoolScore(Amour_Fem_D\xE9but_Lieux;1)"
-    - "AddPoolScore(Amour_Fem_D\xE9but_Heros;1)"
     - AddElement(SUJ_People_Kiss_FRONT;1)
-    - AddElement(SUJ_Hothothot_FRONT;1)
-  - ID: Genre_Reve_Fantasy
-    label: "Vous parveniez \xE0 ma\xEEtriser la magie comme personne"
+  - ID: Nouvelle_4
+    label: Des portails vers des mondes merveilleux s'ouvrent dans les armoires !
     actions:
     - "AddPoolScore(Fantasy_Masc_D\xE9but_Lieux;1)"
     - "AddPoolScore(Fantasy_Masc_D\xE9but_Objets;1)"
@@ -67,5 +66,10 @@ MonoBehaviour:
     - "AddPoolScore(Fantasy_Fem_D\xE9but_Objets;1)"
     - "AddPoolScore(Fantasy_Fem_D\xE9but_Heros;1)"
     - "AddPoolScore(Fantasy_Fem_D\xE9but_Ennemis;1)"
-    - AddElement(SUJ_Fae_FRONT;1)
+    - AddElement(DEC_Fantasy_Forest_FRONT;1)
+  - ID: Nouvelle_5
+    label: JMLP est DEAD
+    actions:
+    - AddPoolScore(Fin_1_Positif;1)
+    - AddPoolScore(Fin_2_Positif;1)
     - AddElement(MAT_Holo_FRONT;1)

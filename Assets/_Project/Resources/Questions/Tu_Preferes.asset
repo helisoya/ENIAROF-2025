@@ -55,7 +55,7 @@ MonoBehaviour:
     actions:
     - AddElement(DEC_Table_FRONT;1)
   - ID: Tu_Preferes_12
-    label: Jouer au pirate en Somalie
+    label: 'Jouer au pirate sur la Charente '
     actions:
     - AddElement(DEC_Sea_Side_Rocks_FRONT;1)
   - ID: Tu_Preferes_13

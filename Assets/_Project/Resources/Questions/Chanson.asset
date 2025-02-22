@@ -67,7 +67,7 @@ MonoBehaviour:
     - AddElement(SUJ_Animals_Kiss_FRONT;1)
     - AddElement(SET_amour;1)
   - ID: Chanson_10
-    label: <i>Thriller<i> de Michael Jackson
+    label: <i>Thriller</i> de Michael Jackson
     actions:
     - AddElement(DEC_Cemetary_FRONT;1)
     - AddElement(SUJ_Zombie_FRONT;1)

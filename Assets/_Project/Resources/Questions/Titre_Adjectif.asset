@@ -18,12 +18,16 @@ MonoBehaviour:
   requirements: []
   anwsers:
   - ID: Titre_Adjectif_Positif
-    label: En vrai ouais y'a de quoi j'suis un.e crack
+    label: En vrai de vrai ouais y'a de quoi j'suis un-e crack
     actions:
     - AddPoolScore(Masc_Fin_Positif;1)
     - AddPoolScore(Fem_Fin_Positif;1)
+    - AddPoolScore(Fin_2_Positif;1)
+    - AddPoolScore(Fin_1_Positif;1)
   - ID: Titre_Adjectif_Negatif
-    label: non ouiiinnnnnn
+    label: Non ouiiinnnnnn :(
     actions:
     - AddPoolScore(Fem_Fin_Negatif;1)
     - AddPoolScore(Masc_Fin_Negatif;1)
+    - AddPoolScore(Fin_1_Negatif;1)
+    - "AddPoolScore(Fin_2_N\xE9gatif;1)"
