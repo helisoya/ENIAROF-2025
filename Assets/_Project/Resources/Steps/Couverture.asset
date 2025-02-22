@@ -16,11 +16,10 @@ MonoBehaviour:
   stepsAmount: 3
   pool:
   - {fileID: 11400000, guid: b726e839b394e124e88d02155b688559, type: 2}
-  - {fileID: 11400000, guid: 0943da4880660474fb8e5580c62c11e1, type: 2}
-  - {fileID: 11400000, guid: e823f41229e95a947b18cdcdd71e2ce0, type: 2}
-  - {fileID: 11400000, guid: 776e0ecc934170c45b5a28b75457df03, type: 2}
+  - {fileID: 11400000, guid: 188902a0f307f104186e1f8d94d23c1d, type: 2}
+  - {fileID: 11400000, guid: 4cd7ba02d68979a43b4a74bf14b10946, type: 2}
+  - {fileID: 11400000, guid: 08b72caa5f1f0254ea89ab9e5773b460, type: 2}
   - {fileID: 11400000, guid: 8c1655226ffae344d824e2cc1710b33a, type: 2}
-  - {fileID: 11400000, guid: 34a1b694fb2dd9e40af3d7fa80b6dd3c, type: 2}
   - {fileID: 11400000, guid: d7f32e6b7fc059345ad5f88e3fd9dfc4, type: 2}
   - {fileID: 11400000, guid: e96e5f1a22d59c743bfc66670d35369e, type: 2}
   - {fileID: 11400000, guid: 47427cf648e03d34f93861d36b984109, type: 2}

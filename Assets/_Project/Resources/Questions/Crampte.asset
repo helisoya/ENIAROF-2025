@@ -26,3 +26,10 @@ MonoBehaviour:
   - ID: Crampte_3
     label: Quoicouc'est
     actions: []
+  - ID: Crampte_4
+    label: Hein ?
+    actions: []
+  - ID: Crampte_5
+    label: Feur
+    actions:
+    - AddElement(MAT_Golden_FRONT;1)

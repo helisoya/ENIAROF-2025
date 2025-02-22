@@ -35,7 +35,7 @@ MonoBehaviour:
     actions:
     - AddElement(SUJ_Deads_FRONT;1)
   - ID: Angouniarof_5
-    label: "L'attraction des ballons l\xE0"
+    label: "L'attraction des ballons \xE0 \xE9clater"
     actions:
     - AddElement(DEC_Gore_Room_FRONT;1)
   - ID: Angouniarof_6
@@ -62,6 +62,14 @@ MonoBehaviour:
     - AddElement(SUJ_Monster_FRONT;1)
     - AddElement(DEC_Gore_Room_FRONT;1)
   - ID: Angouniarof_11
-    label: "L'attraction d'\xE0-c\xF4t\xE9"
+    label: L'attraction des chats UwU
     actions:
     - AddElement(SUJ_Animals_Kiss_FRONT;1)
+  - ID: Angouniarof_12
+    label: Les champis !!
+    actions:
+    - AddElement(DEC_Creepy_Forest_FRONT;1)
+    - AddElement(DEC_Fantasy_Forest_FRONT;1)
+    - AddElement(DEC_Love_Forest_FRONT;1)
+    - AddElement(DEC_Nature_Rain_FRONT;1)
+    - AddElement(DEC_Nature_Temple_FRONT;1)

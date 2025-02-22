@@ -28,7 +28,6 @@ MonoBehaviour:
   - ID: Fromage_3
     label: "La tome de licorne, ros\xE9 et \xE0 paillettes"
     actions:
-    - AddElement(MAT_Holo_FRONT;1)
     - AddElement(SUJ_Unicorn_FRONT;1)
     - AddElement(SET_fantasy;1)
   - ID: Fromage_4

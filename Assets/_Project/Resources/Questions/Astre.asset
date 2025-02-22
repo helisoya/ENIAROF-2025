@@ -10,23 +10,38 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 715c0086bf2e5364583fa3a3164a8e66, type: 3}
-  m_Name: Couverture_Couleur_Astre
+  m_Name: Astre
   m_EditorClassIdentifier: 
-  ID: Couverture_Couleur_Astre
+  ID: Astre
   isFirstQuestion: 0
   label: "Quel est votre astre pr\xE9f\xE9r\xE9 ?"
   requirements: []
   anwsers:
-  - ID: Couv_Couleur_Blanche
-    label: La Lune
+  - ID: Astre_1
+    label: La Lune, je suis un garou
     actions:
     - AddElement(BG_White_FRONT;1)
-  - ID: Couv_Couleur_Bleu
+  - ID: Astre_2
     label: "La Terre bien s\xFBr <3"
     actions:
     - AddElement(BG_Blue_FRONT;1)
-  - ID: Couve_Couleur_Soleil
+  - ID: Astre_3
     label: Le Soleil !
     actions:
     - AddElement(BG_Gold_FRONT;1)
+  - ID: Astre_4
+    label: Jupiter car je suis le Macrongue
+    actions:
+    - AddPoolScore(Fin_1_Negatif;1)
+    - "AddPoolScore(Fin_2_N\xE9gatif;1)"
+    - AddElement(BG_Brown_FRONT;1)
     - AddElement(MAT_Golden_FRONT;1)
+  - ID: Astre_5
+    label: TON 618, le plus gros trou noir
+    actions:
+    - AddPoolScore(Fin_1_Negatif;1)
+    - "AddPoolScore(Fin_2_N\xE9gatif;1)"
+    - AddElement(DEC_Stars_FRONT;1)
+    - AddElement(DEC_Sci_Lab_FRONT;1)
+    - AddElement(SET_SF;1)
+    - AddElement(BG_Black_FRONT;1)

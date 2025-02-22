@@ -10,14 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 715c0086bf2e5364583fa3a3164a8e66, type: 3}
-  m_Name: Genre_Reve
+  m_Name: Reve
   m_EditorClassIdentifier: 
-  ID: Genre_Reve
+  ID: Reve
   isFirstQuestion: 0
   label: "Le matin, vous vous rappelez de votre r\xEAve :"
   requirements: []
   anwsers:
-  - ID: Genre_Reve_SF
+  - ID: Reve_1
     label: "Vous \xE9tiez en train d'explorer une plan\xE8te inconnue luxuriante"
     actions:
     - "AddPoolScore(SF_Masc_D\xE9but_Lieux;1)"
@@ -29,7 +29,7 @@ MonoBehaviour:
     - "AddPoolScore(SF_Fem_D\xE9but_Heros;1)"
     - "AddPoolScore(SF_Fem_D\xE9but_Ennemis;1)"
     - AddElement(DEC_Fantasy_Forest_FRONT;1)
-  - ID: Genre_Reve_Horreur
+  - ID: Reve_2
     label: "Vous \xE9tiez pourchass\xE9-e par une cr\xE9ature horrible"
     actions:
     - "AddPoolScore(Horreur_Masc_D\xE9but_Lieux;1)"
@@ -43,7 +43,7 @@ MonoBehaviour:
     - AddElement(SUJ_Zombie_FRONT;1)
     - AddElement(SUJ_Monster_FRONT;1)
     - AddElement(SUJ_Ghost_FRONT;1)
-  - ID: Genre_Reve_Love
+  - ID: Reve_3
     label: Vous viviez la plus belle passion amoureuse de votre vie
     actions:
     - "AddPoolScore(Amour_Masc_D\xE9but_Lieux;1)"
@@ -56,7 +56,7 @@ MonoBehaviour:
     - "AddPoolScore(Amour_Fem_D\xE9but_Heros;1)"
     - AddElement(SUJ_People_Kiss_FRONT;1)
     - AddElement(SUJ_Hothothot_FRONT;1)
-  - ID: Genre_Reve_Fantasy
+  - ID: Reve_4
     label: "Vous parveniez \xE0 ma\xEEtriser la magie comme personne"
     actions:
     - "AddPoolScore(Fantasy_Masc_D\xE9but_Lieux;1)"
@@ -68,4 +68,3 @@ MonoBehaviour:
     - "AddPoolScore(Fantasy_Fem_D\xE9but_Heros;1)"
     - "AddPoolScore(Fantasy_Fem_D\xE9but_Ennemis;1)"
     - AddElement(SUJ_Fae_FRONT;1)
-    - AddElement(MAT_Holo_FRONT;1)

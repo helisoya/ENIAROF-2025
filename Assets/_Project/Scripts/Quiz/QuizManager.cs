@@ -523,6 +523,14 @@ public class QuizManager : MonoBehaviour
 
         foreach (SearchElementValue v in search.Values)
         {
+            // Need a score > 2 for materials
+            if (v.value.type == CoverElement.CoverElementType.MATERIAL)
+            {
+                if (v.score <= 1)
+                {
+                    continue;
+                }
+            }
             AddElement(v.value);
         }
     }
