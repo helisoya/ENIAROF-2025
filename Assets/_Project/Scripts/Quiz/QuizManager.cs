@@ -413,6 +413,8 @@ public class QuizManager : MonoBehaviour
         string nom = lines[Random.Range(0, lines.Count)].Split('\t')[1];
         string prenom = lines[Random.Range(0, lines.Count)].Split('\t')[0];
 
+        print("C'EsT LE PRENOOOMMMMM" + prenom);
+        print("C'EsT LE NOOOMMMMM" + nom);
         BookManager.instance.SetAuthor(prenom + " " + nom);
 
         print("Selected Author : " + prenom + " " + nom);
