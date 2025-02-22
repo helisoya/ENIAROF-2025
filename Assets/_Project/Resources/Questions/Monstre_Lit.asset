@@ -46,6 +46,7 @@ MonoBehaviour:
     - "AddPoolScore(Fantasy_Masc_D\xE9but_Objets;1)"
     - AddElement(SET_horreur;1)
     - AddElement(BG_Gold_FRONT;1)
+    - AddElement(MAT_Golden_FRONT;1)
   - ID: Monstre_Lit_7
     label: Le capitalisme
     actions:
@@ -56,3 +57,4 @@ MonoBehaviour:
     - AddElement(DEC_Horror_City_FRONT;1)
     - AddElement(SET_batiments;1)
     - AddElement(DEC_Skyscrapper_FRONT;1)
+    - AddElement(MAT_Holo_FRONT;1)

@@ -5,7 +5,7 @@ Nouvelle	Genre	Il y a des nouvelles qui donnent le smile, comme par exemple :	No
 Gel_Douche	Genre	Votre gel douche de tous les jours :	Gel_Douche_1, Gel_Douche_2, Gel_Douche_3, Gel_Douche_4, Gel_Douche_5, Gel_Douche_6		
 Fromage	Genre	Si vous étiez un fromage :	Fromage_1, Fromage_2, Fromage_3, Fromage_4		
 Plat	Genre	Votre dernier repas :	Plat_1, Plat_2, Plat_3, Plat_4		
-Meteo	Genre	La météo qui vous donne le sourire :	Meteo_1, Meteo_2, Meteo_3, Meteo_4		
+Meteo	Genre	La météo de rêve :	Meteo_1, Meteo_2, Meteo_3, Meteo_4		
 Chocolatine	Genre	Préférez-vous les pains au chocolat ou les chocolatines ?	Chocolatine_1, Chocolatine_2, Chocolatine_3, Chocolatine_4, Chocolatine_5, Chocolatine_6		
 Chanson	Couverture	Quel est votre chanson préférée ?	Chanson_1, Chanson_2, Chanson_3, Chanson_4, Chanson_5, Chanson_6, Chanson_7, Chanson_8, Chanson_9, Chanson_10, Chanson_11, Chanson_12, Chanson_13		
 Fruit	Couverture	Quel est votre fruit préféré ?	Fruit_1, Fruit_2, Fruit_3, Fruit_4, Fruit_5		

@@ -47,4 +47,8 @@ MonoBehaviour:
   - ID: Fleur_5
     label: Des tulipes multicolores
     actions:
-    - AddElement(MAT_Holo_FRONT;1)
+    - AddElement(BG_Red_FRONT;1)
+    - AddElement(BG_Blue_FRONT;1)
+    - AddElement(BG_Yellow_FRONT;1)
+    - AddElement(BG_Orange_FRONT;1)
+    - AddElement(BG_Pink_FRONT;1)
