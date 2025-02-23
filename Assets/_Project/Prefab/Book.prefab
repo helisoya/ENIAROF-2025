@@ -60,7 +60,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 7212412401152192737, guid: cae5c61c66fea804f98386234781ce4c, type: 2}
+  - {fileID: -6748171716733894243, guid: cadbe499114b7fb44a7641175238bb2a, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -104,8 +104,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Title
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: cae5c61c66fea804f98386234781ce4c, type: 2}
-  m_sharedMaterial: {fileID: 7212412401152192737, guid: cae5c61c66fea804f98386234781ce4c, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: cadbe499114b7fb44a7641175238bb2a, type: 2}
+  m_sharedMaterial: {fileID: -6748171716733894243, guid: cadbe499114b7fb44a7641175238bb2a, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -129,7 +129,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 1.35
+  m_fontSize: 0.9
   m_fontSizeBase: 0.9
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -598,7 +598,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 7212412401152192737, guid: cae5c61c66fea804f98386234781ce4c, type: 2}
+  - {fileID: -6748171716733894243, guid: cadbe499114b7fb44a7641175238bb2a, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -642,8 +642,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Title
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: cae5c61c66fea804f98386234781ce4c, type: 2}
-  m_sharedMaterial: {fileID: 7212412401152192737, guid: cae5c61c66fea804f98386234781ce4c, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: cadbe499114b7fb44a7641175238bb2a, type: 2}
+  m_sharedMaterial: {fileID: -6748171716733894243, guid: cadbe499114b7fb44a7641175238bb2a, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -667,7 +667,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 2
+  m_fontSize: 1.35
   m_fontSizeBase: 0.9
   m_fontWeight: 400
   m_enableAutoSizing: 1
